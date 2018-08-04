@@ -5,8 +5,8 @@ use Faker\Generator as Faker;
 $factory->define(App\Event::class, function (Faker $faker) {
     return [
         
-        'state'=>$faker->state,
-        'city' => $faker->city,
+        'state'=>'Chaco',
+        'city' => 'Chaco',
         'address' => $faker->secondaryAddress,
         'comments'=>$faker->text,
         'quota'=>30,

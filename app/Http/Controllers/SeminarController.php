@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Seminar;
-
+// use Carbon\Carbon;
 class SeminarController extends Controller
 {
     public function getAll()
@@ -23,6 +23,9 @@ class SeminarController extends Controller
     public function delete($id)
     {
         $seminar = Seminar::find($id);
+        foreach($seminar->events as $event){
+            $event->delete();
+        }
         $seminar->delete();
     }
 

@@ -79,13 +79,20 @@ export default {
         del(seminar)
         {
             var vm = this;
-            $.ajax({
-                method :'delete',
-                url : '/admin/seminar/'+seminar.id,
-                success(){
-                    vm.$emit('seminarDeleted',seminar.id);
-                }
-            });
+            var futureEvents =  seminar.events.filter(function (el) {
+                 return (new Date(el.date)) >= Date.now();
+             });
+            if (futureEvents.length == 0){      
+                $.ajax({
+                    method :'delete',
+                    url : '/admin/seminar/'+seminar.id,
+                    success(){
+                        vm.$emit('seminarDeleted',seminar.id);
+                    }
+                });
+            } else {
+                swal ('El seminario tiene eventos futuros', 'si desea borrarlo,primero cancele los eventos','error');
+            }
         },
         edit(seminar,field){
             var vm = this;

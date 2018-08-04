@@ -18,18 +18,24 @@ class CityController extends Controller
         return $countrys->toJson();
     }
 
-    public function states($country)
+    public function states()
     {
-        return State::all()->toJson();
+        return State::with('cities')->get();
+    }
+    public function cities()
+    {
+        return City::with('state')->get();
     }
 
-    public function citys($state)
+    public function citiesFrom($state)
     {
-        return City::where('state_id',$state)->get()->toJson(JSON_PRETTY_PRINT);
+        $state = State::find($state);
+        return $state->cities;
     }
 
     public function getActiveCitys(){
-        $citys = Event::where('date','>=', now())->where('city','<>','')->groupBy('city');
+        $citys = Event::where('date','>=', now()
+            )->where('city','<>','')->groupBy('city');
         // $citys->pluck('city');
         return $citys->pluck('city');
     }

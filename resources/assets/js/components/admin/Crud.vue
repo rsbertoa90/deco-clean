@@ -13,10 +13,10 @@
                         @seminarCreated="createSeminar"
                         @showEvents="showEvents" key="seminars"></app-seminars>
 
-            <app-events v-if="component == 'events'"
+            <app-events v-if="component == 'events'"           
                         :seminar ="selectedSeminar"
-                        :events="futureEvents(selectedSeminar)" key="events">
-                        <button @click="component='seminars'" >Atras</button>
+                        key="events">
+                        <button @click="component='seminars'" class="btn btn-outline-info" >Atras</button>
             </app-events>
         </transition>
     </div>
@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import { EventBus } from '../../app.js';
 import appSeminars from './crud/Seminars.vue';
 import appEvents from './crud/Events.vue';
 import {SeminarsMixin} from '../../mixins/seminars.js';
@@ -34,13 +35,41 @@ export default {
         appSeminars : appSeminars,
         appEvents : appEvents
     },
+    created(){
+        var vm =this;
+
+        
+
+        EventBus.$on('newEvent', event => {
+            for (const key in vm.seminars) {
+                if (vm.seminars.hasOwnProperty(key)) {
+                    const sem = vm.seminars[key];
+                    if (event.seminar_id == sem.id)
+                    {
+                        
+                        vm.seminars[key].events.push(event);
+                        vm.selectedSeminar = vm.seminars[key];
+                        return;
+                    }
+                }
+            }
+        });
+    },
     data(){
         return {
             component : 'seminars',
             selectedSeminar : null,
         }
     },
+    computed : {
+        future(){
+           
+            
+            return this.futureEvents(this.selectedSeminar);
+        }
+    },
     methods :{
+       
         showEvents(event){
             this.selectedSeminar = event;
             this.component = 'events'

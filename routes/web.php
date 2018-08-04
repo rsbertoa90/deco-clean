@@ -34,6 +34,11 @@ Route::middleware('CheckAdmin')->prefix('admin')->group(function () {
     Route::put('/seminar/', 'SeminarController@edit');
     Route::delete('/seminar/{id}', 'SeminarController@delete');
     Route::post('/seminar/create', 'SeminarController@create');
+
+    Route::put('/event','EventController@update');
+    Route::put('/event/update-city','EventController@updateCity');
+    Route::post('/event','EventController@create');
+    Route::delete('/event/{id}','EventController@delete');
 });
 
 

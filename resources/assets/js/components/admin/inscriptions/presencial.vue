@@ -12,7 +12,7 @@
                 </select>
                 <div  class="col-12 row" v-for="event in events" :key="event.id">
                     <input v-model="selected" class="form-control-sm col-1" type="checkbox" name="events[]" :value="event.id">
-                    <label for="" class="col-11"><b>  {{event.seminar.title}}</b> / {{event.state}} - {{event.city}} / {{event.date}}</label>
+                    <label for="" class="col-11"><b>  {{event.seminar.title}}</b> - {{event.state}} - {{event.city}} - {{event.date | fecha}} - {{event.hour}} </label>
                 </div>
             </div>
 
@@ -56,6 +56,13 @@
 
 <script>
     export default{
+        filters :{
+            fecha(val)
+            {
+             
+               return moment(val).format('DD/MM/YYYY');
+            }
+        },
         data(){
             return{
                 citys: null,

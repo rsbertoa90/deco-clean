@@ -31,6 +31,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
         Route::get('/events/city/{city}','EventController@getByCity');
 
         Route::get('/events/online','EventController@getOnlineEvents');
+        
+        Route::get('/events/{seminar}','EventController@getBySeminar');
 
         Route::get('/payment_types','PaymentController@types');
 
@@ -42,9 +44,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
         Route::get('/countrys','CityController@countrys');
 
-        Route::get('/states/{country}','CityController@states');
+        Route::get('/states','CityController@states');
+        Route::get('/cities','CityController@cities');
 
-        Route::get('/citys/{state}','CityController@citys');
+        Route::get('/cities/{state}','CityController@citiesFrom');
 
         Route::get('/unregistered/user/{user}','UserController@getUnregistered');
        

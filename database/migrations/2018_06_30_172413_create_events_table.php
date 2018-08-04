@@ -3,9 +3,10 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
+use Carbon\Carbon;
 class CreateEventsTable extends Migration
 {
+    
     /**
      * Run the migrations.
      *
@@ -18,7 +19,8 @@ class CreateEventsTable extends Migration
             $table->integer('seminar_id')->unsigned();
             $table->foreign('seminar_id')->references('id')->on('seminars')->onDelete('cascade');
             $table->string('mode');
-            $table->datetime('date');
+            $table->date('date');
+            $table->string('hour')->default('12:00');
             $table->integer('quota')->nullable();
             $table->integer('price')->nullable();
             $table->string('state')->nullable();

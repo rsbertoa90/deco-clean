@@ -7,10 +7,36 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Cart;
 use App\Seminar;
-
+use App\Http\Controllers\InscriptionController;
 
 class EventController extends Controller 
 {
+
+    public function getBySeminar($id)
+    {
+        $seminar = Seminar::find($id);
+        if ($seminar){
+            return $seminar->events;
+        }
+    }
+
+    public function update(Request $request)
+    {
+        $event = Event::find($request->id);
+        // return $event->hour;
+        $field = $request->field;
+        
+      
+        
+            
+        $event->$field = $request->value;
+        
+
+        $event->save();
+        return $event;
+    }
+
+
     public function updateCity(Request $request)
     {
         if($request->id && $request->state && $request->city){
@@ -36,39 +62,20 @@ class EventController extends Controller
         }
     }
 
-    public function updateTime(Request $request)
-    {
-        if($request->id && $request->time)
-        {
-            $event = Event::find($request->id);
-            $date = new Carbon($request->time);
-           
-            $date->year = $event->date->year;
-            $date->month = $event->date->month;
-            $date->day = $event->date->day;
-            $event->date = $date;
-            $event->save();
-          
-        }
-    }
-
-    public function updateNumericField(Request $request)
-    {
-        if($request->id && $request->field && $request->value)
-        {
-            $event = Event::find($request->id);
-            $field = $request->field;
-            $event->$field = $request->value;
-            $event->save();
-            dd($event->$field);
-        }
-    }
+   
+   
 
     public function delete($id)
     {
         $event = Event::find($id);
+        $inscriptions = $event->inscriptions;
+        $inscriptionController = new InscriptionController();
+        foreach ($inscriptions as $i)
+        {
+            $inscriptionController->delete($i->id);
+        }
         $event->delete();
-        return redirect('/admin');
+        return;
     }
 
     public function createForm()
@@ -81,15 +88,15 @@ class EventController extends Controller
         $request->validate([
             'seminar_id'=>'required',
             'date' => 'required',
-            'time' => 'required'
+            'hour' => 'required'
             ]);
 
-        $data = $request->except('_token','date','time');
-        $date = new Carbon("{$request->date} {$request->time}");
-        $data['date']=$date;
+        $data = $request->except('_token');
+        
+       
         $ev = Event::create($data);
       
-        return redirect('/admin');
+        return $ev;
     }
 
     public function addToCart($id)
