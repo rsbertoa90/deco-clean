@@ -23,6 +23,7 @@
           <b-img class="avatar" v-else rounded="circle" src="/images/users/avatar-1.jpg"></b-img>
         </template>
 
+        <b-nav-item v-if="superLogged" href="/super/users">Usuarios</b-nav-item>
         <b-nav-item v-if="user == null" href="/login">ingresar</b-nav-item>
         <b-nav-item v-if="user == null" href="/register">registrarse</b-nav-item>
         <b-nav-item v-if="adminLogged" href="/admin/crud">Administracion</b-nav-item>

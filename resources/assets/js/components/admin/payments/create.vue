@@ -13,7 +13,7 @@
        
            <div v-if="user" class="border-danger">
                 <div class="col-12">
-                    <table class="col-12 table-striped table-bordered">
+                    <table class="table-responsive-sm col-12 table-striped table-bordered">
                             <thead>
                                 <th> Pagar </th>
                                 <th> Seminario </th>

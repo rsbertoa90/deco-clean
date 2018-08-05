@@ -17,7 +17,18 @@ Route::get('/logout','Auth\LoginController@logout');
 
 Route::get('/resources/loggedUser','UserController@getLoggedUser');
 
+Route::middleware('CheckAdmin')->prefix('super')->group(function () {
+
+    Route::get('/users','SuperController@usersPanel');
+
+   Route::get('/getUsers','SuperController@getUsers'); 
+
+   Route::put('/changeRole/{user}/{role}', 'SuperController@changeRole');
+});
+
 Route::middleware('CheckAdmin')->prefix('admin')->group(function () {
+
+    Route::get('/', 'AdminController@dashboard');
 
     Route::get('/crud' , 'AdminController@crudInterface');
 

@@ -37,9 +37,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function roles()
+    public function role()
     {
-      return $this->belongsToMany(Role::class,'role_user');
+      return $this->belongsTo(Role::class);
     }
 
     // public function role()
@@ -50,6 +50,10 @@ class User extends Authenticatable
     public function isAdmin()
     {
         return $this->role_id <= 2;
+    }
+    public function isSuper()
+    {
+        return $this->role_id == 1;
     }
 
     public function data(){

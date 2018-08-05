@@ -20,16 +20,16 @@
             </div> -->
             
             <div class="form-group row">
-                <label class="col-2">Nombre -de facebook-</label>
-                <input v-model="formData.fbname"  required type="text" name="fbname" class="form-control col-4">
+                <label class="col-4 col-lg-2">Nombre -de facebook-</label>
+                <input v-model="formData.fbname"  required type="text" name="fbname" class="form-control col-8 col-lg-4">
             </div>
               <div class="form-group row">
-                <label class="col-2">Email-</label>
-                <input v-model="formData.email" type="email" name="email" class="form-control col-4">
+                <label class="col-4 col-lg-2">Email-</label>
+                <input v-model="formData.email" type="email" name="email" class="form-control col-8 col-lg-4">
             </div>
             <div class="form-group row">
-                <label class="col-2">Observaciones</label>
-                <textarea v-model="formData.comments" name="comments" class="form-control col-4" ></textarea>            
+                <label class="col-4 col-lg-2">Observaciones</label>
+                <textarea v-model="formData.comments" name="comments" class="form-control col-8 col-lg-4" ></textarea>            
             </div>
             <div class="row">
                 <button class="button btn-lg btn-outline-info col-4 offset-2" 

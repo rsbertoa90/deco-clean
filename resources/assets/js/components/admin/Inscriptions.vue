@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="row">
-            <div class="col-4">
+            <div class="col-6 col-lg-4">
                 <button 
                     class="btn-block button " 
                     :class="{'btn-success text-white font-weight-bold':seminarType=='insc-presencial',
@@ -10,7 +10,7 @@
                     PRESENCIAL
                 </button>
             </div>
-            <div class="col-4">
+            <div class="col-6 col-lg-4">
                 <button 
                     class="btn-block button  " 
                     :class="{'btn-info text-white font-weight-bold':seminarType=='insc-online',

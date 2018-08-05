@@ -56,6 +56,8 @@ Vue.http.headers.common['X-CSRF-TOKEN'] = window.csrf;
 
 Vue.component('app-nav', require('./components/layout/Header.vue'));
 Vue.component('app-admin-crud', require('./components/admin/Crud.vue'));
+Vue.component('app-admin-dash', require('./components/admin/Dash.vue'));
+Vue.component('app-admin-users', require('./components/admin/Users.vue'));
 
 
 import inscriptions from './components/admin/Inscriptions.vue';

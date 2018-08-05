@@ -15,6 +15,9 @@ export const userMixin = {
        });  
     },
     computed : {
+        superLogged(){
+            return (this.user != null && this.user.role_id == 1);
+        },
         adminLogged(){
             return (this.user != null && this.user.role_id <= 2);
         }

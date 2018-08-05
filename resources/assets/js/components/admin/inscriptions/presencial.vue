@@ -6,7 +6,7 @@
         
 
             <div class="form-group row">
-                <label class="col-2">Ciudad</label>
+                <label class="col-4 col-lg-2">Ciudad</label>
                 <select required name="city" v-model='city' class="form-control col-4">
                     <option v-for="op in citys" :value="op" :key="op">{{op}}</option>
                 </select>
@@ -24,29 +24,29 @@
             </div> -->
             
             <div class="form-group row">
-                <label class="col-2">Nombre -de facebook-</label>
+                <label class="col-4 col-lg-2">Nombre -de facebook-</label>
                 <input  required type="text" 
                         name="fbname" 
-                        class="form-control col-4"
+                        class="form-control col-8 col-lg-4"
                         v-model="formData.fbname">
             </div>
             
             <div class="form-group row">
-                <label class="col-2">Email-</label>
+                <label class="col-4 col-lg-2">Email-</label>
                 <input type="email" 
                        name="email" 
-                       class="form-control col-4"
+                       class="form-control col-8 col-lg-4"
                        v-model="formData.email">
             </div>
 
             <div class="form-group row">
-                <label class="col-2">Observaciones</label>
+                <label class="col-4 col-lg-2">Observaciones</label>
                 <textarea name="comments" 
-                         class="form-control col-4" 
+                         class="form-control col-8 col-lg-4" 
                          v-model="formData.comments"></textarea>            
             </div>
             <div class="row">
-                <button class="button btn-lg btn-outline-info col-4 offset-2" 
+                <button class="button btn-lg btn-outline-info col-8 col-lg-4 offset-2" 
                         :disabled="!validForm" 
                         @click.prevent="save">GUARDAR</button>
             </div>

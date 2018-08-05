@@ -1,3 +1,5 @@
+import { isMoment } from "moment";
+
 export const SeminarsMixin = {
     data(){
         return {
@@ -17,7 +19,7 @@ export const SeminarsMixin = {
                 //  console.log(new Date(el.date), Date.now());
                  return (new Date(el.date)) >= Date.now();
              });
-             
+          
              return res;
 
         },
@@ -27,5 +29,10 @@ export const SeminarsMixin = {
                  return  el.date <= Date.now()  ;
              });
         }
-    }
+    },
+    filters: {
+        fecha(val) {
+            return moment(val).format('DD/MM/YYYY');
+        }
+    },
 }

@@ -1,7 +1,7 @@
 <template>
     <div v-if="payments && payments.length > 0">
         <h2>Historial de pagos</h2>
-        <table class="table table-striped">
+        <table class="table-responsive-sm table table-striped">
             <thead>
 
             </thead>

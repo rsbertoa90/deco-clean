@@ -32,17 +32,18 @@
                 </transition-group>
             
         </table>
-
+        <hr>
+        <h5>Crear Seminario:</h5>
         <form action="" class="form form-inline row ml-1">
-            <div class="col-4 row  d-flex-flex-column">
+            <div class="col-12 mt-2 row  d-flex-flex-column">
                 <label class="col-12" for="">Titulo</label>
                 <input required class="form-control col-12" type="text" v-model="newSeminar.title">
             </div>
-            <div class="col-4  row d-flex-flex-column">
+            <div class="col-12 mt-2  row d-flex-flex-column">
                 <label class="col-12" for="">Descripcion</label>
-                <input required class="form-control col-12" type="text" v-model="newSeminar.description">
+                <textarea required class="form-control col-12" type="text" v-model="newSeminar.description"></textarea>
             </div>
-            <button class="col-2 btn btn-outline-success align-self-end justify-self-end" @click.prevent="save">Guardar</button>
+            <button class="col-6 mt-2 col-lg-2 btn btn-outline-success align-self-end justify-self-end" @click.prevent="save">Guardar</button>
             
         </form>
     </div>
