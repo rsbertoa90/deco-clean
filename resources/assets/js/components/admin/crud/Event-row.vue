@@ -73,7 +73,7 @@ export default {
         states(){
             // console.log('asd');
             var vm = this;
-            console.log(vm.event.state);
+            console.log('en carga estados',vm.event.state);
 
             vm.event.state = vm.states.find(el=>{return el.name == vm.state})
             // console.log(vm.event.state);
@@ -154,12 +154,14 @@ export default {
         // console.log (this.event.date);
         // console.log(this.date);
         // console.log(vm.states);
+        if(vm.states.length > 0){
 
-        if (typeof vm.event.state != 'object'){
-             console.log(vm.event.state);
-            vm.event.state = vm.states.find(el=>{
-                return el.name == vm.event.state
-                });
+            if (typeof vm.event.state != 'object'){
+                 console.log('en created',vm.event.state);
+                vm.event.state = vm.states.find(el=>{
+                    return el.name == vm.event.state
+                    });
+            }
         }
             
                 
