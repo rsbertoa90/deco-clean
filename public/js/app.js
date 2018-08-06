@@ -87832,6 +87832,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             var vm = this;
             this.newEvent.hour = this.hora.HH + ':' + this.hora.mm;
+            this.newEvent.date = moment(this.newEvent.date).format('YYYY-MM-DD');
             // console.log(this.newEvent.date);
             if (this.newEvent.mode == 'presencial') {
 
@@ -87841,6 +87842,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.newEvent.seminar_id = this.seminar.id;
             this.$http.post('/admin/event', this.newEvent).then(function (response) {
                 var newev = response.data;
+                // console.log(response.data);
                 vm.$emit('eventCreated', response.data);
                 _this.reset();
             });
@@ -88356,7 +88358,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     filters: {
         fecha: function fecha(val) {
-            return moment(val).format('YYYY/MM/DD');
+            return moment(val).format('DD/MM/YYYY');
         }
     }
 

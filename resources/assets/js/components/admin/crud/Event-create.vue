@@ -121,6 +121,7 @@ export default {
         save(){
             var vm = this;
             this.newEvent.hour = `${this.hora.HH}:${this.hora.mm}`;
+            this.newEvent.date = moment(this.newEvent.date).format('YYYY-MM-DD');
             // console.log(this.newEvent.date);
             if (this.newEvent.mode == 'presencial')
             {
@@ -132,6 +133,7 @@ export default {
                 this.$http.post('/admin/event',this.newEvent)
                 .then(response => {
                     var newev = response.data
+                    // console.log(response.data);
                     vm.$emit('eventCreated',response.data);
                     this.reset();
                 });

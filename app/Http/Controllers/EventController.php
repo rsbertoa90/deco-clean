@@ -93,9 +93,10 @@ class EventController extends Controller
         return view('admin.events.create');
     }
 
+
     public function create(Request $request)
     {
-        return $request->all();
+        // return $request->all();
         
         $request->validate([
             'seminar_id'=>'required',
@@ -105,9 +106,15 @@ class EventController extends Controller
 
        
         $data = $request->except('_token');
-        $data->date = Carbon::createFromFormat('d/m/Y',$request->date);
-        $ev = Event::create($data);
-      
+        // $data->date = Carbon::createFromFormat('Y-m-d',$request->date);
+
+        try{
+            $ev = Event::create($data);
+            $ev->save();
+        }catch(Exception $err){
+            return $err;
+        };
+        
         return $ev;
     }
 

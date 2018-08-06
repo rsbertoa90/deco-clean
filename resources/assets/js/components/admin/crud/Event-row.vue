@@ -174,7 +174,7 @@ export default {
     filters : {
             fecha(val)
             {
-               return moment(val).format('YYYY/MM/DD');
+               return moment(val).format('DD/MM/YYYY');
             }
     }
 
