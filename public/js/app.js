@@ -88268,12 +88268,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     props: ['event', 'evkey', 'states'],
     watch: {
         states: function states() {
-            console.log('asd');
+            // console.log('asd');
+            var vm = this;
 
             vm.event.state = vm.states.find(function (el) {
                 return el.name == vm.state;
             });
-            console.log(vm.event.state);
+            // console.log(vm.event.state);
         }
     },
     data: function data() {
@@ -88942,6 +88943,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -88954,6 +88962,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     methods: {
+        countIfPayd: function countIfPayd(list, condition) {
+
+            var filteredlist = list.filter(function (val) {
+                if (condition) {
+                    return val.payd > 0;
+                } else return val.payd == 0;
+            });
+
+            return filteredlist.length;
+        },
         inscriptionList: function inscriptionList(event) {
             this.$emit('seeList', event);
         },
@@ -89086,31 +89104,69 @@ var render = function() {
                         " / " +
                         _vm._s(event.quota) +
                         " "
-                    )
+                    ),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "text-info" }, [
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.countIfPayd(event.inscriptions, true)) +
+                          " "
+                      )
+                    ]),
+                    _vm._v(" / \n                         "),
+                    _c("span", { staticClass: "text-danger" }, [
+                      _vm._v(
+                        "  " +
+                          _vm._s(_vm.countIfPayd(event.inscriptions, false)) +
+                          " "
+                      )
+                    ])
                   ]),
                   _vm._v(" "),
                   _c("td", [_vm._v(" $" + _vm._s(event.price) + " ")]),
                   _vm._v(" "),
-                  _c("td", [
+                  _c("td", { staticClass: "text-center text-info" }, [
+                    _vm._v(
+                      " $" +
+                        _vm._s(event.price * event.inscriptions.length) +
+                        " "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "text-center text-success" }, [
                     _vm._v(
                       " $" + _vm._s(_vm.recaudations(event.inscriptions)) + " "
                     )
                   ]),
                   _vm._v(" "),
-                  _c("td", [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-info btn-lg",
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            _vm.inscriptionList(event)
-                          }
-                        }
-                      },
-                      [_c("i", { staticClass: "fa fa-plus" })]
+                  _c("td", { staticClass: "text-center text-danger" }, [
+                    _vm._v(
+                      " $" +
+                        _vm._s(
+                          event.price * event.inscriptions.length -
+                            _vm.recaudations(event.inscriptions)
+                        ) +
+                        " "
                     )
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [
+                    event.inscriptions.length > 0
+                      ? _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-info btn-lg",
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                _vm.inscriptionList(event)
+                              }
+                            }
+                          },
+                          [_c("i", { staticClass: "fa fa-plus" })]
+                        )
+                      : _vm._e()
                   ])
                 ])
               })
@@ -89136,7 +89192,13 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("th", [_vm._v("Precio")]),
       _vm._v(" "),
-      _c("th", [_vm._v("Recaudacion")])
+      _c("th", [_vm._v("Recaudacion esperada")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Recaudado")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Falta recaudar")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Detalle de inscripciones")])
     ])
   }
 ]
@@ -89233,6 +89295,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['event'],
@@ -89241,6 +89317,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     created: function created() {
         console.log(this.event);
+    },
+
+    methods: {
+        getTotalPayd: function getTotalPayd(inscriptions) {
+            var tot = 0;
+            inscriptions.forEach(function (element) {
+                tot += element.payd;
+            });
+            return tot;
+        }
     }
 });
 
@@ -89317,18 +89403,62 @@ var render = function() {
                   _vm._v(" " + _vm._s(inscription.unregistereduser.email) + " ")
                 ]),
                 _vm._v(" "),
-                _c("td", [
+                _c("td", { staticClass: "text-info" }, [
+                  _vm._v(" $" + _vm._s(_vm._f("price")(_vm.event.price)) + " ")
+                ]),
+                _c("td", { staticClass: "text-success" }, [
+                  _vm._v(" $" + _vm._s(_vm._f("price")(inscription.payd)) + " ")
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "text-danger" }, [
                   _vm._v(
                     " $" +
-                      _vm._s(_vm._f("price")(inscription.payd)) +
-                      " / $" +
-                      _vm._s(_vm._f("price")(_vm.event.price)) +
+                      _vm._s(
+                        _vm._f("price")(_vm.event.price - inscription.payd)
+                      ) +
                       " "
                   )
                 ])
               ])
             })
-          )
+          ),
+          _vm._v(" "),
+          _c("tfoot", { staticClass: "bg-light" }, [
+            _c("tr", [
+              _c("td", { staticClass: "font-weight-bold" }, [
+                _vm._v("TOTALES")
+              ]),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td"),
+              _vm._v(" "),
+              _c("td", { staticClass: "text-info" }, [
+                _vm._v(
+                  " $" +
+                    _vm._s(_vm.event.price * _vm.event.inscriptions.length) +
+                    " "
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "text-success" }, [
+                _vm._v(
+                  " $" + _vm._s(_vm.getTotalPayd(_vm.event.inscriptions)) + " "
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "text-danger" }, [
+                _vm._v(
+                  " $" +
+                    _vm._s(
+                      _vm.event.price * _vm.event.inscriptions.length -
+                        _vm.getTotalPayd(_vm.event.inscriptions)
+                    ) +
+                    " "
+                )
+              ])
+            ])
+          ])
         ]
       )
     ],
@@ -89347,7 +89477,11 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("th", [_vm._v("mail")]),
       _vm._v(" "),
-      _c("th", [_vm._v("Pagado")])
+      _c("th", [_vm._v("Precio")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Pagado")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Falta pagar")])
     ])
   }
 ]

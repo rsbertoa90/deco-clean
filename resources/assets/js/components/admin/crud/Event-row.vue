@@ -71,10 +71,11 @@ export default {
     props :['event','evkey','states'],
     watch : {
         states(){
-            console.log('asd');
+            // console.log('asd');
+            var vm = this;
             
             vm.event.state = vm.states.find(el=>{return el.name == vm.state})
-            console.log(vm.event.state);
+            // console.log(vm.event.state);
             
         }
     },
