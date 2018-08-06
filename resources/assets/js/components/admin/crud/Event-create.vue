@@ -36,10 +36,18 @@
             <!-- fecha y hora -->
             <div class="row form-group">
                 <label for="" class="col-2">Fecha y hora</label>
-                <input required v-model="newEvent.date" 
-                        type="date" class="col-3 form-control">
-                <input required v-model="newEvent.hour"
-                        type="time" class="col-2">
+
+                    <date-picker class="ml-1 col-11 col-lg-5" 
+                                 format='dd/MM/yyyy' 
+                                 v-model="newEvent.date"
+                                 :disabledDates="disabledDates"> 
+                    </date-picker>
+
+                    <time-picker class="ml-1 col-11 col-lg-4" 
+                         v-model="hora" 
+                         format="HH:mm"
+                         :minute-interval="15">
+                    </time-picker>
             </div>
             <div class="row form-group">
                 <label for="" class="col-2">Precio</label>
@@ -65,12 +73,22 @@ export default {
     props :['seminar'],
     mixins :[citiesMixin,SeminarsMixin],
     data(){
+        
         return {
+
+            disabledDates : {
+                to :new Date()
+            },
+             hora:{
+                HH : '',
+                mm : ''
+            },
+            
             newEvent : {
                 price : '',
                 quota : '',
-                date: '',
-                hour: '',
+                date: null,
+                hour: {},
                 
                 mode: 'presencial',
             },
@@ -78,22 +96,32 @@ export default {
             state: '',
         }
     },
+    // mounted(){
+    //     $(".datepicker").datepicker({
+    //     dateFormat: "dd-mm-yy"
+    // });
+    // $('.timepicker').timepicker();
+    // },
     methods : {
         reset(){
              this.newEvent = {
                 price : '',
                 quota : '',
-                date: '',
-                hour: '',
+                date: null,
+                hour: null,
                 
                 mode: 'presencial',
             };
+            this.hora = { 
+                HH : '',
+                mm : ''};
             this.city= '';
             this.state= '';
         },
         save(){
             var vm = this;
-            
+            this.newEvent.hour = `${this.hora.HH}:${this.hora.mm}`;
+            // console.log(this.newEvent.date);
             if (this.newEvent.mode == 'presencial')
             {
                 

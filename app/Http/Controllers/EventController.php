@@ -6,6 +6,7 @@ use App\Event;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Cart;
+
 use App\Seminar;
 use App\Http\Controllers\InscriptionController;
 
@@ -22,16 +23,25 @@ class EventController extends Controller
 
     public function update(Request $request)
     {
+        if(! $request->id){return;}
+
+
+        // return $request->except('_token');
         $event = Event::find($request->id);
         // return $event->hour;
-        $field = $request->field;
+        $field = trim($request->field);
         
-      
-        
+        if ($field == 'date')
+        {
+            // return $request->value;
+            $event->date = Carbon::createFromFormat('Y/m/d',$request->value);
             
-        $event->$field = $request->value;
-        
-
+        }
+      
+        else{
+      
+            $event->$field = $request->value;
+        }
         $event->save();
         return $event;
     }
@@ -85,15 +95,17 @@ class EventController extends Controller
 
     public function create(Request $request)
     {
+        return $request->all();
+        
         $request->validate([
             'seminar_id'=>'required',
             'date' => 'required',
             'hour' => 'required'
             ]);
 
-        $data = $request->except('_token');
-        
        
+        $data = $request->except('_token');
+        $data->date = Carbon::createFromFormat('d/m/Y',$request->date);
         $ev = Event::create($data);
       
         return $ev;
@@ -126,6 +138,12 @@ class EventController extends Controller
             $seminar = Seminar::find($id);
             return array($id);
         }
+    }
+
+    public function futureBySeminar($id)
+    {
+        $seminar = Seminar::find($id);
+        return $seminar->futureEvents();
     }
 
     public function getByCity($city){

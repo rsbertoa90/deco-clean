@@ -34,6 +34,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
         
         Route::get('/events/{seminar}','EventController@getBySeminar');
 
+        Route::get('/event/future/{seminar}','EventController@futureBySeminar');
+
         Route::get('/payment_types','PaymentController@types');
 
         Route::get('/inscriptions/unregistered/presencial/{user}','InscriptionController@getPresencials');

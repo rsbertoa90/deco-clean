@@ -43,7 +43,8 @@
                 <label class="col-12" for="">Descripcion</label>
                 <textarea required class="form-control col-12" type="text" v-model="newSeminar.description"></textarea>
             </div>
-            <button class="col-6 mt-2 col-lg-2 btn btn-outline-success align-self-end justify-self-end" @click.prevent="save">Guardar</button>
+            <button class="col-6 mt-2 col-lg-2 btn btn-outline-success align-self-end justify-self-end" 
+                    @click.prevent="save">Guardar</button>
             
         </form>
     </div>
@@ -73,6 +74,8 @@ export default {
                 data : vm.newSeminar,
                 success(response){
                     vm.$emit('seminarCreated',response);
+                    vm.newSeminar.title ='';
+                    vm.newSeminar,description='';
                 }
             });
         },

@@ -23,9 +23,16 @@ class Seminar extends Model
         return $this->events()->where('mode',$mode)->where('date','<',now())->get();
     }
 
-    public function futureEvents($mode)
+    public function futureEvents($mode = null)
     {
-        return $this->events()->where('mode',$mode)->where('date','>=',now())->orderBy('date')->get();
+        if ($mode){
+
+            return $this->events()->where('mode',$mode)->where('date','>=',now())->orderBy('date')->get();
+        }
+        else {
+            return $this->events()->where('date','>=',now())->orderBy('date')->get();
+            
+        }
     }
 
     
