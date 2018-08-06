@@ -157,7 +157,9 @@ import { EventBus } from '../../../app.js';
                         inscriptions : this.selectedInscriptions
                     }
                     // data = data.toJson();
-    
+                    if (vm.paymentType == 'mercadopago'){
+                        vm.amount = this.amount/1.1;
+                    }
                     this.$http.post('/admin/unregistered/payment',data).then(response => {
                         swal('Pago guardado','','success');
                         EventBus.$emit('refreshData');

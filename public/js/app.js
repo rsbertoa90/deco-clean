@@ -93087,8 +93087,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     comments: this.comments,
                     inscriptions: this.selectedInscriptions
                     // data = data.toJson();
-
-                };this.$http.post('/admin/unregistered/payment', data).then(function (response) {
+                };if (vm.paymentType == 'mercadopago') {
+                    vm.amount = this.amount / 1.1;
+                }
+                this.$http.post('/admin/unregistered/payment', data).then(function (response) {
                     swal('Pago guardado', '', 'success');
                     __WEBPACK_IMPORTED_MODULE_0__app_js__["EventBus"].$emit('refreshData');
                     vm.selectedInscriptions = [];
