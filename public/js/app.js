@@ -89101,7 +89101,7 @@ var render = function() {
                     _c(
                       "button",
                       {
-                        staticClass: "btn btn-outline-info btn-lg",
+                        staticClass: "btn btn-info btn-lg",
                         on: {
                           click: function($event) {
                             $event.preventDefault()
@@ -89109,7 +89109,7 @@ var render = function() {
                           }
                         }
                       },
-                      [_c("i", { staticClass: "fa fa-search" })]
+                      [_c("i", { staticClass: "fa fa-plus" })]
                     )
                   ])
                 ])

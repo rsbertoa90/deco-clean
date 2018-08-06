@@ -29,8 +29,8 @@
                         <td> {{event.inscriptions.length}} / {{event.quota}} </td>
                         <td> ${{event.price}} </td>
                         <td> ${{recaudations(event.inscriptions)}} </td>
-                        <td>  <button @click.prevent="inscriptionList(event)"  class="btn btn-outline-info btn-lg">  
-                                    <i class="fa fa-search"></i> 
+                        <td>  <button @click.prevent="inscriptionList(event)"  class="btn btn-info btn-lg">  
+                                    <i class="fa fa-plus"></i> 
                             </button> 
                         </td>
                     </tr>
