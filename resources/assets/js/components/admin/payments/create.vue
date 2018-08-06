@@ -75,9 +75,12 @@
                         </div>
                     <div class="col-12 row form-group">
                         <label class="col-2" for="">Monto</label>
-                        <input required class ="col-4" type="number" name="amount" v-model="amount" min="0" :max="total">
+                        <input required class ="col-4" type="number" name="amount" v-model="amount" min="0" :max="paymentTypes == 'mercadopago' ? amount+(amount -(amount/1.1)) : amount">
                         / $ <input type="number"  disabled :value="total">
                         <input type="hidden" name="total" :value="total" >
+                        <span class="text-danger offset-2" v-if="paymentType == 'mercadopago'">
+                            Se descontaran ${{amount - (amount / 1.1)| price}} por costo del servicio mercadopago.
+                         </span>
                     </div>
                     <div class="col-12 row form-group">
                         <label class="col-2" for="">URL comprobante de pago</label>
@@ -218,6 +221,11 @@ import { EventBus } from '../../../app.js';
                 },
             });
         },
+        filters : {
+            price(val) {
+                return val.toFixed(2);
+            }
+        }
 
     }
 </script>

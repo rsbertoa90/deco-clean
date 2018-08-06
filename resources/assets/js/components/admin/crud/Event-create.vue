@@ -37,7 +37,7 @@
             <div class="row form-group">
                 <label for="" class="col-2">Fecha y hora</label>
 
-                    <date-picker class="ml-1 col-11 col-lg-5" 
+                    <date-picker class="ml-1 col-11 col-lg-2" 
                                  format='dd/MM/yyyy' 
                                  v-model="newEvent.date"
                                  :disabledDates="disabledDates"> 

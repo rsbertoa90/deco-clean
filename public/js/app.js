@@ -88019,7 +88019,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("date-picker", {
-              staticClass: "ml-1 col-11 col-lg-5",
+              staticClass: "ml-1 col-11 col-lg-2",
               attrs: { format: "dd/MM/yyyy", disabledDates: _vm.disabledDates },
               model: {
                 value: _vm.newEvent.date,
@@ -88185,6 +88185,10 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
+//
+//
+//
+//
 //
 //
 //
@@ -88453,46 +88457,53 @@ var render = function() {
         ]),
     _vm._v(" "),
     _c("td", [
-      _c(
-        "div",
-        { staticClass: "row" },
-        [
-          _c("date-picker", {
-            staticClass: "ml-1 col-11",
-            attrs: { format: "dd/MM/yyyy", disabledDates: _vm.disabledDates },
-            on: {
-              input: function($event) {
-                _vm.save("date")
-              }
-            },
-            model: {
-              value: _vm.date,
-              callback: function($$v) {
-                _vm.date = $$v
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "col-12" },
+          [
+            _c("date-picker", {
+              attrs: { format: "dd/MM/yyyy", disabledDates: _vm.disabledDates },
+              on: {
+                input: function($event) {
+                  _vm.save("date")
+                }
               },
-              expression: "date"
-            }
-          }),
-          _vm._v(" "),
-          _c("time-picker", {
-            staticClass: "ml-2 col-11",
-            attrs: { format: "HH:mm", "minute-interval": 15 },
-            on: {
-              change: function($event) {
-                _vm.save("hour")
+              model: {
+                value: _vm.date,
+                callback: function($$v) {
+                  _vm.date = $$v
+                },
+                expression: "date"
               }
-            },
-            model: {
-              value: _vm.hora,
-              callback: function($$v) {
-                _vm.hora = $$v
+            })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-12" },
+          [
+            _c("time-picker", {
+              attrs: { format: "HH:mm", "minute-interval": 15 },
+              on: {
+                change: function($event) {
+                  _vm.save("hour")
+                }
               },
-              expression: "hora"
-            }
-          })
-        ],
-        1
-      )
+              model: {
+                value: _vm.hora,
+                callback: function($$v) {
+                  _vm.hora = $$v
+                },
+                expression: "hora"
+              }
+            })
+          ],
+          1
+        )
+      ])
     ]),
     _vm._v(" "),
     _c("td", [
@@ -93019,6 +93030,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -93135,7 +93149,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 vm.paymentTypes = response;
             }
         });
+    },
+
+    filters: {
+        price: function price(val) {
+            return val.toFixed(2);
+        }
     }
+
 });
 
 /***/ }),
@@ -93531,7 +93552,10 @@ var render = function() {
                       type: "number",
                       name: "amount",
                       min: "0",
-                      max: _vm.total
+                      max:
+                        _vm.paymentTypes == "mercadopago"
+                          ? _vm.amount + (_vm.amount - _vm.amount / 1.1)
+                          : _vm.amount
                     },
                     domProps: { value: _vm.amount },
                     on: {
@@ -93552,7 +93576,19 @@ var render = function() {
                   _c("input", {
                     attrs: { type: "hidden", name: "total" },
                     domProps: { value: _vm.total }
-                  })
+                  }),
+                  _vm._v(" "),
+                  _vm.paymentType == "mercadopago"
+                    ? _c("span", { staticClass: "text-danger offset-2" }, [
+                        _vm._v(
+                          "\n                        Se descontaran $" +
+                            _vm._s(
+                              _vm._f("price")(_vm.amount - _vm.amount / 1.1)
+                            ) +
+                            " por costo del servicio mercadopago.\n                     "
+                        )
+                      ])
+                    : _vm._e()
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-12 row form-group" }, [

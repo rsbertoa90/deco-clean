@@ -25,18 +25,22 @@
                     <td>
                         
                         <div class="row">
-                            <date-picker class="ml-1 col-11" 
-                                         format='dd/MM/yyyy' 
-                                         v-model="date" 
-                                         @input="save('date')"
-                                         :disabledDates="disabledDates"> 
-                            </date-picker>
-
-                           <time-picker class="ml-2 col-11" 
-                                           v-model="hora" 
-                                           format="HH:mm"
-                                           :minute-interval="15"
-                                           @change="save('hour')"></time-picker>
+                            <div class="col-12">
+                                
+                                <date-picker 
+                                            format='dd/MM/yyyy' 
+                                            v-model="date" 
+                                            @input="save('date')"
+                                            :disabledDates="disabledDates"> 
+                                </date-picker>
+                            </div>
+                            <div class="col-12">
+                                <time-picker  
+                                                v-model="hora" 
+                                                format="HH:mm"
+                                                :minute-interval="15"
+                                                @change="save('hour')"></time-picker>
+                            </div>
                         </div>
                     </td>
                     <td>
