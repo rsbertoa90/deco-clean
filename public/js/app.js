@@ -88270,7 +88270,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         states: function states() {
             // console.log('asd');
             var vm = this;
-            console.log('en carga estados', vm.event.state);
+            // console.log('en carga estados',vm.event.state);
 
             vm.event.state = vm.states.find(function (el) {
                 return el.name == vm.event.state;
@@ -88345,7 +88345,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         if (vm.states.length > 0) {
 
             if (_typeof(vm.event.state) != 'object') {
-                console.log('en created', vm.event.state);
+                //  console.log('en created',vm.event.state);
                 vm.event.state = vm.states.find(function (el) {
                     return el.name == vm.event.state;
                 });

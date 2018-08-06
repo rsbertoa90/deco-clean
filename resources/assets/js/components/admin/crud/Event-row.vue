@@ -73,7 +73,7 @@ export default {
         states(){
             // console.log('asd');
             var vm = this;
-            console.log('en carga estados',vm.event.state);
+            // console.log('en carga estados',vm.event.state);
 
             vm.event.state = vm.states.find(el=>{
                     return el.name == vm.event.state
@@ -159,7 +159,7 @@ export default {
         if(vm.states.length > 0){
 
             if (typeof vm.event.state != 'object'){
-                 console.log('en created',vm.event.state);
+                //  console.log('en created',vm.event.state);
                 vm.event.state = vm.states.find(el=>{
                     return el.name == vm.event.state
                     });
