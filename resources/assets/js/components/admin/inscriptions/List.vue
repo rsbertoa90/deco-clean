@@ -24,7 +24,7 @@
                     <td> {{inscription.created_at | date}} </td>
                     <td> {{ inscription.unregistereduser.fbname }} </td>
                     <td> {{inscription.unregistereduser.email}} </td>
-                    <td class="text-info"> ${{ event.price |price}} </tdc>
+                    <td class="text-info"> ${{ event.price |price}} </td>
                     <td class="text-success"> ${{inscription.payd |price}} </td>
                     <td class="text-danger"> ${{event.price - inscription.payd |price}} </td>
                 </tr>

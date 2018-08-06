@@ -89406,6 +89406,7 @@ var render = function() {
                 _c("td", { staticClass: "text-info" }, [
                   _vm._v(" $" + _vm._s(_vm._f("price")(_vm.event.price)) + " ")
                 ]),
+                _vm._v(" "),
                 _c("td", { staticClass: "text-success" }, [
                   _vm._v(" $" + _vm._s(_vm._f("price")(inscription.payd)) + " ")
                 ]),
