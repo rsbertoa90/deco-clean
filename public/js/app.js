@@ -89260,9 +89260,11 @@ var render = function() {
       _c("hr"),
       _vm._v(" "),
       _c("div", [
-        _c("h5", [_vm._v("  " + _vm._s(_vm.event.seminar.title) + "  ")]),
+        _c("h4", { staticClass: "text-info" }, [
+          _vm._v("  " + _vm._s(_vm.event.seminar.title) + "  ")
+        ]),
         _vm._v(" "),
-        _c("h5", [
+        _c("h5", { attrs: { clasS: "text-success" } }, [
           _vm.event.mode == "online"
             ? _c("span", [_vm._v("Online")])
             : _c("span", [
@@ -89276,7 +89278,7 @@ var render = function() {
               ])
         ]),
         _vm._v(" "),
-        _c("h5", [
+        _c("h5", { staticClass: "text-success" }, [
           _vm._v(
             " " +
               _vm._s(_vm._f("date")(_vm.event.date)) +

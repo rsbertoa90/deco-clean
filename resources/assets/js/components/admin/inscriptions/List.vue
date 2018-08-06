@@ -3,11 +3,11 @@
         <slot></slot>
         <hr>
         <div>
-            <h5>  {{event.seminar.title}}  </h5>
-            <h5> <span v-if="event.mode=='online'">Online</span>
+            <h4 class="text-info">  {{event.seminar.title}}  </h4>
+            <h5 clasS="text-success"> <span v-if="event.mode=='online'">Online</span>
                 <span v-else> {{event.state}} - {{event.city}} </span> 
             </h5>
-            <h5> {{event.date| date}} - {{event.hour}} </h5>
+            <h5 class="text-success"> {{event.date| date}} - {{event.hour}} </h5>
         </div>
         <table class=" table table-striped table-bordered table-sm-responsive">
             <thead>
