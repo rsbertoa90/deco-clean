@@ -73,7 +73,8 @@ export default {
         states(){
             // console.log('asd');
             var vm = this;
-            
+            console.log(vm.event.state);
+
             vm.event.state = vm.states.find(el=>{return el.name == vm.state})
             // console.log(vm.event.state);
             
@@ -155,7 +156,7 @@ export default {
         // console.log(vm.states);
 
         if (typeof vm.event.state != 'object'){
-
+             console.log(vm.event.state);
             vm.event.state = vm.states.find(el=>{
                 return el.name == vm.event.state
                 });
