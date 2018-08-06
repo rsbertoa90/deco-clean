@@ -88273,7 +88273,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             console.log('en carga estados', vm.event.state);
 
             vm.event.state = vm.states.find(function (el) {
-                return el.name == vm.state;
+                return el.name == vm.event.state;
             });
             // console.log(vm.event.state);
         }

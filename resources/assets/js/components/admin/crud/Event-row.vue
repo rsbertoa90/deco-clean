@@ -75,7 +75,9 @@ export default {
             var vm = this;
             console.log('en carga estados',vm.event.state);
 
-            vm.event.state = vm.states.find(el=>{return el.name == vm.state})
+            vm.event.state = vm.states.find(el=>{
+                    return el.name == vm.event.state
+                    });
             // console.log(vm.event.state);
             
         }
