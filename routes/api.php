@@ -21,6 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
         Route::get('/seminars','SeminarController@getAll');
         // Route::get('/seminar/create-form','SeminarController@createForm');
 
+        Route::get('/events','EventController@getAll');
         Route::get('/event/create-form','EventController@createForm');
         
         // por id de evento traer nombre de seminario

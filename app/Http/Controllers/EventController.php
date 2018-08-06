@@ -132,6 +132,12 @@ class EventController extends Controller
         return redirect('/');
     }
 
+    public function getAll(){
+        return Event::where('date','>=',now())->with('seminar')->with('inscriptions.unregistereduser')->with('inscriptions.payments')->get();
+    }
+
+
+
     public function getSeminarName($id)
     {
         if($id){

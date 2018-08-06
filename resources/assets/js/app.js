@@ -81,7 +81,13 @@ Vue.component('time-picker',VueTimepicker);
 import inscriptions from './components/admin/Inscriptions.vue';
 Vue.component('app-inscriptions', inscriptions);
 
-
+// filstros
+Vue.filter('price', (value)=>{
+    if (value % 1 != 0) {
+        return value.toFixed(2)
+    }return value;
+});
+Vue.filter('date',(value)=>{return moment(value).format('DD/MM/YYYY')});
 
 
 const app = new Vue({
