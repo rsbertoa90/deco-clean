@@ -27,7 +27,7 @@
                     <tr v-for="event in sortedEvents" :key="event.id">
                         <td class="font-weight-bold"> {{event.seminar.title}} </td>
                         <td v-if="event.mode=='online'"> ONLINE </td>
-                        <td v-else> {{event.state}} - {{event.city}} </td>
+                        <td v-else> {{event.city.state.name}} - {{event.city.name}} </td>
                         <td> {{event.date | fecha}} - {{event.hour}} </td>
                         <td> {{event.inscriptions.length}} / {{event.quota}} <br>
                              <span class="text-info"> {{countIfPayd(event.inscriptions,true)}} </span> / 

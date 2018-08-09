@@ -8,10 +8,14 @@ use App\State;
 class City extends Model
 {
     use SoftDeletes;
-   protected  $table = 'citys';
+   protected  $table = 'cities';
 
    public function state()
    {
        return $this->belongsTo(State::class);
+   }
+
+   public function events(){
+       return $this->hasMany(Event::class);
    }
 }

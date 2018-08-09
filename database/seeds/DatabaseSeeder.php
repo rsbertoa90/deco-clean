@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call('UsersTableSeeder');
         // $this->call('Personal_dataSeeder');
         $this->call('SeminarSeeder');
-        $this->call('EventSeeder');
+        // $this->call('EventSeeder');
         // $this->call('InscriptionSeeder');
         // $this->call('PaymentSeeder');
         

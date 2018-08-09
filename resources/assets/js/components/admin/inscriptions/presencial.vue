@@ -8,11 +8,11 @@
             <div class="form-group row">
                 <label class="col-4 col-lg-2">Ciudad</label>
                 <select required name="city" v-model='city' class="form-control col-4">
-                    <option v-for="op in citys" :value="op" :key="op">{{op}}</option>
+                    <option v-for="op in citys" :value="op" :key="op.id"> {{op.state.name}} - {{op.name}}</option>
                 </select>
                 <div  class="col-12 row" v-for="event in events" :key="event.id">
                     <input v-model="selected" class="form-control-sm col-1" type="checkbox" name="events[]" :value="event.id">
-                    <label for="" class="col-11"><b>  {{event.seminar.title}}</b> - {{event.state}} - {{event.city}} - {{event.date | fecha}} - {{event.hour}} </label>
+                    <label for="" class="col-11"><b>  {{event.seminar.title}}</b> -  {{event.date | fecha}} - {{event.hour}} </label>
                 </div>
             </div>
 
@@ -84,7 +84,7 @@
                 var vm = this;
                 // presenciales
                 $.ajax({
-                    url : '/api/events/city/'+vm.city,
+                    url : '/api/events/city/'+vm.city.id,
                     success(response){
                         vm.events = response;
                     }

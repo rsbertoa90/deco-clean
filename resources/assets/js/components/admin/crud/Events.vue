@@ -1,10 +1,11 @@
 <template>
     <div>
-        <slot></slot>
-        <h3 v-if="events.length>0" >Proximos eventos: {{seminar.title}}</h3>
-        <table v-if="events.length>0"  class="table table-striped table-bordered">
+       
+        <h3 v-if="city"> {{city.name}} </h3>
+        <h3 v-else> ONLINE </h3>
+        <table v-if="events.length > 0"  class="table table-striped table-bordered">
             <thead>
-                <th>Lugar</th>
+                <th>Seminario</th>
                 <th>Fecha y hora</th>
                 <th>Cupo</th>
                 <th>Precio</th>
@@ -12,13 +13,15 @@
             <transition-group tag="tbody"
                               leave-active-class="animated slideOutRight faster"
                               enter-active-class="animated slideInLeft faster">
-               <event-row v-for="(event,key) in events" :evkey="key" :key="key"
+               <event-row 
+                          v-for="(event,key) in events" :evkey="key" :key="key"
                           :event="event" :states="states" 
                           @save="save"></event-row> 
             </transition-group>
         </table>
         <hr>
-        <ev-create @eventCreated="eventCreated" :seminar="seminar"></ev-create>
+        <ev-create  :mode="mode" :city="city">
+        </ev-create>
     </div>
 </template>
 <script>
@@ -27,37 +30,25 @@ import { citiesMixin } from '../../../mixins/cities.js';
 import evCreate from './Event-create.vue';
 import eventRow from './Event-row.vue';
 export default {
-    props:['seminar'],
+    props:['city','mode'],
     mixins :[citiesMixin],
     components : {evCreate,eventRow},
     data(){
         return{
             events : [],
+           
         }
     },
 
     
-   created(){
-       var vm = this;
-        this.$http.get('/api/event/future/'+vm.seminar.id)
-            .then(response=>{
-                vm.events = response.data;
-                // console.log(vm.events);
-            });
-        
-   },
+  
     methods:{
         eventCreated(event){
-            if (event.mode == 'presencial'){
-                event.state = this.states.find(el=>{return el.name == event.state});
-            }
-            // console.log(event.date);
-            // event.date = moment(event.date).format('YY/MM/DD');
             this.events.push(event);
         },
         del(event){
             var vm =this;
-            // console.log(event.inscriptions);
+           
             if (event.inscriptions != null && event.inscriptions.length > 0){
                 swal( 'Hay inscripciones en este evento',
                        'Desea cancelar el evento? . El dinero de los pagos quedara como saldo a favor de los usuarios.',
@@ -98,13 +89,14 @@ export default {
         },
         save(e){
             var vm=this;
-            // console.log(e.event[e.field]);
+    
 
             var data = {
                 id: e.event.id,
                 field : e.field,
                 value : e.event[e.field]
             }
+           
             this.$http.put('/admin/event',data)
                 .then(response=>{
                     vm.events[e.evkey][e.field] = e.event[e.field];
@@ -117,8 +109,41 @@ export default {
         
     },
     watch: {
-      
+      city(){
+          var vm= this;
+          if(this.city){
+                vm.$http.get('/api/events/by-city/'+vm.city.id)
+                    .then(response => {
+              
+                vm.events = response.data;
+                });
+          }
+    
+          
+      },
+
+      mode(){
+           var vm = this;
+          if (this.mode == 'online')
+          {
+               vm.$http.get('/api/events/online')
+                    .then(response => {
+        
+                vm.events = response.data;
+            });
+          }
      
-    }
+      }
+     
+    },
+    created(){
+        var vm = this;
+        vm.$http.get('/api/events/online')
+            .then(response => {
+                vm.events = response.data;
+             
+            });
+         EventBus.$on("eventCreated",this.eventCreated);
+    },
 }
 </script>

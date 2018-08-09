@@ -1,28 +1,21 @@
 <template>
     <tr>
-                    <td v-if="event.mode == 'online'">
-                        ONLINE
-                    </td>
-                    <td v-else>
+                 
+                    <td >
                         <div class="row"> 
-                            <div class="col-6 p2">
-                                <select class="form-control" v-model="event.state" >
-                                    <option v-for="state in states" :key="state.id"
-                                            :value="state"> {{state.name}} </option>
-                                </select>
-                            </div> 
-                            <div class="col-6 p2">
-                                <select  class="form-control" 
-                                          v-if="event.state != null"  
-                                          v-model="event.city" 
-                                          @change="saveCity()">
-                                    <option  v-for="city in event.state.cities" :key="city.id"
-                                            :value="city.name"> {{city.name}} </option>
-                                </select>
-                            </div>
+                           <select  @change="save('seminar_id')"
+                                    v-model="event.seminar_id" 
+                                    class="form-control">
+                               <option v-for="seminar in seminars"
+                                        :key="seminar.id"
+                                        :value="seminar.id">
+                                    {{seminar.title}}        
+                                </option>
+                           </select> 
+                           
                         </div>
                     </td>
-                    <td>
+                    <td class="small">
                         
                         <div class="row">
                             <div class="col-12">
@@ -43,11 +36,11 @@
                             </div>
                         </div>
                     </td>
-                    <td>
+                    <td  class="small">
                         <input v-model.lazy="event.quota" @change="save('quota')" 
                                type="number" min="0" class="form-control">
                     </td>
-                    <td>
+                    <td  class="small">
                         <div class="row">
                             <span class="col-1">$</span>
                             <input v-model.lazy="event.price" 
@@ -67,18 +60,17 @@
 </template>
 
 <script>
+import {SeminarsMixin} from '../../../mixins/seminars.js'
 export default {
+    mixins :[SeminarsMixin],
     props :['event','evkey','states'],
     watch : {
         states(){
-            // console.log('asd');
             var vm = this;
-            // console.log('en carga estados',vm.event.state);
 
             vm.event.state = vm.states.find(el=>{
                     return el.name == vm.event.state
                     });
-            // console.log(vm.event.state);
             
         }
     },
@@ -91,25 +83,13 @@ export default {
                 HH : '',
                 mm : ''
             },
-            date: null, 
+            
+            date: null,
+
         }
     },
     methods : {
-          saveCity(){
-              var vm = this;
-            var data = {
-                id  : vm.event.id,
-                state : vm.event.state.name,
-                city : vm.event.city,
-                 }
-
-            this.$http.put('/admin/event/update-city',data)
-                .then(response=>{
-                   
-                    
-                });
-
-        },
+        
         citiesIn(state)
         {
              var objstate = this.states.find(el => {
@@ -131,9 +111,9 @@ export default {
                this.event.hour = `${this.hora.HH}:${this.hora.mm}`;
            } else if (field == 'date')
            {
-            //    console.log(this.event.date);
+           
                this.event.date = moment(this.date).format('YYYY/MM/DD');
-            //    console.log(this.date,this.event.date);
+            
             
            }
            var data = {
@@ -148,18 +128,17 @@ export default {
     created()
     {
         var vm = this;
+   
+        
         this.hora.HH = this.event.hour.substring(0,2);
         this.hora.mm = this.event.hour.substring(3,5);
-        // console.log(this.hora);
+  
 
         this.date =  moment(this.event.date).format('MM/DD/YYYY');
-        // console.log (this.event.date);
-        // console.log(this.date);
-        // console.log(vm.states);
         if(vm.states.length > 0){
 
             if (typeof vm.event.state != 'object'){
-                //  console.log('en created',vm.event.state);
+            
                 vm.event.state = vm.states.find(el=>{
                     return el.name == vm.event.state
                     });
@@ -180,3 +159,10 @@ export default {
 
 }
 </script>
+
+<style>
+    
+     .small {
+        width: 15%;
+    }
+</style>

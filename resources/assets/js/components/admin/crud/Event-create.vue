@@ -3,36 +3,21 @@
         <h2>Crear evento:</h2>
         <form @submit.prevent="save">
             <!-- seminario -->
-            <div class="row form-group">
+                <div class="row form-group">
                 <label for="" class="col-2">Seminario</label>
-                <label class="text-info font-weight-bold"> {{seminar.title}}</label>
-            </div>
-            <!-- MODO -->
-            <div class="row form-group">
-                <label for="" class="col-2">Modalidad</label>
-                <select required v-model="newEvent.mode" class="col-4 form-control">
-                    <option value="online">online</option>
-                    <option value="presencial">presencial</option>
+                <select required v-model="newEvent.seminar" class="col-4 form-control">
+                    <option v-for="seminar in seminars"
+                            :key="seminar.id"
+                            :value="seminar">
+                            {{seminar.title}}
+                    </option>
                 </select>
             </div>
-            <!-- Provincia y ciudad -->
-            <div v-if="newEvent.mode == 'presencial'">
 
-                <div class="row form-group">
-                    <label for="" class="col-2">Provincia</label>
-                    <select v-model="state" type="text" class="col-4 form-control">
-                        <option v-for="state in states" :key="state.id" 
-                                :value="state"> {{state.name}} </option>
-                    </select>
-                </div>
-                <div v-if="state" class="row form-group">
-                    <label for="" class="col-2"> Ciudad </label>
-                    <select v-model="city" type="text" class="col-4 form-control">
-                        <option v-for="city in state.cities"
-                                :key="city.id" :value="city"> {{city.name}} </option>
-                    </select>
-                </div>
-            </div>
+
+         
+            <!-- Provincia y ciudad -->
+          
             <!-- fecha y hora -->
             <div class="row form-group">
                 <label for="" class="col-2">Fecha y hora</label>
@@ -60,7 +45,7 @@
                         type="number" min="0">
             </div>
             <div class="row form-group">
-                <button type="submit" class="btn btn-lg btn-outline-success">Guardar</button>
+                <button type="submit" class="btn btn-lg btn-outline-success offset-2">Guardar</button>
             </div>
         </form>
     </div>
@@ -70,7 +55,7 @@ import { EventBus } from '../../../app.js';
 import {citiesMixin} from '../../../mixins/cities.js'
 import {SeminarsMixin} from '../../../mixins/seminars.js'
 export default {
-    props :['seminar'],
+    props :['city','mode'],
     mixins :[citiesMixin,SeminarsMixin],
     data(){
         
@@ -89,11 +74,8 @@ export default {
                 quota : '',
                 date: null,
                 hour: {},
-                
-                mode: 'presencial',
+                seminar:null,
             },
-            city: '',
-            state: '',
         }
     },
     // mounted(){
@@ -115,29 +97,33 @@ export default {
             this.hora = { 
                 HH : '',
                 mm : ''};
-            this.city= '';
-            this.state= '';
+         
+       
         },
         save(){
             var vm = this;
             this.newEvent.hour = `${this.hora.HH}:${this.hora.mm}`;
             this.newEvent.date = moment(this.newEvent.date).format('YYYY-MM-DD');
-            // console.log(this.newEvent.date);
-            if (this.newEvent.mode == 'presencial')
-            {
-                
-                this.newEvent.city = this.city.name;
-                this.newEvent.state = this.state.name;
-            }
-                this.newEvent.seminar_id = this.seminar.id;
+           
+           
+                this.newEvent.seminar_id = this.newEvent.seminar.id;
+                this.newEvent.mode = this.mode;
+                if (this.mode == 'presencial'){
+                    this.newEvent.city_id = this.city.id;
+                }
+       
                 this.$http.post('/admin/event',this.newEvent)
                 .then(response => {
                     var newev = response.data
-                    // console.log(response.data);
-                    vm.$emit('eventCreated',response.data);
+                   
+                    EventBus.$emit('eventCreated',response.data);
                     this.reset();
                 });
         }
     }
 }
 </script>
+
+<style scoped>
+   
+</style>

@@ -1,24 +1,30 @@
 <template>
     <div>
-        <transition  
+        <div class="w-100 row">
+            <div class="col-12 col-lg-2">
+                <app-cities @citySelected="setSelectedCity"
+                            @online="setOnline"></app-cities>
+            </div>
+
+            <div class="col-12 col-lg-10">
+                 <transition  
                     leave-active-class="animated fadeOutDown faster position-fixed"
                     enter-active-class=""
                    mode="in-out">
         
-       
-            <app-seminars v-if="component == 'seminars'"
-                        :seminars="seminars" 
-                        @updatedSeminar="updateSeminar"
-                        @seminarDeleted="deleteSeminar"
-                        @seminarCreated="createSeminar"
-                        @showEvents="showEvents" key="seminars"></app-seminars>
+        
+                 
 
-            <app-events v-if="component == 'events'"           
-                        :seminar ="selectedSeminar"
-                        key="events">
-                        <button @click="component='seminars'" class="btn btn-outline-info" >Atras</button>
-            </app-events>
-        </transition>
+                    <app-events  
+                                :mode="mode"
+                                :city="selectedCity"        
+                                key="events">
+                    </app-events>
+                </transition>
+            </div>
+
+        </div>
+       
     </div>
 
 
@@ -28,12 +34,21 @@
 import { EventBus } from '../../app.js';
 import appSeminars from './crud/Seminars.vue';
 import appEvents from './crud/Events.vue';
+import appCities from './crud/Cities.vue';
 import {SeminarsMixin} from '../../mixins/seminars.js';
 export default {
     mixins :[SeminarsMixin],
     components: {
         appSeminars : appSeminars,
-        appEvents : appEvents
+        appEvents : appEvents,
+        appCities,
+    },
+    data(){
+        return {
+             mode : 'online',
+             selectedCity : null,
+
+        }
     },
     created(){
         var vm =this;
@@ -55,12 +70,7 @@ export default {
             }
         });
     },
-    data(){
-        return {
-            component : 'seminars',
-            selectedSeminar : null,
-        }
-    },
+  
     computed : {
         future(){
            
@@ -69,39 +79,20 @@ export default {
         }
     },
     methods :{
-       
-        showEvents(event){
-            this.selectedSeminar = event;
-            this.component = 'events'
+        checkCity(){
+
         },
-        createSeminar(event)
+        setOnline()
         {
-            this.seminars.push(event);
+    
+            this.selectedCity=null;
+            this.mode = 'online'
         },
-        updateSeminar(event){
-            for (const key in this.seminars) {
-                if (this.seminars.hasOwnProperty(key)) {
-                    const element = this.seminars[key];
-                    if (element.id == event.seminarId){
-                        this.seminars[key][event.field] =event.value;
-                        // console.log(this.seminars[key][event.field]);
-                        return;
-                    }
-                }
-            }   
-        },
-        deleteSeminar(event){
-            var vm = this;
-            for (const key in this.seminars) {
-                if (this.seminars.hasOwnProperty(key)) {
-                    const element = this.seminars[key];
-                    if (element.id == event){
-                        vm.seminars.splice(key,1);
-                        return;
-                    }
-                }
-            }   
-        },
+        setSelectedCity(event)
+        {
+            this.mode = 'presencial';
+            this.selectedCity = event;
+        }
     }
 }
 </script>

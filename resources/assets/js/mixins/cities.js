@@ -7,7 +7,9 @@ export const citiesMixin = {
         }
     },
     methods : {
-       
+       location(city){
+           return `${city.state.name} - ${city.name}`;
+       }
     },
 
     created(){

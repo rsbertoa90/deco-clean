@@ -34,9 +34,7 @@ class CityController extends Controller
     }
 
     public function getActiveCitys(){
-        $citys = Event::where('date','>=', now()
-            )->where('city','<>','')->groupBy('city');
-        // $citys->pluck('city');
-        return $citys->pluck('city');
+        
+        return City::with('state')->whereHas('events')->get();
     }
 }

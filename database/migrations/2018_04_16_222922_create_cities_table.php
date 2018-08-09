@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCitysTable extends Migration
+class CreateCitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateCitysTable extends Migration
      */
     public function up()
     {
-        Schema::create('citys', function (Blueprint $table) {
+        Schema::create('cities', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('state_id')->unsigned();
             $table->foreign('state_id')->references('id')->on('states')->onDelete('cascade');
@@ -22,7 +22,7 @@ class CreateCitysTable extends Migration
             $table->timestamps();
         });
 
-        DB::insert("INSERT INTO `citys` (`id`, `state_id`, `name`) 
+        DB::insert("INSERT INTO `cities` (`id`, `state_id`, `name`) 
         VALUES
 (1, 1, '25 de Mayo'),
 (2, 1, '3 de febrero'),
@@ -2418,5 +2418,6 @@ class CreateCitysTable extends Migration
     public function down()
     {
         Schema::dropIfExists('citys');
+        Schema::dropIfExists('citiesphp');
     }
 }

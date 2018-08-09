@@ -23,8 +23,9 @@ class CreateEventsTable extends Migration
             $table->string('hour')->default('12:00');
             $table->integer('quota')->nullable();
             $table->integer('price')->nullable();
-            $table->string('state')->nullable();
-            $table->string('city')->nullable();
+            $table->integer('city_id')->unsigned()->nullable();
+            $table->foreign('city_id')->references('id')
+                    ->on('cities')->onDelete('cascade');
             $table->string('address')->nullable();
             $table->text('description')->nullable();
             $table->text('comments')->nullable();

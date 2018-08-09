@@ -9,6 +9,7 @@ use App\Seminar;
 use App\User;
 
 use App\Program;
+use App\City;
 use App\Payment;
 use App\Inscription;
 use Gloudemans\Shoppingcart\Contracts\Buyable;
@@ -22,6 +23,17 @@ class Event extends Model implements Buyable
     protected $table = 'events';
     protected $guarded =[];
     protected $dates = ['created_at','updated_at','date','deleted_at'];
+
+
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
+
+    public function location()
+    {
+        return "{$this->city->state->name} - {$this->city->name}";
+    }
 
     public function payments(){
         return $this->belongsToMany(Payment::class);

@@ -28,6 +28,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
         Route::get('/get-seminar-title/{id}','EventController@getSeminarName');
 
         Route::get('/activeCitys','CityController@getActiveCitys');
+        Route::get('/active-cities','CityController@getActiveCitys');
 
         Route::get('/events/city/{city}','EventController@getByCity');
 
@@ -54,3 +55,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
         Route::get('/unregistered/user/{user}','UserController@getUnregistered');
        
+        Route::get('/events/by-city/{city}','EventController@getByCity');
+        

@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\City;
+use App\State;
+use App\Seminar;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Cart;
 
-use App\Seminar;
+
 use App\Http\Controllers\InscriptionController;
 
 class EventController extends Controller 
@@ -105,7 +108,7 @@ class EventController extends Controller
             ]);
 
        
-        $data = $request->except('_token');
+        $data = $request->except('_token','city','seminar');
         // $data->date = Carbon::createFromFormat('Y-m-d',$request->date);
 
         try{
@@ -140,7 +143,7 @@ class EventController extends Controller
     }
 
     public function getAll(){
-        return Event::where('date','>=',now())->with('seminar')->with('inscriptions.unregistereduser')->with('inscriptions.payments')->get();
+        return Event::where('date','>=',now())->with('city.state')->with('seminar')->with('inscriptions.unregistereduser')->with('inscriptions.payments')->get();
     }
 
 
@@ -160,7 +163,13 @@ class EventController extends Controller
     }
 
     public function getByCity($city){
-        return Event::with('seminar')->where('date','>=', now())->where('city',$city)->get();
+        $city = City::find($city);
+        return $city->events()
+                    ->with('seminar')
+                    ->with('inscriptions')
+                    ->where('date','>=', now())
+                    ->get();
+       
     }
 
     public function getOnlineEvents()
