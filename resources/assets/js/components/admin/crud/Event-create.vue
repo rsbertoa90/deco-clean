@@ -12,6 +12,8 @@
                             {{seminar.title}}
                     </option>
                 </select>
+
+          
             </div>
 
 
@@ -76,6 +78,11 @@ export default {
                 hour: {},
                 seminar:null,
             },
+
+            newSeminar : {
+                title : '',
+                description : ''
+            }
         }
     },
     // mounted(){
@@ -119,7 +126,13 @@ export default {
                     EventBus.$emit('eventCreated',response.data);
                     this.reset();
                 });
-        }
+        },
+       
+        },
+         created(){
+             EventBus.$on('seminarCreated',event => {
+                this.seminars.push(event);
+        }); 
     }
 }
 </script>

@@ -20,8 +20,15 @@
             </transition-group>
         </table>
         <hr>
-        <ev-create  :mode="mode" :city="city">
-        </ev-create>
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                <ev-create  :mode="mode" :city="city">
+                </ev-create>
+            </div>
+            <div class="col-12 col-lg-4">
+                <seminar-create></seminar-create>
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -29,10 +36,11 @@ import { EventBus } from '../../../app.js';
 import { citiesMixin } from '../../../mixins/cities.js';
 import evCreate from './Event-create.vue';
 import eventRow from './Event-row.vue';
+import seminarCreate from './Seminar-create.vue';
 export default {
     props:['city','mode'],
     mixins :[citiesMixin],
-    components : {evCreate,eventRow},
+    components : {evCreate,eventRow,seminarCreate},
     data(){
         return{
             events : [],
@@ -43,6 +51,7 @@ export default {
     
   
     methods:{
+       
         eventCreated(event){
             this.events.push(event);
         },

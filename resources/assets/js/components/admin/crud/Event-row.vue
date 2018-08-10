@@ -61,6 +61,7 @@
 
 <script>
 import {SeminarsMixin} from '../../../mixins/seminars.js'
+import { EventBus } from '../../../app.js';
 export default {
     mixins :[SeminarsMixin],
     props :['event','evkey','states'],
@@ -145,7 +146,9 @@ export default {
             }
         }
             
-                
+        EventBus.$on('seminarCreated',event => {
+            this.seminars.push(event);
+        });  
           
         
     },
