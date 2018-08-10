@@ -132,6 +132,7 @@ export default {
          created(){
              EventBus.$on('seminarCreated',event => {
                 this.seminars.push(event);
+                
         }); 
     }
 }

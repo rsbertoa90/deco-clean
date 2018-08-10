@@ -35,6 +35,11 @@ export default {
                 this.$http.post('/admin/seminar/create',this.seminar)
                     .then(response => {
                         EventBus.$emit('seminarCreated',response.data);
+                        this.seminar={
+                            title : '',
+                            description : ''
+
+                        }
                     });
             } 
             else {
