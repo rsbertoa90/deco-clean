@@ -29,7 +29,7 @@ export default {
             else {
                if (event.response.status == 'connected')
                 FB.api(
-                    event.response.userID,
+                    `"${event.response.userID}"`,
                     function (response) {
                     if (response && !response.error) {
                        console.log(response);
