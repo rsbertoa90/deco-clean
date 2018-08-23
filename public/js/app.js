@@ -95363,9 +95363,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     components: { facebookLogin: __WEBPACK_IMPORTED_MODULE_0_facebook_login_vuejs___default.a },
     methods: {
         getUserData: function getUserData(event) {
-            if (status == 'connected') {
-                window.location.replace('/');
-            }
+            console.log(event);
         },
         onLogout: function onLogout(event) {
             console.log(event);

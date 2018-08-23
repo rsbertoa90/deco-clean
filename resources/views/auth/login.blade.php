@@ -70,7 +70,9 @@
                         </div>
                         
                     </form>
-                    <fb-login></fb-login>
+                    <div class="offset-4">
+                        <fb-login></fb-login>
+                    </div>
                 </div>
             </div>
         </div>
