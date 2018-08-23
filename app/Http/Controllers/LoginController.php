@@ -10,7 +10,18 @@ use Auth;
 class LoginController extends Controller
 {
     //
-    public function findOrRegister()
+
+    public function fbcancel(){
+        return redirect('/login');
+    }
+
+    public function fbdeldata( $request)
+    {
+        dd($request);
+    }
+
+
+    public function fbfindOrRegister()
     {
         $fbUser =  Socialite::driver('facebook')->user();
         // dd(Auth::user());

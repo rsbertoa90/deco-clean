@@ -63,7 +63,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/fbLoginSuccess','LoginController@findOrRegister');
+Route::get('/fbloginsuccess','LoginController@fbfindOrRegister');
+Route::get('/fblogincanceled','LoginController@fbcancel');
+Route::get('/fbdeldata','LoginController@fbdeldata');
 
 // OAuth Routes
 Route::get('auth/facebook', 'Auth\LoginController@redirectToProvider');
