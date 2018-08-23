@@ -23,6 +23,9 @@ export default {
         getUserData(event)
         {
             console.log(event);
+        },
+        onLogout(event){
+            console.log(event);
         }
     }
 }
