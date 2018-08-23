@@ -27,7 +27,15 @@ export default {
                 console.log('conected');
             }
             else {
-                console.log(event.response);
+               if (event.response.status == 'connected')
+                FB.api(
+                    event.response.userID,
+                    function (response) {
+                    if (response && !response.error) {
+                       console.log(response);
+                    }
+                    }
+                );
             }
         },
         onLogout(event){

@@ -95366,7 +95366,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (event.status == 'connected') {
                 console.log('conected');
             } else {
-                console.log(event.response);
+                if (event.response.status == 'connected') FB.api(event.response.userID, function (response) {
+                    if (response && !response.error) {
+                        console.log(response);
+                    }
+                });
             }
         },
         onLogout: function onLogout(event) {
