@@ -27,7 +27,7 @@ export default {
                 console.log('conected');
             }
             else {
-                console.log(event);
+                console.log(event.response);
             }
         },
         onLogout(event){

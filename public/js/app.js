@@ -95366,7 +95366,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (event.status == 'connected') {
                 console.log('conected');
             } else {
-                console.log(event);
+                console.log(event.response);
             }
         },
         onLogout: function onLogout(event) {
