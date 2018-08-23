@@ -86,7 +86,7 @@
                                 </a>
                             </div>
                         </div>
-                          <div class="form-group row mb-0">
+                          <div class="form-group row mb-0 offset-2 mt-4">
                               <div class="fb-login-button" data-width="200" 
                                     data-max-rows="1" data-size="large" 
                                     data-button-type="login_with" data-show-faces="false" 
