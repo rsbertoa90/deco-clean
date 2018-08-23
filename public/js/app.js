@@ -86799,7 +86799,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   watch: {
     user: function user() {
-      // console.log(this.user);
+      console.log(this.user);
     }
   }
 
