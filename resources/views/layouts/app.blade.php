@@ -39,5 +39,8 @@
         
     </div>
     <script src="https://unpkg.com/ionicons@4.2.6/dist/ionicons.js"></script>
+    
+    @yield('js')
+   
 </body>
 </html>

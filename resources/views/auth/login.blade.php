@@ -1,6 +1,30 @@
 @extends('layouts.app')
 
+@section('js')
+    <script>
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v3.1&appId=447979732292392&autoLogAppEvents=1';
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        var statusChangeCallback = (response) => {
+            console.log(response);
+            if (response.status == 'connected')
+            {
+            }
+        }
+
+    </script>
+@endsection
+
 @section('content')
+<div id="fb-root"></div>
+
+
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -63,12 +87,10 @@
                             </div>
                         </div>
                           <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <a href="{{ url('/auth/facebook') }}" class="btn btn-block mt-4 mb-4 btn-outline-info">
-                                        <i class="fab fa-facebook"></i> 
-                                        - Ingresar con Facebook
-                                    </a>
-                                </div>
+                              <div class="fb-login-button" data-width="200" 
+                                    data-max-rows="1" data-size="large" 
+                                    data-button-type="login_with" data-show-faces="false" 
+                                    data-auto-logout-link="true" data-use-continue-as="true"></div>
                            </div>
                     </form>
                 </div>
