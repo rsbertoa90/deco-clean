@@ -68,9 +68,9 @@
                                 </a>
                             </div>
                         </div>
-                          <div class="form-group row mb-0 offset-2 mt-4">
-                             <fb-login></fb-login>
+                        
                     </form>
+                    <fb-login></fb-login>
                 </div>
             </div>
         </div>
