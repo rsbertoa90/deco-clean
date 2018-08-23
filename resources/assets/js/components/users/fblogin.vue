@@ -28,15 +28,18 @@ export default {
             }
             else {
                 console.log(event);
-               if (event.response.status == 'connected')
-                FB.api(
-                    `"${event.response.userID}"`,
-                    function (response) {
-                    if (response && !response.error) {
-                       console.log(response);
+                if(event.status != 'unknown'){
+                    if (event.response.status == 'connected'){
+                        FB.api(
+                            `"${event.response.userID}"`,
+                            function (response) {
+                            if (response && !response.error) {
+                               console.log(response);
+                            }
+                            }
+                        );
                     }
-                    }
-                );
+                }
             }
         },
         onLogout(event){
