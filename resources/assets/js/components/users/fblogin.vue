@@ -27,6 +27,7 @@ export default {
                 console.log('conected');
             }
             else {
+                console.log(event);
                if (event.response.status == 'connected')
                 FB.api(
                     `"${event.response.userID}"`,
