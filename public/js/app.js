@@ -95365,6 +95365,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         getUserData: function getUserData(event) {
             if (event.status == 'connected') {
                 console.log('conected');
+            } else {
+                console.log(event);
             }
         },
         onLogout: function onLogout(event) {
