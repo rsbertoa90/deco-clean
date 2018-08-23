@@ -81,6 +81,8 @@ Vue.component('time-picker',VueTimepicker);
 import inscriptions from './components/admin/Inscriptions.vue';
 Vue.component('app-inscriptions', inscriptions);
 
+Vue.component('fb-login', require('./components/users/fblogin.vue') );
+
 // filstros
 Vue.filter('price', (value)=>{
     if (value % 1 != 0) {
@@ -88,6 +90,9 @@ Vue.filter('price', (value)=>{
     }return value;
 });
 Vue.filter('date',(value)=>{return moment(value).format('DD/MM/YYYY')});
+
+
+
 
 
 const app = new Vue({
