@@ -95363,7 +95363,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     components: { facebookLogin: __WEBPACK_IMPORTED_MODULE_0_facebook_login_vuejs___default.a },
     methods: {
         getUserData: function getUserData(event) {
-            console.log(event);
+            if (event.status == 'connected') {
+                console.log('conected');
+            }
         },
         onLogout: function onLogout(event) {
             console.log(event);
@@ -95387,6 +95389,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "mt-4" },
     [
       _c("facebook-login", {
         staticClass: "button",

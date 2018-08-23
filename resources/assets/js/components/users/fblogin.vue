@@ -2,7 +2,7 @@
 
 <template>
     
-    <div>
+    <div class="mt-4">
         <facebook-login class="button"
             appId="447979732292392"
             version="v3.2"
@@ -22,8 +22,10 @@ export default {
     methods:{
         getUserData(event)
         {
-            console.log(event);
-
+            if(event.status == 'connected')
+            {
+                console.log('conected');
+            }
         },
         onLogout(event){
             console.log(event);
