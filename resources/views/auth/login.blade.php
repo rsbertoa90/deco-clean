@@ -87,11 +87,7 @@
                             </div>
                         </div>
                           <div class="form-group row mb-0 offset-2 mt-4">
-                              <div class="fb-login-button" data-width="200" 
-                                    data-max-rows="1" data-size="large" 
-                                    data-button-type="login_with" data-show-faces="false" 
-                                    data-auto-logout-link="true" data-use-continue-as="true"></div>
-                           </div>
+                             <div class="fb-login-button" data-width="200" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
                     </form>
                 </div>
             </div>
