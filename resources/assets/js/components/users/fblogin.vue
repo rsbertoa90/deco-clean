@@ -22,7 +22,11 @@ export default {
     methods:{
         getUserData(event)
         {
-            console.log(event);
+            if (status == 'connected')
+            {
+                window.location.replace('/');
+            }
+
         },
         onLogout(event){
             console.log(event);

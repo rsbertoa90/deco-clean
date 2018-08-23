@@ -30,6 +30,8 @@
         <b-nav-item v-if="adminLogged" href="/admin/inscripciones">Registrar pagos</b-nav-item>
         <!-- <b-dropdown-item href="#">Salir</b-dropdown-item> -->
         <b-nav-item v-if="user != null" href="/logout">Salir</b-nav-item>
+
+        <span v-if="user"> {{user.name}} / {{user.email}} </span>
         
      
     </b-navbar-nav>

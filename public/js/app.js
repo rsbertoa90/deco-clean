@@ -86786,6 +86786,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -86920,6 +86922,18 @@ var render = function() {
               _vm.user != null
                 ? _c("b-nav-item", { attrs: { href: "/logout" } }, [
                     _vm._v("Salir")
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.user
+                ? _c("span", [
+                    _vm._v(
+                      " " +
+                        _vm._s(_vm.user.name) +
+                        " / " +
+                        _vm._s(_vm.user.email) +
+                        " "
+                    )
                   ])
                 : _vm._e()
             ],
@@ -95349,7 +95363,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     components: { facebookLogin: __WEBPACK_IMPORTED_MODULE_0_facebook_login_vuejs___default.a },
     methods: {
         getUserData: function getUserData(event) {
-            console.log(event);
+            if (status == 'connected') {
+                window.location.replace('/');
+            }
         },
         onLogout: function onLogout(event) {
             console.log(event);
