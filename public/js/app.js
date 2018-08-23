@@ -95369,9 +95369,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.log(event);
                 if (event.status != 'unknown') {
                     if (event.response.status == 'connected') {
-                        console.log(FB);
+
                         FB.api(event.response.userID, function (response) {
                             if (response && !response.error) {
+                                console.log(response);
+                            } else {
                                 console.log(response);
                             }
                         });

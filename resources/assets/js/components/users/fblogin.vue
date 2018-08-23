@@ -30,13 +30,15 @@ export default {
                 console.log(event);
                 if(event.status != 'unknown'){
                     if (event.response.status == 'connected'){
-                        console.log(FB);
+                        
                         FB.api(
                             event.response.userID,
                             function (response) {
-                            if (response && !response.error) {
-                               console.log(response);
-                            }
+                                if (response && !response.error) {
+                                console.log(response);
+                                }else{
+                                    console.log(response);
+                                }
                             }
                         );
                     }
