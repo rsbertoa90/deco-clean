@@ -95366,16 +95366,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (event.status == 'connected') {
                 console.log('conected');
             } else {
-                console.log(event);
+
                 if (event.status != 'unknown') {
                     if (event.response.status == 'connected') {
                         console.log('ptm', event.response.userID);
                         FB.api(event.response.userID, function (response) {
                             if (response && !response.error) {
-                                console.log(response);
+                                /* console.log(response); */
                             } else {
-                                console.log(response);
-                            }
+                                    /*     console.log(response); */
+                                }
                         });
                     }
                 }

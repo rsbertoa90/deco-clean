@@ -27,7 +27,7 @@ export default {
                 console.log('conected');
             }
             else {
-                console.log(event);
+               
                 if(event.status != 'unknown'){
                     if (event.response.status == 'connected'){
                         console.log('ptm',event.response.userID);
@@ -35,9 +35,9 @@ export default {
                            event.response.userID,
                             function (response) {
                                 if (response && !response.error) {
-                                console.log(response);
+                                /* console.log(response); */
                                 }else{
-                                    console.log(response);
+                                /*     console.log(response); */
                                 }
                             }
                         );
