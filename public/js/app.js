@@ -95364,8 +95364,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         getUserData: function getUserData(event) {
             console.log(event);
-            if (event.status == 'connected') {
-                FB = event.FB;
+            if (event.response.status == 'connected') {
+                FB = event.response.FB;
                 console.log(FB.getLoginStatus());
             }
         },
