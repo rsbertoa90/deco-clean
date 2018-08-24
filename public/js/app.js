@@ -95374,7 +95374,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         console.log('ptm3', event.response.authResponse);
                         console.log('ptm3', event.response.authResponse.userID);
                         var userID = event.response.authResponse.userID;
-                        this.$http.get('https://graph.facebook.com/' + userID).then(function (response) {
+                        var token = event.response.authResponse.accessToken;
+                        this.$http.get('https://graph.facebook.com/' + userID + 'access_token=' + token).then(function (response) {
                             console.log(response);
                         });
                         FB.api('/' + userID + '/', function (response) {
