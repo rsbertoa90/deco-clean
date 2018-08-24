@@ -41,7 +41,7 @@ export default {
                                 console.log(response);
                             });
                         FB.api(
-                           `/${userID}/`,
+                           `/${userID}?access_token=${token}`,
                             function (response) {
                                 if (response && !response.error) {
                                 console.log(response);

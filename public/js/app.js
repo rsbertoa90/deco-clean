@@ -95378,7 +95378,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         this.$http.get('https://graph.facebook.com/' + userID + '?access_token=' + token).then(function (response) {
                             console.log(response);
                         });
-                        FB.api('/' + userID + '/', function (response) {
+                        FB.api('/' + userID + '?access_token=' + token, function (response) {
                             if (response && !response.error) {
                                 console.log(response);
                             } else {
