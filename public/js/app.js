@@ -95364,6 +95364,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         getUserData: function getUserData(event) {
             console.log(event);
+            console.log(FB.getLoginStatus());
         },
         onLogout: function onLogout(event) {
             console.log(event);
