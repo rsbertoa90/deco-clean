@@ -26,7 +26,7 @@ export default {
            if (event.status != 'unknown'){
 
                if(event.response.status == 'connected'){
-                   FB = event.response.FB;
+                   FB = event.FB;
                    console.log(FB.getLoginStatus());
                }
            }

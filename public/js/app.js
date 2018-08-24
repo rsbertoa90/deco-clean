@@ -95367,7 +95367,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (event.status != 'unknown') {
 
                 if (event.response.status == 'connected') {
-                    FB = event.response.FB;
+                    FB = event.FB;
                     console.log(FB.getLoginStatus());
                 }
             }
