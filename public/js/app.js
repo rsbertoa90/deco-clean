@@ -95371,13 +95371,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     if (event.response.status == 'connected') {
                         console.log('ptm1', event);
                         console.log('ptm2', event.response);
-                        console.log('ptm3', event.response.userID);
-                        FB.api(event.response.userID, function (response) {
+                        console.log('ptm3', event.response.authResponse);
+                        console.log('ptm3', event.response.authResponse.userID);
+                        FB.api(event.response.authResponse.userID, function (response) {
                             if (response && !response.error) {
-                                /* console.log(response); */
+                                console.log(response);
                             } else {
-                                    /*     console.log(response); */
-                                }
+                                console.log(response);
+                            }
                         });
                     }
                 }
