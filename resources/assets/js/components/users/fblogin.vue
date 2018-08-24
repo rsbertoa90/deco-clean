@@ -35,7 +35,7 @@ export default {
                         console.log('ptm3',event.response.authResponse);
                         console.log('ptm3',event.response.authResponse.userID);
                         FB.api(
-                           event.response.authResponse.userID,
+                           `/${event.response.authResponse.userID}/`,
                             function (response) {
                                 if (response && !response.error) {
                                 console.log(response);
