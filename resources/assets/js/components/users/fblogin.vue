@@ -28,7 +28,7 @@ export default {
                if(event.response.status == 'connected'){
                    FB = event.FB;
                    console.log('fb',FB);
-                   FB.getLoginStatus(res => {
+                   FB.api(res => {
                        console.log(res);
                    });
                    
