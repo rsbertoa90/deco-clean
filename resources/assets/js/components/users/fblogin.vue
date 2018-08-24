@@ -23,11 +23,12 @@ export default {
         getUserData(event)
         {
            console.log(event);
-           if (event.status != 'unknown'){
+           if (event.response != undefined){
 
                if(event.response.status == 'connected'){
                    FB = event.FB;
-                   console.log(FB.getLoginStatus());
+                   console.log('fb',FB);
+                   console.log('loginstatus',FB.getLoginStatus());
                }
            }
         },
