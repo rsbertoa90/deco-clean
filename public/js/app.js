@@ -95369,7 +95369,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 if (event.response.status == 'connected') {
                     FB = event.FB;
                     console.log('fb', FB);
-                    FB.api('/me', function (res) {
+                    FB.getUserData(function (res) {
                         console.log(res);
                     });
                 }
