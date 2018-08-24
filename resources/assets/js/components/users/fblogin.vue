@@ -28,7 +28,11 @@ export default {
                if(event.response.status == 'connected'){
                    FB = event.FB;
                    console.log('fb',FB);
-                   console.log('loginstatus',FB.getLoginStatus());
+                   FB.getLoginStatus(res => {
+                       console.log(res);
+                   });
+                   
+                  
                }
            }
         },
