@@ -95363,28 +95363,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     components: { facebookLogin: __WEBPACK_IMPORTED_MODULE_0_facebook_login_vuejs___default.a },
     methods: {
         getUserData: function getUserData(event) {
-            if (event.status == 'connected') {
-                console.log('conected');
-            } else {
-
-                if (event.status != 'unknown') {
-                    if (event.response.status == 'connected') {
-                        console.log('FB', FB);
-                        console.log('ptm1', event);
-                        console.log('ptm2', event.response);
-                        console.log('ptm3', event.response.authResponse);
-                        console.log('ptm3', event.response.authResponse.userID);
-                        var userID = event.response.authResponse.userID;
-                        var token = event.response.authResponse.accessToken;
-                        this.$http.get('https://graph.facebook.com/' + userID + '?access_token=' + token).then(function (response) {
-                            console.log('http', response);
-                        });
-                        FB.api('/me/friends', function (response) {
-                            console.log(response);
-                        });
-                    }
-                }
-            }
+            console.log(event);
         },
         onLogout: function onLogout(event) {
             console.log(event);

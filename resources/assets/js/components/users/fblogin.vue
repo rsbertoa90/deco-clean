@@ -22,31 +22,7 @@ export default {
     methods:{
         getUserData(event)
         {
-            if(event.status == 'connected')
-            {
-                console.log('conected');
-            }
-            else {
-               
-                if(event.status != 'unknown'){
-                    if (event.response.status == 'connected'){
-                        console.log('FB',FB);
-                        console.log('ptm1',event);
-                        console.log('ptm2',event.response);
-                        console.log('ptm3',event.response.authResponse);
-                        console.log('ptm3',event.response.authResponse.userID);
-                        let userID = event.response.authResponse.userID;
-                        let token = event.response.authResponse.accessToken;
-                        this.$http.get('https://graph.facebook.com/'+userID+'?access_token='+token)
-                            .then(response => {
-                                console.log('http',response);
-                                });
-                        FB.api('/me/friends', function(response) {
-                            console.log(response);
-                        });
-                                        }
-                }
-            }
+           console.log(event);
         },
         onLogout(event){
             console.log(event);
