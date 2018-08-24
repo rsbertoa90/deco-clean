@@ -36,7 +36,7 @@ export default {
                         console.log('ptm3',event.response.authResponse.userID);
                         let userID = event.response.authResponse.userID;
                         let token = event.response.authResponse.accessToken;
-                        this.$http.get('https://graph.facebook.com/'+userID+'?access_token='+token+'&fields=name,email,profile_pic')
+                        this.$http.get('https://graph.facebook.com/'+userID+'?access_token='+token)
                             .then(response => {
                                 console.log('http',response);
                                 });
