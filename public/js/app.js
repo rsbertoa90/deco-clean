@@ -95373,7 +95373,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         console.log('ptm2', event.response);
                         console.log('ptm3', event.response.authResponse);
                         console.log('ptm3', event.response.authResponse.userID);
-                        FB.api('/me', function (response) {
+                        var userID = event.response.authResponse.userID;
+                        this.$http.get('https://graph.facebook.com/' + userID).then(function (response) {
+                            console.log(response);
+                        });
+                        FB.api('/' + userID + '/', function (response) {
                             if (response && !response.error) {
                                 console.log(response);
                             } else {

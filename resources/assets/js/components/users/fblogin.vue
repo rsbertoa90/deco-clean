@@ -34,8 +34,13 @@ export default {
                         console.log('ptm2',event.response);
                         console.log('ptm3',event.response.authResponse);
                         console.log('ptm3',event.response.authResponse.userID);
+                        let userID = event.response.authResponse.userID;
+                        this.$http.get('https://graph.facebook.com/'+userID)
+                            .then(response => {
+                                console.log(response);
+                            });
                         FB.api(
-                           `/me`,
+                           `/${userID}/`,
                             function (response) {
                                 if (response && !response.error) {
                                 console.log(response);
