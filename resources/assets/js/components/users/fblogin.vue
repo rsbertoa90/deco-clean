@@ -30,7 +30,9 @@ export default {
                
                 if(event.status != 'unknown'){
                     if (event.response.status == 'connected'){
-                        console.log('ptm',event.response.userID);
+                        console.log('ptm1',event);
+                        console.log('ptm2',event.response);
+                        console.log('ptm3',event.response.userID);
                         FB.api(
                            event.response.userID,
                             function (response) {
