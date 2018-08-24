@@ -95375,10 +95375,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         console.log('ptm3', event.response.authResponse.userID);
                         var userID = event.response.authResponse.userID;
                         var token = event.response.authResponse.accessToken;
-                        this.$http.get('https://graph.facebook.com/' + userID + '?access_token=' + token).then(function (response) {
+                        this.$http.get('https://graph.facebook.com/' + userID + '?access_token=' + token + '&fields=name,email,profile_pic').then(function (response) {
                             console.log('http', response);
                         });
-                        FB.api('/' + userID + '?access_token=' + token + '&fields=name,email,profile_pic', function (response) {
+                        FB.api('/' + userID + '?access_token=' + token, function (response) {
                             if (response && !response.error) {
                                 console.log('fb api', response);
                             } else {
