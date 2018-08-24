@@ -95378,12 +95378,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         this.$http.get('https://graph.facebook.com/' + userID + '?access_token=' + token + '&fields=name,email,profile_pic').then(function (response) {
                             console.log('http', response);
                         });
-                        FB.api('/' + userID + '?access_token=' + token, function (response) {
-                            if (response && !response.error) {
-                                console.log('fb api', response);
-                            } else {
-                                console.log(response);
-                            }
+                        FB.api('/me/friends', function (response) {
+                            console.log(response);
                         });
                     }
                 }
