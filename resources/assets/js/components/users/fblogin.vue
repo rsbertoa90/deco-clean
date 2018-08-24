@@ -23,6 +23,7 @@ export default {
         getUserData(event)
         {
            console.log(event);
+           FB = event.FB;
            console.log(FB.getLoginStatus());
         },
         onLogout(event){
