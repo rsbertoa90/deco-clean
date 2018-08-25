@@ -95408,7 +95408,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     components: { facebookLogin: __WEBPACK_IMPORTED_MODULE_0_facebook_login_vuejs___default.a },
     data: function data() {
         return {
-            loading: false
+            loading: true
         };
     },
 
@@ -95739,7 +95739,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, "\n.load-overlay[data-v-094caf9f]{\n    position: absolute;\n    top: 0;\n    left:0;\n    width: 100vw;\n    height: 100vh;\n    color: #aaaaaa55;\n}\n", ""]);
+exports.push([module.i, "\n.load-overlay[data-v-094caf9f]{\n    position: fixed;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    top: 0;\n    left:0;\n    width: 100vw;\n    height: 100vh;\n    background-color: #00000099;\n}\n", ""]);
 
 // exports
 
@@ -95777,7 +95777,7 @@ var render = function() {
             { staticClass: "load-overlay" },
             [
               _c("pulse-loader", {
-                attrs: { loading: _vm.loading, size: "300px" }
+                attrs: { loading: _vm.loading, size: "150px" }
               })
             ],
             1

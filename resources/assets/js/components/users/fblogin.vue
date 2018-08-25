@@ -14,7 +14,7 @@
         </facebook-login>
 
     <div v-if="loading" class="load-overlay">
-        <pulse-loader :loading="loading" size="300px"></pulse-loader>
+        <pulse-loader :loading="loading" size="150px"></pulse-loader>
     </div>
 
     </div>
@@ -25,7 +25,7 @@ import facebookLogin from 'facebook-login-vuejs';
 export default {
     components : {facebookLogin},
     data(){return{
-        loading:false
+        loading:true
     }},
     methods:{
         getUserData(event)
@@ -77,11 +77,14 @@ export default {
 
 <style scoped>
     .load-overlay{
-        position: absolute;
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         top: 0;
         left:0;
         width: 100vw;
         height: 100vh;
-        color: #aaaaaa55;
+        background-color: #00000099;
     }
 </style>
