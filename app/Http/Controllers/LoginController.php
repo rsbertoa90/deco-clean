@@ -27,17 +27,19 @@ class LoginController extends Controller
         if ($user){
             $user->avatar = $request->avatar;
             $user->save();
+            
         }
         else {
-            User::create([
+            $user = User::create([
                 'email' => $request->email,
                 'password'=>'fblogin',
                 'avatar'=>$request->avatar,
                 'role_id'=>3,
                 'name'=>$request->name
-
             ]);
         }
+        Auth::login($user);
+        return $user;
 
 
     }
