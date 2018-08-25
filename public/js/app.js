@@ -95380,9 +95380,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                             var data = {
                                 name: r.name,
                                 email: r.email,
-                                id: userID,
+                                provider_id: userID,
                                 avatar: r.picture.url
                             };
+                            console.log('data', data);
                             vm.$http.post('fblogin', data).then(function (ress) {
                                 console.log(ress);
                             });

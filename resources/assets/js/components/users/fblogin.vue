@@ -41,9 +41,10 @@ export default {
                                 var data = {
                                     name : r.name,
                                     email : r.email,
-                                    id : userID,
+                                    provider_id : userID,
                                     avatar : r.picture.url
                                 }
+                                console.log('data',data);
                                 vm.$http.post('fblogin',data)
                                     .then(ress => {
                                         console.log(ress);

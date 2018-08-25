@@ -22,6 +22,7 @@ class LoginController extends Controller
 
 
     public function fblogin(Request $request){
+        return $request->all();
         $user = User::where('provider_id',$request->id)->get()->first();
 
         if ($user){
@@ -31,6 +32,8 @@ class LoginController extends Controller
         }
         else {
             $user = User::create([
+                'provider'=>'facebook',
+                'provider_id'=>$request->provider_id,
                 'email' => $request->email,
                 'password'=>'fblogin',
                 'avatar'=>$request->avatar,
