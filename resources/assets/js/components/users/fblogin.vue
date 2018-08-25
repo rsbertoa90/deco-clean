@@ -25,7 +25,7 @@ import facebookLogin from 'facebook-login-vuejs';
 export default {
     components : {facebookLogin},
     data(){return{
-        loading:true
+        loading:false
     }},
     methods:{
         getUserData(event)
