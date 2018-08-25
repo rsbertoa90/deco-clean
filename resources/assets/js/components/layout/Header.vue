@@ -73,7 +73,7 @@ export default {
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
 
-      fbAsyncInit();
+    
     },
     watch : {
       user(){

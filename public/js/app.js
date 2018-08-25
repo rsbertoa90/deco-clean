@@ -86820,8 +86820,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       js.src = "https://connect.facebook.net/es_LA/sdk.js";
       fjs.parentNode.insertBefore(js, fjs);
     })(document, 'script', 'facebook-jssdk');
-
-    fbAsyncInit();
   },
 
   watch: {
