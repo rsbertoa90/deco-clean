@@ -43,7 +43,7 @@ export default {
                                     id : r.id,
                                     avatar : r.picture.url
                                 }
-                                vm.$http.get('fbloginsuccess',data)
+                                vm.$http.get('fbloginsuccess')
                                     .then(ress => {
                                         console.log(ress);
                                     });

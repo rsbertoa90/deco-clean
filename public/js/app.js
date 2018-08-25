@@ -95382,7 +95382,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                 id: r.id,
                                 avatar: r.picture.url
                             };
-                            vm.$http.get('fbloginsuccess', data).then(function (ress) {
+                            vm.$http.get('fbloginsuccess').then(function (ress) {
                                 console.log(ress);
                             });
                         });
