@@ -86807,6 +86807,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     user: function user() {
       console.log(this.user);
     }
+  },
+  methods: {
+    logout: function logout() {
+      FB.getLoginStatus(function (response) {
+        console.log(response);
+        if (response.status == 'connected') {}
+      });
+    }
   }
 
 });
@@ -86933,7 +86941,7 @@ var render = function() {
                 : _vm._e(),
               _vm._v(" "),
               _vm.user != null
-                ? _c("b-nav-item", { attrs: { href: "/logout" } }, [
+                ? _c("b-nav-item", { on: { click: _vm.logout } }, [
                     _vm._v("Salir")
                   ])
                 : _vm._e()

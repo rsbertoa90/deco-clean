@@ -35,7 +35,7 @@
         <b-nav-item v-if="adminLogged" href="/admin/inscripciones">Registrar pagos</b-nav-item>
         <!-- <b-dropdown-item href="#">Salir</b-dropdown-item> -->
       
-        <b-nav-item v-if="user != null" href="/logout">Salir</b-nav-item>
+        <b-nav-item v-if="user != null" @click="logout">Salir</b-nav-item>
 
        
         
@@ -61,7 +61,19 @@ export default {
       user(){
          console.log(this.user);
       }
+    },
+    methods : {
+      logout(){
+        FB.getLoginStatus(response => {
+          console.log(response);
+          if (response.status == 'connected') {
+            
+          } 
+        });
+      }
+        
     }
+    
 
 }
 </script>
