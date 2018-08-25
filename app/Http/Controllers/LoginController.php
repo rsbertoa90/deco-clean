@@ -28,6 +28,7 @@ class LoginController extends Controller
         if ($user = User::where('email',$fbUser->email)->get()->first())
         {
             Auth::login($user);
+                return $user;
             return redirect('/');
         }
         else
@@ -41,6 +42,7 @@ class LoginController extends Controller
             $new->password = 'facebook';
             $new->save();
             Auth::login($new);
+            return $new;
             return redirect('/');
             
         }

@@ -95377,9 +95377,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         var userID = res.authResponse.userID;
                         tfb.api('/' + userID, { access_token: token,
                             fields: 'name,email,picture' }, function (r) {
-                            console.log('api', r);
-                            FB.api('/me/picture', 'GET', {}, function (rr) {
-                                console.log(rr);
+                            var data = {
+                                name: r.name,
+                                id: r.id,
+                                avatar: r.picture.url
+                            };
+                            vm.$http.get('fbloginsuccess', data).then(function (ress) {
+                                console.log(ress);
                             });
                         });
                     });
