@@ -80,7 +80,7 @@ export default {
     },
     methods : {
       logout(){
-       
+            
             FB.getLoginStatus(response => {
             console.log(response);
             if (response.status == 'connected') {
