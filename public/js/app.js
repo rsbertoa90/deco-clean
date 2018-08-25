@@ -86818,14 +86818,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           xfbml: true,
           version: 'v3.1'
         });
+        FB.getLoginStatus(function (response) {
+          console.log(response);
+          if (response.status == 'connected') {
+            console.log('then logout');
+          }
+        });
       };
-
-      FB.getLoginStatus(function (response) {
-        console.log(response);
-        if (response.status == 'connected') {
-          console.log('then logout');
-        }
-      });
     }
   }
 

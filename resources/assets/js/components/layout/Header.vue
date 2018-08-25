@@ -72,14 +72,15 @@ export default {
             xfbml            : true,
             version          : 'v3.1'
           });
-        };
-
-        FB.getLoginStatus(response => {
+          FB.getLoginStatus(response => {
           console.log(response);
           if (response.status == 'connected') {
             console.log('then logout');
           } 
         });
+        };
+
+      
       }
         
     }
