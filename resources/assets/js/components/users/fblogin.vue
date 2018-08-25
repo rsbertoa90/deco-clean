@@ -26,7 +26,7 @@ export default {
            if (event.response != undefined){
 
                if(event.response.status == 'connected'){
-                   tfb = event.FB;
+                 var tfb = event.FB;
                    console.log('fb',tfb);
                    console.log('status',tfb.getLoginStatus(res => {
                        console.log(res);
