@@ -23,8 +23,8 @@ class LoginController extends Controller
 
     public function fblogin(Request $request){
         
-        $user = User::where('provider_id',$request->id)->get()->first();
-
+        $user = User::where('provider_id',$request->provider_id)->get()->first();
+        
         if ($user){
             $user->avatar = $request->avatar;
             $user->save();
