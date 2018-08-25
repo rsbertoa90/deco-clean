@@ -95363,19 +95363,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     components: { facebookLogin: __WEBPACK_IMPORTED_MODULE_0_facebook_login_vuejs___default.a },
     methods: {
         getUserData: function getUserData(event) {
+            var vm = this;
             console.log(event);
             if (event.response != undefined) {
 
                 if (event.response.status == 'connected') {
                     var tfb = event.FB;
-                    var token = event.access_token;
+
                     console.log('fb', tfb);
                     tfb.getLoginStatus(function (res) {
                         console.log('status', res);
-                    });
-                    tfb.api('/me', { access_token: token,
-                        fields: 'last_name' }, function (r) {
-                        console.log(r);
+                        var token = res.authResponse.access_token;
+                        var userID = res.authResponse.userID;
+                        tfb.api('/' + userID, { access_token: token,
+                            fields: 'last_name' }, function (r) {
+                            console.log('api', r);
+                        });
+                        vm.$http.get('');
                     });
                 }
             }
@@ -95408,7 +95412,7 @@ var render = function() {
         staticClass: "button",
         attrs: {
           appId: "447979732292392",
-          version: "v3.2",
+          version: "v3.1",
           loginLabel: "Ingresar con Faecebook",
           logoutLabel: "Desloguear de Facebook"
         },
