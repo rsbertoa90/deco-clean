@@ -44,7 +44,7 @@ export default {
                                     id : userID,
                                     avatar : r.picture.url
                                 }
-                                vm.$http.get('fblogin',data)
+                                vm.$http.post('fblogin',data)
                                     .then(ress => {
                                         console.log(ress);
                                     });

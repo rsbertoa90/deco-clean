@@ -32,7 +32,9 @@ class LoginController extends Controller
             User::create([
                 'email' => $request->email,
                 'password'=>'fblogin',
-                'avatar'=>$request->avatar
+                'avatar'=>$request->avatar,
+                'role_id'=>3,
+                'name'=>$request->name
 
             ]);
         }

@@ -95383,7 +95383,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                 id: userID,
                                 avatar: r.picture.url
                             };
-                            vm.$http.get('fblogin', data).then(function (ress) {
+                            vm.$http.post('fblogin', data).then(function (ress) {
                                 console.log(ress);
                             });
                         });
