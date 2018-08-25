@@ -12,6 +12,11 @@
             loginLabel="Ingresar con Faecebook"
             logoutLabel="Desloguear de Facebook">
         </facebook-login>
+
+    <div v-if="loading" class="load-overlay">
+        <pulse-loader :loading="loading" size="300px"></pulse-loader>
+    </div>
+
     </div>
 </template>
 
@@ -19,6 +24,9 @@
 import facebookLogin from 'facebook-login-vuejs';
 export default {
     components : {facebookLogin},
+    data(){return{
+        loading:false
+    }},
     methods:{
         getUserData(event)
         {
@@ -30,10 +38,12 @@ export default {
                  var tfb = event.FB;
 
                    //console.log('fb',tfb);
+                  
                    tfb.getLoginStatus(res => {
                        //console.log('status',res); 
                        var token = res.authResponse.access_token;
                        var userID = res.authResponse.userID;
+                        vm.loading=true;
                         tfb.api('/'+userID, 
                                 {access_token: token,  
                                 fields: 'name,email,picture'}, 
@@ -48,7 +58,7 @@ export default {
                                 //console.log('data',data);
                                 vm.$http.post('fblogin',data)
                                     .then(ress => {
-                                        //console.log(ress);
+                                        
                                         window.location.replace('/');
                                     });
                             });
@@ -64,3 +74,14 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    .load-overlay{
+        position: absolute;
+        top: 0;
+        left:0;
+        width: 100vw;
+        height: 100vh;
+        color: #aaaaaa55;
+    }
+</style>

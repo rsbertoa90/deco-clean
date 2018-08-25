@@ -92,7 +92,8 @@ Vue.filter('price', (value)=>{
 Vue.filter('date',(value)=>{return moment(value).format('DD/MM/YYYY')});
 
 
-
+var PulseLoader = require('vue-spinner/src/PulseLoader.vue');
+Vue.component('pulse-loader', require('vue-spinner/src/PulseLoader.vue'));
 
 
 const app = new Vue({
