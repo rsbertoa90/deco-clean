@@ -86800,7 +86800,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_user_js__["a" /* userMixin */]],
   created: function created() {
-    console.log('created');
+
     window.fbAsyncInit = function () {
       FB.init({
         appId: '447979732292392',
@@ -86823,18 +86823,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
   watch: {
-    user: function user() {
-      console.log(this.user);
-    }
+    user: function user() {}
   },
   methods: {
     logout: function logout() {
-      console.log(FB);
 
       FB.getLoginStatus(function (response) {
-        console.log(response);
+
         if (response.status == 'connected') {
-          console.log('then logout');
+          FB.logout(function (r) {
+            window.location.replace('/logout');
+          });
         }
       });
     }

@@ -55,7 +55,7 @@ import {userMixin} from '../../mixins/user.js'
 export default {
     mixins: [userMixin],
     created(){
-      console.log('created');
+     
         window.fbAsyncInit = function() {
         FB.init({
           appId            : '447979732292392',
@@ -77,17 +77,20 @@ export default {
     },
     watch : {
       user(){
-         console.log(this.user);
+         
       }
     },
     methods : {
       logout(){
-          console.log(FB);
+        
           
             FB.getLoginStatus(response => {
-            console.log(response);
+            
             if (response.status == 'connected') {
-              console.log('then logout');
+              FB.logout(r => {
+                window.location.replace('/logout');
+              });
+
             } 
           });
 
