@@ -38,7 +38,7 @@ class LoginController extends Controller
                 'name'=>$request->name
             ]);
         }
-        Auth::login($user);
+       
         return $user;
 
 
