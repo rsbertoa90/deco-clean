@@ -38,6 +38,7 @@ export default {
                                 {access_token: token,  
                                 fields: 'name,email,picture'}, 
                                 function(r) {
+                                console.log('r',r);
                                 var data = {
                                     name : r.name,
                                     email : r.email,

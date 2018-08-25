@@ -95377,6 +95377,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         var userID = res.authResponse.userID;
                         tfb.api('/' + userID, { access_token: token,
                             fields: 'name,email,picture' }, function (r) {
+                            console.log('r', r);
                             var data = {
                                 name: r.name,
                                 email: r.email,
