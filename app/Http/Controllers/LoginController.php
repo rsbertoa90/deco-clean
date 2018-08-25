@@ -23,13 +23,13 @@ class LoginController extends Controller
 
     public function fblogin(Request $request){
         
-        $user = User::where('provider_id',$request->provider_id)->get()->first();
+        $user = User::where('provider','facebook')->where('email',$request->email)->get()->first();
          
         if ($user){
             $user->avatar = $request->avatar;
             $user->save();
-            
         }
+
         else {
             $user = User::create([
                 'provider'=>'facebook',
@@ -41,10 +41,8 @@ class LoginController extends Controller
                 'name'=>$request->name
             ]);
         }
-       
+        Auth::login($user);
         return $user;
-
-
     }
 
 
