@@ -42,7 +42,7 @@ export default {
                                 FB.api(
                                     '/me/picture',
                                     'GET',
-                                    {redirect:0},
+                                    {},
                                     function(rr) {
                                         console.log(rr);
                                     }
