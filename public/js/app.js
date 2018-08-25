@@ -86794,6 +86794,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -86810,9 +86811,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   methods: {
     logout: function logout() {
+      window.fbAsyncInit = function () {
+        FB.init({
+          appId: '447979732292392',
+          autoLogAppEvents: true,
+          xfbml: true,
+          version: 'v3.1'
+        });
+      };
+
       FB.getLoginStatus(function (response) {
         console.log(response);
-        if (response.status == 'connected') {}
+        if (response.status == 'connected') {
+          console.log('then logout');
+        }
       });
     }
   }
@@ -86874,7 +86886,7 @@ var render = function() {
       _c("b-navbar-brand", { attrs: { href: "/home" } }, [
         _vm.user && _vm.user.avatar
           ? _c("img", {
-              staticClass: "d-inline-block align-top img img-circle",
+              staticClass: "d-inline-block align-top img rounded-circle",
               attrs: { src: _vm.user.avatar, alt: "avatar" }
             })
           : _c("span", [_vm._v("\n        Deco\n      ")])

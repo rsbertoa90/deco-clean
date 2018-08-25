@@ -4,7 +4,8 @@
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
 
     <b-navbar-brand href="/home">
-      <img v-if="user && user.avatar" :src="user.avatar" class="d-inline-block align-top img img-circle" alt="avatar">
+      <img v-if="user && user.avatar" :src="user.avatar" 
+          class="d-inline-block align-top img rounded-circle" alt="avatar">
       <span v-else>
         Deco
       </span>
@@ -64,10 +65,19 @@ export default {
     },
     methods : {
       logout(){
+          window.fbAsyncInit = function() {
+          FB.init({
+            appId            : '447979732292392',
+            autoLogAppEvents : true,
+            xfbml            : true,
+            version          : 'v3.1'
+          });
+        };
+
         FB.getLoginStatus(response => {
           console.log(response);
           if (response.status == 'connected') {
-            
+            console.log('then logout');
           } 
         });
       }
