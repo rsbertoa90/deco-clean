@@ -36,7 +36,7 @@ export default {
                        var userID = res.authResponse.userID;
                         tfb.api('/'+userID, 
                                 {access_token: token,  
-                                fields: 'last_name'}, 
+                                fields: 'name,profile_pic,email'}, 
                                 function(r) {
                                 console.log('api',r);
                             });
