@@ -3,7 +3,12 @@
 
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
 
-    <b-navbar-brand href="/home">Deco</b-navbar-brand>
+    <b-navbar-brand href="/home">
+      <img v-if="user && user.avatar" :src="user.avatar" class="d-inline-block align-top" alt="avatar">
+      <span v-else>
+        Deco
+      </span>
+    </b-navbar-brand>
 
     <b-collapse is-nav id="nav_collapse">
 
@@ -29,9 +34,7 @@
         <b-nav-item v-if="adminLogged" href="/admin/crud">Administracion</b-nav-item>
         <b-nav-item v-if="adminLogged" href="/admin/inscripciones">Registrar pagos</b-nav-item>
         <!-- <b-dropdown-item href="#">Salir</b-dropdown-item> -->
-        <b-navbar-brand v-if="user && user.avatar">
-           <img :src="user.avatar" class="d-inline-block align-top" alt="avatar">
-        </b-navbar-brand>
+      
         <b-nav-item v-if="user != null" href="/logout">Salir</b-nav-item>
 
        

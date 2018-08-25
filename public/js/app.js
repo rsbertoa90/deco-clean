@@ -86791,6 +86791,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -86860,7 +86863,14 @@ var render = function() {
     [
       _c("b-navbar-toggle", { attrs: { target: "nav_collapse" } }),
       _vm._v(" "),
-      _c("b-navbar-brand", { attrs: { href: "/home" } }, [_vm._v("Deco")]),
+      _c("b-navbar-brand", { attrs: { href: "/home" } }, [
+        _vm.user && _vm.user.avatar
+          ? _c("img", {
+              staticClass: "d-inline-block align-top",
+              attrs: { src: _vm.user.avatar, alt: "avatar" }
+            })
+          : _c("span", [_vm._v("\n        Deco\n      ")])
+      ]),
       _vm._v(" "),
       _c(
         "b-collapse",
@@ -86920,15 +86930,6 @@ var render = function() {
                     { attrs: { href: "/admin/inscripciones" } },
                     [_vm._v("Registrar pagos")]
                   )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.user && _vm.user.avatar
-                ? _c("b-navbar-brand", [
-                    _c("img", {
-                      staticClass: "d-inline-block align-top",
-                      attrs: { src: _vm.user.avatar, alt: "avatar" }
-                    })
-                  ])
                 : _vm._e(),
               _vm._v(" "),
               _vm.user != null
