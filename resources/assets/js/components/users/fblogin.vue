@@ -40,10 +40,11 @@ export default {
                                 function(r) {
                                 var data = {
                                     name : r.name,
-                                    id : r.id,
+                                    email : r.email,
+                                    id : userID,
                                     avatar : r.picture.url
                                 }
-                                vm.$http.get('fbloginsuccess')
+                                vm.$http.get('fblogin',data)
                                     .then(ress => {
                                         console.log(ress);
                                     });

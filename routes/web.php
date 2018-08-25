@@ -64,6 +64,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/fbloginsuccess','LoginController@fbfindOrRegister');
+Route::post('/fblogin','LoginController@fblogin');
 Route::get('/fblogincanceled','LoginController@fbcancel');
 Route::get('/fbdeldata','LoginController@fbdeldata');
 

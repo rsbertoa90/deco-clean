@@ -21,6 +21,26 @@ class LoginController extends Controller
     }
 
 
+    public function fblogin(Request $request){
+        $user = User::where('provider_id',$request->id)->get()->first();
+
+        if ($user){
+            $user->avatar = $request->avatar;
+            $user->save();
+        }
+        else {
+            User::create([
+                'email' => $request->email,
+                'password'=>'fblogin',
+                'avatar'=>$request->avatar
+
+            ]);
+        }
+
+
+    }
+
+
     public function fbfindOrRegister()
     {
         $fbUser =  Socialite::driver('facebook')->user();
