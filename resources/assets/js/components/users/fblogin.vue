@@ -36,7 +36,7 @@ export default {
                        var userID = res.authResponse.userID;
                         tfb.api('/'+userID, 
                                 {access_token: token,  
-                                fields: 'name,email'}, 
+                                fields: 'name,email,picture'}, 
                                 function(r) {
                                 console.log('api',r);
                                 FB.api(
