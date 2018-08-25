@@ -29,9 +29,12 @@
         <b-nav-item v-if="adminLogged" href="/admin/crud">Administracion</b-nav-item>
         <b-nav-item v-if="adminLogged" href="/admin/inscripciones">Registrar pagos</b-nav-item>
         <!-- <b-dropdown-item href="#">Salir</b-dropdown-item> -->
+        <b-navbar-brand v-if="user.avatar">
+           <img :src="user.avatar" class="d-inline-block align-top" alt="avatar">
+        </b-navbar-brand>
         <b-nav-item v-if="user != null" href="/logout">Salir</b-nav-item>
 
-        <span v-if="user"> {{user.name}} / {{user.email}} </span>
+       
         
      
     </b-navbar-nav>

@@ -86788,6 +86788,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -86919,21 +86922,18 @@ var render = function() {
                   )
                 : _vm._e(),
               _vm._v(" "),
-              _vm.user != null
-                ? _c("b-nav-item", { attrs: { href: "/logout" } }, [
-                    _vm._v("Salir")
+              _vm.user.avatar
+                ? _c("b-navbar-brand", [
+                    _c("img", {
+                      staticClass: "d-inline-block align-top",
+                      attrs: { src: _vm.user.avatar, alt: "avatar" }
+                    })
                   ])
                 : _vm._e(),
               _vm._v(" "),
-              _vm.user
-                ? _c("span", [
-                    _vm._v(
-                      " " +
-                        _vm._s(_vm.user.name) +
-                        " / " +
-                        _vm._s(_vm.user.email) +
-                        " "
-                    )
+              _vm.user != null
+                ? _c("b-nav-item", { attrs: { href: "/logout" } }, [
+                    _vm._v("Salir")
                   ])
                 : _vm._e()
             ],
@@ -95370,23 +95370,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 if (event.response.status == 'connected') {
                     var tfb = event.FB;
 
-                    console.log('fb', tfb);
+                    //console.log('fb',tfb);
                     tfb.getLoginStatus(function (res) {
-                        console.log('status', res);
+                        //console.log('status',res); 
                         var token = res.authResponse.access_token;
                         var userID = res.authResponse.userID;
                         tfb.api('/' + userID, { access_token: token,
                             fields: 'name,email,picture' }, function (r) {
-                            console.log('r', r);
+                            // console.log('r',r);
                             var data = {
                                 name: r.name,
                                 email: r.email,
                                 provider_id: userID,
                                 avatar: r.picture.data.url
-                            };
-                            console.log('data', data);
-                            vm.$http.post('fblogin', data).then(function (ress) {
-                                console.log(ress);
+                                //console.log('data',data);
+                            };vm.$http.post('fblogin', data).then(function (ress) {
+                                //console.log(ress);
+                                window.location.replace('/');
                             });
                         });
                     });

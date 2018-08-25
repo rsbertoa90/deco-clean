@@ -29,26 +29,27 @@ export default {
                if(event.response.status == 'connected'){
                  var tfb = event.FB;
 
-                   console.log('fb',tfb);
+                   //console.log('fb',tfb);
                    tfb.getLoginStatus(res => {
-                       console.log('status',res); 
+                       //console.log('status',res); 
                        var token = res.authResponse.access_token;
                        var userID = res.authResponse.userID;
                         tfb.api('/'+userID, 
                                 {access_token: token,  
                                 fields: 'name,email,picture'}, 
                                 function(r) {
-                                console.log('r',r);
+                               // console.log('r',r);
                                 var data = {
                                     name : r.name,
                                     email : r.email,
                                     provider_id : userID,
                                     avatar : r.picture.data.url
                                 }
-                                console.log('data',data);
+                                //console.log('data',data);
                                 vm.$http.post('fblogin',data)
                                     .then(ress => {
-                                        console.log(ress);
+                                        //console.log(ress);
+                                        window.location.replace('/');
                                     });
                             });
                             

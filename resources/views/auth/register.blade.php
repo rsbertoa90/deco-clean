@@ -77,6 +77,9 @@
                                 </div>
                            </div>
                     </form>
+                     <div class="offset-lg-4">
+                        <fb-login></fb-login>
+                    </div>
                 </div>
             </div>
         </div>
