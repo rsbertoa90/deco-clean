@@ -1,6 +1,6 @@
 <template>
   <b-navbar toggleable="md" type="dark" variant="info">
-
+    <div id="fb-root"></div>
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
 
     <b-navbar-brand href="/home">
@@ -55,8 +55,23 @@ import {userMixin} from '../../mixins/user.js'
 export default {
     mixins: [userMixin],
     created(){
-      // console.log('created')
-      // console.log('aasdasda',this.user);
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId            : '447979732292392',
+            autoLogAppEvents : true,
+            xfbml            : true,
+            version          : 'v3.1'
+          });
+          (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));
+
+          
+        };
     },
     watch : {
       user(){
@@ -65,20 +80,13 @@ export default {
     },
     methods : {
       logout(){
-          window.fbAsyncInit = function() {
-          FB.init({
-            appId            : '447979732292392',
-            autoLogAppEvents : true,
-            xfbml            : true,
-            version          : 'v3.1'
+       
+            FB.getLoginStatus(response => {
+            console.log(response);
+            if (response.status == 'connected') {
+              console.log('then logout');
+            } 
           });
-          FB.getLoginStatus(response => {
-          console.log(response);
-          if (response.status == 'connected') {
-            console.log('then logout');
-          } 
-        });
-        };
 
       
       }

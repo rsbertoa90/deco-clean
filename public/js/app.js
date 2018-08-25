@@ -86800,8 +86800,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_user_js__["a" /* userMixin */]],
   created: function created() {
-    // console.log('created')
-    // console.log('aasdasda',this.user);
+    window.fbAsyncInit = function () {
+      FB.init({
+        appId: '447979732292392',
+        autoLogAppEvents: true,
+        xfbml: true,
+        version: 'v3.1'
+      });
+      (function (d, s, id) {
+        var js,
+            fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+          return;
+        }
+        js = d.createElement(s);js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, 'script', 'facebook-jssdk');
+    };
   },
 
   watch: {
@@ -86811,20 +86827,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   methods: {
     logout: function logout() {
-      window.fbAsyncInit = function () {
-        FB.init({
-          appId: '447979732292392',
-          autoLogAppEvents: true,
-          xfbml: true,
-          version: 'v3.1'
-        });
-        FB.getLoginStatus(function (response) {
-          console.log(response);
-          if (response.status == 'connected') {
-            console.log('then logout');
-          }
-        });
-      };
+
+      FB.getLoginStatus(function (response) {
+        console.log(response);
+        if (response.status == 'connected') {
+          console.log('then logout');
+        }
+      });
     }
   }
 
@@ -86880,6 +86889,8 @@ var render = function() {
     "b-navbar",
     { attrs: { toggleable: "md", type: "dark", variant: "info" } },
     [
+      _c("div", { attrs: { id: "fb-root" } }),
+      _vm._v(" "),
       _c("b-navbar-toggle", { attrs: { target: "nav_collapse" } }),
       _vm._v(" "),
       _c("b-navbar-brand", { attrs: { href: "/home" } }, [
