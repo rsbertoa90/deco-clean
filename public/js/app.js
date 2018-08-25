@@ -86807,6 +86807,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         xfbml: true,
         version: 'v3.1'
       });
+      console.log(FB);
       (function (d, s, id) {
         var js,
             fjs = d.getElementsByTagName(s)[0];

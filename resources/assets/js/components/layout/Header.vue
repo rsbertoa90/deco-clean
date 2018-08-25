@@ -62,6 +62,7 @@ export default {
             xfbml            : true,
             version          : 'v3.1'
           });
+          console.log(FB);
           (function(d, s, id){
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) {return;}
@@ -80,7 +81,7 @@ export default {
     },
     methods : {
       logout(){
-            
+
             FB.getLoginStatus(response => {
             console.log(response);
             if (response.status == 'connected') {
