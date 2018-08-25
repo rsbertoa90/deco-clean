@@ -39,8 +39,16 @@ export default {
                                 fields: 'name,email'}, 
                                 function(r) {
                                 console.log('api',r);
+                                FB.api(
+                                    '/me/picture',
+                                    'GET',
+                                    {},
+                                    function(rr) {
+                                        console.log(rr);
+                                    }
+                                );
                             });
-                        vm.$http.get('')    
+                            
                    });
                   
                }
