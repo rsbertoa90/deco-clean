@@ -86800,6 +86800,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_user_js__["a" /* userMixin */]],
   created: function created() {
+    console.log('created');
     window.fbAsyncInit = function () {
       FB.init({
         appId: '447979732292392',
@@ -86807,7 +86808,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         xfbml: true,
         version: 'v3.1'
       });
-      console.log(FB);
       (function (d, s, id) {
         var js,
             fjs = d.getElementsByTagName(s)[0];
@@ -86818,6 +86818,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         js.src = "https://connect.facebook.net/en_US/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
       })(document, 'script', 'facebook-jssdk');
+      console.log(FB);
     };
   },
 
