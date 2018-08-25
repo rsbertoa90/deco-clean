@@ -27,13 +27,17 @@ export default {
 
                if(event.response.status == 'connected'){
                  var tfb = event.FB;
+                 var token = event.access_token;
                    console.log('fb',tfb);
-                   console.log('status',tfb.getLoginStatus(res => {
-                       console.log(res);
-                   }));
-                  tfb.api('/me', {fields: 'last_name'}, function(r) {
-                    console.log(r);
-                });
+                   tfb.getLoginStatus(res => {
+                       console.log('status',res);
+                   });
+                  tfb.api('/me', 
+                        {access_token: token,  
+                        fields: 'last_name'}, 
+                        function(r) {
+                        console.log(r);
+                    });
                   
                }
            }

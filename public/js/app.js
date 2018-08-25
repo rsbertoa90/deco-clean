@@ -95368,11 +95368,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                 if (event.response.status == 'connected') {
                     var tfb = event.FB;
+                    var token = event.access_token;
                     console.log('fb', tfb);
-                    console.log('status', tfb.getLoginStatus(function (res) {
-                        console.log(res);
-                    }));
-                    tfb.api('/me', { fields: 'last_name' }, function (r) {
+                    tfb.getLoginStatus(function (res) {
+                        console.log('status', res);
+                    });
+                    tfb.api('/me', { access_token: token,
+                        fields: 'last_name' }, function (r) {
                         console.log(r);
                     });
                 }
