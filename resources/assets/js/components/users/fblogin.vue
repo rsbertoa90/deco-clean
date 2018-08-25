@@ -28,8 +28,11 @@ export default {
                if(event.response.status == 'connected'){
                    FB = event.FB;
                    console.log('fb',FB);
-                  FB.api('/me', {fields: 'last_name'}, function(response) {
-                    console.log(response);
+                   console.log('status',FB.getLoginStatus(res => {
+                       console.log(res);
+                   }));
+                  FB.api('/me', {fields: 'last_name'}, function(r) {
+                    console.log(r);
                 });
                   
                }
