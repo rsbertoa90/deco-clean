@@ -86922,7 +86922,7 @@ var render = function() {
                   )
                 : _vm._e(),
               _vm._v(" "),
-              _vm.user.avatar
+              _vm.user && _vm.user.avatar
                 ? _c("b-navbar-brand", [
                     _c("img", {
                       staticClass: "d-inline-block align-top",
