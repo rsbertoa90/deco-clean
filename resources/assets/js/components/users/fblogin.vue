@@ -43,7 +43,7 @@ export default {
                                     name : r.name,
                                     email : r.email,
                                     provider_id : userID,
-                                    avatar : r.picture.url
+                                    avatar : r.picture.data.url
                                 }
                                 console.log('data',data);
                                 vm.$http.post('fblogin',data)
