@@ -86866,7 +86866,7 @@ var render = function() {
       _c("b-navbar-brand", { attrs: { href: "/home" } }, [
         _vm.user && _vm.user.avatar
           ? _c("img", {
-              staticClass: "d-inline-block align-top",
+              staticClass: "d-inline-block align-top img img-circle",
               attrs: { src: _vm.user.avatar, alt: "avatar" }
             })
           : _c("span", [_vm._v("\n        Deco\n      ")])

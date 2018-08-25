@@ -4,7 +4,7 @@
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
 
     <b-navbar-brand href="/home">
-      <img v-if="user && user.avatar" :src="user.avatar" class="d-inline-block align-top" alt="avatar">
+      <img v-if="user && user.avatar" :src="user.avatar" class="d-inline-block align-top img img-circle" alt="avatar">
       <span v-else>
         Deco
       </span>
