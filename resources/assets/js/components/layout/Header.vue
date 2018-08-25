@@ -56,14 +56,24 @@ export default {
     mixins: [userMixin],
     created(){
       console.log('created');
-       
-          FB.init({
-            appId            : '447979732292392',
-            autoLogAppEvents : true,
-            xfbml            : true,
-            version          : 'v3.1'
-          });
-        console.log('fb',FB);
+        window.fbAsyncInit = function() {
+        FB.init({
+          appId            : '447979732292392',
+          autoLogAppEvents : true,
+          xfbml            : true,
+          version          : 'v3.1'
+        });
+      };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/es_LA/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+
+      fbAsyncInit();
     },
     watch : {
       user(){
@@ -72,7 +82,8 @@ export default {
     },
     methods : {
       logout(){
-
+          console.log(FB);
+          
             FB.getLoginStatus(response => {
             console.log(response);
             if (response.status == 'connected') {

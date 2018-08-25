@@ -86801,14 +86801,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_user_js__["a" /* userMixin */]],
   created: function created() {
     console.log('created');
+    window.fbAsyncInit = function () {
+      FB.init({
+        appId: '447979732292392',
+        autoLogAppEvents: true,
+        xfbml: true,
+        version: 'v3.1'
+      });
+    };
 
-    FB.init({
-      appId: '447979732292392',
-      autoLogAppEvents: true,
-      xfbml: true,
-      version: 'v3.1'
-    });
-    console.log('fb', FB);
+    (function (d, s, id) {
+      var js,
+          fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        return;
+      }
+      js = d.createElement(s);js.id = id;
+      js.src = "https://connect.facebook.net/es_LA/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, 'script', 'facebook-jssdk');
+
+    fbAsyncInit();
   },
 
   watch: {
@@ -86818,6 +86831,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   methods: {
     logout: function logout() {
+      console.log(FB);
 
       FB.getLoginStatus(function (response) {
         console.log(response);
