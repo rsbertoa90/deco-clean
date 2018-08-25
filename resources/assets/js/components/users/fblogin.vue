@@ -26,12 +26,12 @@ export default {
            if (event.response != undefined){
 
                if(event.response.status == 'connected'){
-                   FB = event.FB;
-                   console.log('fb',FB);
-                   console.log('status',FB.getLoginStatus(res => {
+                   tfb = event.FB;
+                   console.log('fb',tfb);
+                   console.log('status',tfb.getLoginStatus(res => {
                        console.log(res);
                    }));
-                  FB.api('/me', {fields: 'last_name'}, function(r) {
+                  tfb.api('/me', {fields: 'last_name'}, function(r) {
                     console.log(r);
                 });
                   
