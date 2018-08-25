@@ -22,7 +22,7 @@ class LoginController extends Controller
 
 
     public function fblogin(Request $request){
-        return $request->all();
+        
         $user = User::where('provider_id',$request->id)->get()->first();
 
         if ($user){
