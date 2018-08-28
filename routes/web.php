@@ -53,9 +53,9 @@ Route::middleware('CheckAdmin')->prefix('admin')->group(function () {
 });
 
 
-
 Route::get('/',  'HomeController@index');
 
+Route::get('/getUser','UserController@getLoggedUser');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

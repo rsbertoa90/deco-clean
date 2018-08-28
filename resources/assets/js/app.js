@@ -95,7 +95,15 @@ Vue.filter('date',(value)=>{return moment(value).format('DD/MM/YYYY')});
 var PulseLoader = require('vue-spinner/src/PulseLoader.vue');
 Vue.component('pulse-loader', require('vue-spinner/src/PulseLoader.vue'));
 
+Vue.component('app-mp', require('./components/MP.vue'));
+import {store} from './store/store.js';
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    store,
+    created(){
+        this.$store.dispatch('fetchActiveCities');
+        this.$store.dispatch('fetchUser');
+        
+    }
 });
