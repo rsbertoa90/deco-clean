@@ -27,7 +27,7 @@
                     <tbody>
                         <tr v-for="event in events" :key="event.id">
                             <td> {{event.seminar.title}} </td>
-                            <td> {{event.date}} </td>
+                            <td> {{event.date | date}} </td>
                             <td> {{event.hour}} </td>
                             <td> ${{event.price}} </td>
                             <td v-if="event.inscriptions.length >= event.quota" class="text-danger"> Completo! </td>
