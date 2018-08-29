@@ -32,7 +32,8 @@
                             <td> ${{event.price}} </td>
                             <td v-if="event.inscriptions.length >= event.quota" class="text-danger"> Completo! </td>
                             <td v-else class="text-warning"> Quedan {{event.quota - event.inscriptions.length}} lugares! </td>
-                            <td> <button @click="inscription(event)" class="btn btn-block btn-outline-success">Inscribirme</button> </td>
+                            <td v-if="event.userInscription"> <button @click="inscription(event)" class="btn btn-block btn-outline-success">Inscribirme</button> </td>
+                            <td v-else> <button @click="inscription(event)" class="btn btn-block btn-outline-danger"> Cancelar inscripcion </button> </td>
                         </tr>
                     </tbody>
                 </table>
@@ -60,6 +61,13 @@ export default {
             if(!this.user)
             {
                 this.$modal.show('login-modal');
+            } else {
+                if(event.userInscription == undefined)
+                {
+                    vue.set(event,'userInscription',true);
+                }else{
+                    event.userInscription = !event.userInscription;
+                }
             }
         },
         setCity(city){

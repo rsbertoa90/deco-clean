@@ -95962,6 +95962,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -95979,6 +95980,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             console.log(this.user);
             if (!this.user) {
                 this.$modal.show('login-modal');
+            } else {
+                if (event.userInscription == undefined) {
+                    vue.set(event, 'userInscription', true);
+                } else {
+                    event.userInscription = !event.userInscription;
+                }
             }
         },
         setCity: function setCity(city) {
@@ -96265,20 +96272,37 @@ var render = function() {
                               )
                             ]),
                         _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-block btn-outline-success",
-                              on: {
-                                click: function($event) {
-                                  _vm.inscription(event)
-                                }
-                              }
-                            },
-                            [_vm._v("Inscribirme")]
-                          )
-                        ])
+                        event.userInscription
+                          ? _c("td", [
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "btn btn-block btn-outline-success",
+                                  on: {
+                                    click: function($event) {
+                                      _vm.inscription(event)
+                                    }
+                                  }
+                                },
+                                [_vm._v("Inscribirme")]
+                              )
+                            ])
+                          : _c("td", [
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "btn btn-block btn-outline-danger",
+                                  on: {
+                                    click: function($event) {
+                                      _vm.inscription(event)
+                                    }
+                                  }
+                                },
+                                [_vm._v(" Cancelar inscripcion ")]
+                              )
+                            ])
                       ])
                     })
                   )
