@@ -56,6 +56,7 @@ export default {
     },
     methods:{ 
         inscription(event){
+            console.log(this.user);
             if(!this.user)
             {
                 this.$modal.show('login-modal');

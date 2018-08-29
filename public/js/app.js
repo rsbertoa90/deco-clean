@@ -95976,6 +95976,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         inscription: function inscription(event) {
+            console.log(this.user);
             if (!this.user) {
                 this.$modal.show('login-modal');
             }
