@@ -32,7 +32,7 @@
                             <td> ${{event.price}} </td>
                             <td v-if="event.inscriptions.length >= event.quota" class="text-danger"> Completo! </td>
                             <td v-else class="text-warning"> Quedan {{event.quota - event.inscriptions.length}} lugares! </td>
-                            <td v-if="event.userInscription"> <button @click="inscription(event)" class="btn btn-block btn-outline-success">Inscribirme</button> </td>
+                            <td v-if="!event.userInscription"> <button @click="inscription(event)" class="btn btn-block btn-outline-success">Inscribirme</button> </td>
                             <td v-else> <button @click="inscription(event)" class="btn btn-block btn-outline-danger"> Cancelar inscripcion </button> </td>
                         </tr>
                     </tbody>

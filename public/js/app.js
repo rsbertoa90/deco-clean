@@ -96272,7 +96272,7 @@ var render = function() {
                               )
                             ]),
                         _vm._v(" "),
-                        event.userInscription
+                        !event.userInscription
                           ? _c("td", [
                               _c(
                                 "button",
