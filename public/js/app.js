@@ -96068,15 +96068,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
         },
         inscriptions: function inscriptions() {
-            var vm = this;
-            return this.events.filter(function (ev) {
-                var oldinscription = vm.user.inscriptions.find(function (e) {
-                    return e.id == ev.id;
+            if (this.user) {
+                var vm = this;
+                return this.events.filter(function (ev) {
+                    var oldinscription = vm.user.inscriptions.find(function (e) {
+                        return e.id == ev.id;
+                    });
+                    if (!oldinscription) {
+                        return ev.userInscription;
+                    }
                 });
-                if (!oldinscription) {
-                    return ev.userInscription;
-                }
-            });
+            }
         }
     },
     watch: {
@@ -96084,19 +96086,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (this.mode == 'online') {
                 this.selected = null;
             }
-        }
-    },
-    mounted: function mounted() {
-        var vm = this;
-        vm.user.inscriptions.forEach(function (insc) {
-            var event = vm.events.find(function (e) {
-                return e.id == insc.event.id && insc.status != 'cancelada';
-            });
-            if (event) {
-                Vue.set(event, 'userInscription', true);
+        },
+        user: function user() {
+            if (this.user) {
+
+                var vm = this;
+                vm.user.inscriptions.forEach(function (insc) {
+                    var event = vm.events.find(function (e) {
+                        return e.id == insc.event.id && insc.status != 'cancelada';
+                    });
+                    if (event) {
+                        Vue.set(event, 'userInscription', true);
+                    }
+                });
             }
-        });
+        }
     }
+
 });
 
 /***/ }),
@@ -96393,7 +96399,7 @@ var render = function() {
       _vm._v(" "),
       _c("login-modal"),
       _vm._v(" "),
-      _vm.inscriptions.length > 0
+      _vm.events && _vm.inscriptions && _vm.inscriptions.length > 0
         ? _c("div", { staticClass: "pay-pop bg-success p-2" }, [
             _c("div", { staticClass: "bg-white" }, [
               _c("span", { staticClass: "fa fa-chart text-success" }),

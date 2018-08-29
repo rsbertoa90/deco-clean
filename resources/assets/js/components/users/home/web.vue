@@ -42,7 +42,7 @@
         </div>
         <login-modal></login-modal>
 
-        <div v-if="inscriptions.length > 0" class="pay-pop bg-success p-2">
+        <div v-if="events && inscriptions && inscriptions.length > 0" class="pay-pop bg-success p-2">
             <div class="bg-white">
                 <span class="fa fa-chart text-success"></span>
                 <h4 v-if="inscriptions.length == 1">Tienes {{inscriptions.length}} inscripcion pendientes </h4>
@@ -108,15 +108,17 @@ export default {
             }
         },
         inscriptions(){
-            var vm = this;
-            return this.events.filter(ev => {
-                let oldinscription = vm.user.inscriptions.find(e => {
-                    return e.id == ev.id;
+            if(this.user){
+                var vm = this;
+                return this.events.filter(ev => {
+                    let oldinscription = vm.user.inscriptions.find(e => {
+                        return e.id == ev.id;
+                    });
+                    if (!oldinscription){
+                        return ev.userInscription;
+                    }  
                 });
-                if (!oldinscription){
-                    return ev.userInscription;
-                }  
-            });
+            }
         }
     },
     watch :{
@@ -124,21 +126,24 @@ export default {
             if (this.mode == 'online'){
                 this.selected = null;
             }
+        },
+        user(){
+            if(this.user){
+
+                var vm = this;
+                vm.user.inscriptions.forEach(insc => {
+                let event = vm.events.find(e => {
+                    return (e.id == insc.event.id && insc.status != 'cancelada')
+                    });
+                if (event)
+                {
+                     Vue.set(event,'userInscription',true);
+                }
+            });
+            }
         }
     },
-    mounted(){
-        var vm = this;
-        vm.user.inscriptions.forEach(insc => {
-            let event = vm.events.find(e => {
-                return (e.id == insc.event.id && insc.status != 'cancelada')
-                });
-            if (event)
-            {
-                 Vue.set(event,'userInscription',true);
-            }
-        });
-        
-    }
+    
 }
 </script>
 
