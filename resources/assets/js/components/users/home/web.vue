@@ -162,6 +162,9 @@ export default {
         }
         
     }
+    .fa-shopping-cart{
+        font-size: 30px;
+    }
 
 </style>
 

@@ -95948,7 +95948,7 @@ exports = module.exports = __webpack_require__(9)(false);
 
 
 // module
-exports.push([module.i, "\n.pay-pop[data-v-079c9ea2] {\n  position: fixed;\n  bottom: 2%;\n  right: 2%;\n}\n.pay-pop .bg-white[data-v-079c9ea2] {\n    background-color: #fff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    padding: 10px;\n}\n", ""]);
+exports.push([module.i, "\n.pay-pop[data-v-079c9ea2] {\n  position: fixed;\n  bottom: 2%;\n  right: 2%;\n}\n.pay-pop .bg-white[data-v-079c9ea2] {\n    background-color: #fff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    padding: 10px;\n}\n.fa-shopping-cart[data-v-079c9ea2] {\n  font-size: 30px;\n}\n", ""]);
 
 // exports
 
