@@ -32,9 +32,30 @@ class UsersTableSeeder extends Seeder
       $manager->save();
 
       $super = new User();
-      $super->name = 'super';
-      $super->email = 'super@gmail.com';
-      $super->password = bcrypt('super');
+      $super->name = 'Jony';
+      $super->email = 'dobson@dobson.io';
+      $super->password = bcrypt('Jonas2018');
+       $super->role_id =1 ;
+      $super->save();
+   
+      $super = new User();
+      $super->name = 'Gise';
+      $super->email = 'roominagii@gmail.com';
+      $super->password = bcrypt('roominagii');
+       $super->role_id =1 ;
+      $super->save();
+   
+      $super = new User();
+      $super->name = 'Rodrigo';
+      $super->email = 'rsbertoa90@gmail.com';
+      $super->password = bcrypt('rsbertoa90');
+       $super->role_id =1 ;
+      $super->save();
+   
+      $super = new User();
+      $super->name = 'Fede';
+      $super->email = 'fgobea@flopsolutions.com';
+      $super->password = bcrypt('fgobea');
        $super->role_id =1 ;
       $super->save();
    
