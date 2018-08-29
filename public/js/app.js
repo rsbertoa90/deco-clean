@@ -96020,12 +96020,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     components: { loginModal: __WEBPACK_IMPORTED_MODULE_0__login_modal_vue___default.a },
     data: function data() {
         return {
+            csrf: window.csrf,
             selected: null,
             mode: 'online'
 
@@ -96079,6 +96083,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     }
                 });
             }
+        },
+        jsonList: function jsonList() {
+            return JSON.stringify(this.inscriptions);
         }
     },
     watch: {
@@ -96425,7 +96432,30 @@ var render = function() {
                   ])
                 : _vm._e(),
               _vm._v(" "),
-              _vm._m(1)
+              _c("form", { attrs: { action: "/checkout" } }, [
+                _c("input", {
+                  attrs: { type: "hidden", name: "_token" },
+                  domProps: { value: _vm.csrf }
+                }),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: { type: "hidden", name: "list" },
+                  domProps: { value: _vm.jsonList }
+                }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn-block btn-outline-success",
+                    attrs: { type: "submit" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                    Pagar ahora\n                "
+                    )
+                  ]
+                )
+              ])
             ])
           ])
         : _vm._e()
@@ -96450,15 +96480,6 @@ var staticRenderFns = [
       _c("th", [_vm._v("Cupo")]),
       _vm._v(" "),
       _c("th")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("button", { staticClass: "btn-block btn-outline-success" }, [
-      _c("span", { staticClass: "fa fa-dollar-sign" }),
-      _vm._v("\n                Pagar ahora\n            ")
     ])
   }
 ]

@@ -47,10 +47,13 @@
                 <span class="fa fa-shopping-cart text-success"></span>
                 <h4 v-if="inscriptions.length == 1">Tienes {{inscriptions.length}} inscripcion pendientes </h4>
                 <h4 v-if="inscriptions.length > 1">Tienes {{inscriptions.length}} inscripciones pendientes </h4>
-                <button class="btn-block btn-outline-success">
-                    <span class="fa fa-dollar-sign"></span>
-                    Pagar ahora
-                </button>
+                <form action="/checkout">
+                    <input type="hidden" name="_token" :value="csrf">
+                    <input type="hidden" name="list" :value="jsonList">
+                    <button type="submit" class="btn-block btn-outline-success">
+                        Pagar ahora
+                    </button>
+                </form>
             </div>
         </div>
 
@@ -63,6 +66,7 @@ export default {
     components:{loginModal},
     data(){
         return{
+            csrf : window.csrf,
             selected: null,
             mode : 'online',
     
@@ -119,6 +123,9 @@ export default {
                     }  
                 });
             }
+        },
+        jsonList(){
+            return JSON.stringify(this.inscriptions);
         }
     },
     watch :{
