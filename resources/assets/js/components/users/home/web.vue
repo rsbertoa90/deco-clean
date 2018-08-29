@@ -64,7 +64,7 @@ export default {
             } else {
                 if(event.userInscription == undefined)
                 {
-                    vue.set(event,'userInscription',true);
+                    Vue.set(event,'userInscription',true);
                 }else{
                     event.userInscription = !event.userInscription;
                 }

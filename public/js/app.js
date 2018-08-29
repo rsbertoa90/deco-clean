@@ -95982,7 +95982,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 this.$modal.show('login-modal');
             } else {
                 if (event.userInscription == undefined) {
-                    vue.set(event, 'userInscription', true);
+                    Vue.set(event, 'userInscription', true);
                 } else {
                     event.userInscription = !event.userInscription;
                 }
