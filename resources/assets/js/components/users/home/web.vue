@@ -47,7 +47,7 @@
                 <span class="fa fa-shopping-cart text-success"></span>
                 <h4 v-if="inscriptions.length == 1">Tienes {{inscriptions.length}} inscripcion pendientes </h4>
                 <h4 v-if="inscriptions.length > 1">Tienes {{inscriptions.length}} inscripciones pendientes </h4>
-                <form action="/checkout">
+                <form action="/checkout" method="post">
                     <input type="hidden" name="_token" :value="csrf">
                     <input type="hidden" name="list" :value="jsonList">
                     <button type="submit" class="btn-block btn-outline-success">

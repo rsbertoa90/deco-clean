@@ -96432,7 +96432,7 @@ var render = function() {
                   ])
                 : _vm._e(),
               _vm._v(" "),
-              _c("form", { attrs: { action: "/checkout" } }, [
+              _c("form", { attrs: { action: "/checkout", method: "post" } }, [
                 _c("input", {
                   attrs: { type: "hidden", name: "_token" },
                   domProps: { value: _vm.csrf }
