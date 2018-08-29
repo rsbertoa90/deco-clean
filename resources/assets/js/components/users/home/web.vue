@@ -42,10 +42,11 @@
         </div>
         <login-modal></login-modal>
 
-        <div class="pay-pop bg-success p-2">
+        <div v-if="inscriptions.length > 0" class="pay-pop bg-success p-2">
             <div class="bg-white">
                 <span class="fa fa-chart text-success"></span>
-                <h4>Tienes {{inscriptions.length}} inscripciones pendientes </h4>
+                <h4 v-if="inscriptions.length == 1">Tienes {{inscriptions.length}} inscripcion pendientes </h4>
+                <h4 v-if="inscriptions.length > 1">Tienes {{inscriptions.length}} inscripciones pendientes </h4>
                 <button class="btn-block btn-outline-success">
                     <span class="fa fa-dollar-sign"></span>
                     Pagar ahora
@@ -151,6 +152,8 @@ export default {
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
+            padding: 10px;
         }
         
     }
