@@ -57,7 +57,7 @@ class UsersTableSeeder extends Seeder
       $super->email = 'fgobea@flopsolutions.com';
       $super->password = bcrypt('fgobea');
        $super->role_id =1 ;
-      $super->save();
+      $super->save();  
    
 
       // factory(App\User::class,50)->create();
