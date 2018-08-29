@@ -89,9 +89,10 @@ export default {
             if (response.status == 'connected') {
               FB.logout(r => {
                 window.location.replace('/logout');
-              });
-
-            } 
+              })
+            } else {
+              window.location.replace('/logout');
+            }
           });
 
       

@@ -9,7 +9,7 @@
             @login="getUserData"
             @logout="onLogout"
             @get-initial-status="getUserData"
-            loginLabel="Ingresar con Faecebook"
+            loginLabel="Ingresar con Facebook"
             logoutLabel="Desloguear de Facebook">
         </facebook-login>
 

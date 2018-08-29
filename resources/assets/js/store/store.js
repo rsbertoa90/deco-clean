@@ -6,7 +6,8 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
     state: {
         user: null,
-        activeCities:[]
+        activeCities:[],
+        onlineEvents:[]
     },
     getters: {
         getUser(store) {
@@ -16,7 +17,12 @@ export const store = new Vuex.Store({
         getActiveCities(store)
         {
             return store.activeCities;
+        },
+        getOnlineEvents(store)
+        {
+            return store.onlineEvents;
         }
+        
     },
     mutations: {
         setUser(state, payload) {
@@ -25,6 +31,11 @@ export const store = new Vuex.Store({
 
         setActiveCities(state,payload){
             state.activeCities = payload;
+        },
+
+        setOnlineEvents(state,payload)
+        {
+            state.onlineEvents = payload;
         }
     },
     actions: {
@@ -39,9 +50,15 @@ export const store = new Vuex.Store({
                 });
         },
         fetchActiveCities: ({commit},payload) => {
-            Vue.http.get('/activeCitys')
+            Vue.http.get('/api/activeCitys')
                 .then(response => {
                     commit('setActiveCities',response.data);
+                });
+        },
+        fetchOnlineEvents: ({commit},payload) => {
+            Vue.http.get('/api/events/online')
+                .then(response => {
+                    commit('setOnlineEvents', response.data);
                 });
         },
     },

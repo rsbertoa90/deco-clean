@@ -83,6 +83,8 @@ Vue.component('app-inscriptions', inscriptions);
 
 Vue.component('fb-login', require('./components/users/fblogin.vue') );
 
+Vue.component('app-home',require('./components/users/home/Home.vue'));
+
 // filstros
 Vue.filter('price', (value)=>{
     if (value % 1 != 0) {
@@ -98,11 +100,27 @@ Vue.component('pulse-loader', require('vue-spinner/src/PulseLoader.vue'));
 Vue.component('app-mp', require('./components/MP.vue'));
 import {store} from './store/store.js';
 
+import VueMq from 'vue-mq'
+
+Vue.use(VueMq, {
+    breakpoints: {
+        sm: 960,
+        lg: Infinity,
+    }
+})
+
+
+import VModal from 'vue-js-modal'
+
+Vue.use(VModal)
+
+
 const app = new Vue({
     el: '#app',
     store,
     created(){
         this.$store.dispatch('fetchActiveCities');
+        this.$store.dispatch('fetchOnlineEvents');
         this.$store.dispatch('fetchUser');
         
     }

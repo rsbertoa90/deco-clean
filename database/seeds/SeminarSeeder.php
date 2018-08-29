@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\Seminar;
 class SeminarSeeder extends Seeder
 {
     /**
@@ -11,6 +11,9 @@ class SeminarSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Seminar::class)->times(3)->create();
+        Seminar::create(['title'=>'Tortas altas','description'=>'test data']);
+        Seminar::create(['title'=>'Multitecnicas 1','description'=>'test data']);
+        Seminar::create(['title'=>'Multitecnicas 2','description'=>'test data']);
+        Seminar::create(['title'=>'Bordes perfectos','description'=>'test data']);
     }
 }

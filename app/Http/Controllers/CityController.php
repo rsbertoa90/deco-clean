@@ -35,6 +35,6 @@ class CityController extends Controller
 
     public function getActiveCitys(){
         
-        return City::with('state')->whereHas('events')->get();
+        return City::with('state')->with('events.inscriptions')->with('events.seminar')->whereHas('events')->get();
     }
 }
