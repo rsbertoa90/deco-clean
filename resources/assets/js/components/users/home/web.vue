@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="mb-5">
         <div class="row">
             <div class="col-3">   
                     <button  @click="mode='online'" class="btn btn-block"
@@ -44,7 +44,7 @@
 
         <div v-if="events && inscriptions && inscriptions.length > 0" class="pay-pop bg-success p-2">
             <div class="bg-white">
-                <span class="fa fa-chart text-success"></span>
+                <span class="fa fa-shopping-cart text-success"></span>
                 <h4 v-if="inscriptions.length == 1">Tienes {{inscriptions.length}} inscripcion pendientes </h4>
                 <h4 v-if="inscriptions.length > 1">Tienes {{inscriptions.length}} inscripciones pendientes </h4>
                 <button class="btn-block btn-outline-success">

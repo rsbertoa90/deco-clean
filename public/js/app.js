@@ -96261,6 +96261,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "mb-5" },
     [
       _c("div", { staticClass: "row" }, [
         _c(
@@ -96402,7 +96403,7 @@ var render = function() {
       _vm.events && _vm.inscriptions && _vm.inscriptions.length > 0
         ? _c("div", { staticClass: "pay-pop bg-success p-2" }, [
             _c("div", { staticClass: "bg-white" }, [
-              _c("span", { staticClass: "fa fa-chart text-success" }),
+              _c("span", { staticClass: "fa fa-shopping-cart text-success" }),
               _vm._v(" "),
               _vm.inscriptions.length == 1
                 ? _c("h4", [
