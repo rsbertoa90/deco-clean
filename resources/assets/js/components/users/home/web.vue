@@ -41,6 +41,18 @@
             </div>
         </div>
         <login-modal></login-modal>
+
+        <div class="pay-pop bg-success p-2">
+            <div class="bg-white">
+                <span class="fa fa-chart text-success"></span>
+                <h4>Tienes {{inscriptions.length}} inscripciones pendientes </h4>
+                <button class="btn-block btn-outline-success">
+                    <span class="fa fa-dollar-sign"></span>
+                    Pagar ahora
+                </button>
+            </div>
+        </div>
+
     </div>
 </template>
 
@@ -95,8 +107,14 @@ export default {
             }
         },
         inscriptions(){
+            var vm = this;
             return this.events.filter(ev => {
-                return ev.userInscription;
+                let oldinscription = vm.user.inscriptions.find(e => {
+                    return e.id == ev.id;
+                });
+                if (!oldinscription){
+                    return ev.userInscription;
+                }  
             });
         }
     },
@@ -106,6 +124,36 @@ export default {
                 this.selected = null;
             }
         }
+    },
+    mounted(){
+        var vm = this;
+        vm.user.inscriptions.forEach(insc => {
+            let event = vm.events.find(e => {
+                return (e.id == insc.event.id && insc.status != 'cancelada')
+                });
+            if (event)
+            {
+                 Vue.set(event,'userInscription',true);
+            }
+        });
+        
     }
 }
 </script>
+
+<style lang="scss" scoped>
+    .pay-pop{
+        position: fixed;
+        bottom: 2%;
+        right: 2%;
+        .bg-white{
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+    }
+
+</style>
+

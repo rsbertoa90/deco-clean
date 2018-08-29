@@ -95867,17 +95867,21 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(520)
+}
 var normalizeComponent = __webpack_require__(4)
 /* script */
 var __vue_script__ = __webpack_require__(470)
 /* template */
-var __vue_template__ = __webpack_require__(474)
+var __vue_template__ = __webpack_require__(522)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-079c9ea2"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -95917,6 +95921,18 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__login_modal_vue__ = __webpack_require__(471);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__login_modal_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__login_modal_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -96011,8 +96027,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
         },
         inscriptions: function inscriptions() {
+            var vm = this;
             return this.events.filter(function (ev) {
-                return ev.userInscription;
+                var oldinscription = vm.user.inscriptions.find(function (e) {
+                    return e.id == ev.id;
+                });
+                if (!oldinscription) {
+                    return ev.userInscription;
+                }
             });
         }
     },
@@ -96022,6 +96044,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 this.selected = null;
             }
         }
+    },
+    mounted: function mounted() {
+        var vm = this;
+        vm.user.inscriptions.forEach(function (insc) {
+            var event = vm.events.find(function (e) {
+                return e.id == insc.event.id && insc.status != 'cancelada';
+            });
+            if (event) {
+                Vue.set(event, 'userInscription', true);
+            }
+        });
     }
 });
 
@@ -96172,186 +96205,7 @@ if (false) {
 }
 
 /***/ }),
-/* 474 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("div", { staticClass: "row" }, [
-        _c(
-          "div",
-          { staticClass: "col-3" },
-          [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-block",
-                class: {
-                  "btn-info": _vm.mode == "online",
-                  "btn-outline-info": _vm.mode != "online"
-                },
-                on: {
-                  click: function($event) {
-                    _vm.mode = "online"
-                  }
-                }
-              },
-              [_vm._v("\n                     ONLINE\n                ")]
-            ),
-            _vm._v(" "),
-            _vm._l(_vm.activeCities, function(city) {
-              return _c(
-                "button",
-                {
-                  key: city.id,
-                  staticClass: "btn btn-block",
-                  class: {
-                    "btn-info": _vm.selected == city,
-                    "btn-outline-info": _vm.selected != city
-                  },
-                  on: {
-                    click: function($event) {
-                      _vm.setCity(city)
-                    }
-                  }
-                },
-                [
-                  _vm._v(
-                    "\n                     " +
-                      _vm._s(city.state.name) +
-                      " - " +
-                      _vm._s(city.name) +
-                      "\n                "
-                  )
-                ]
-              )
-            })
-          ],
-          2
-        ),
-        _vm._v(" "),
-        _vm.events
-          ? _c("div", { staticClass: "col-9" }, [
-              _c("h1", [_vm._v("Inscribite en nuestros seminarios")]),
-              _vm._v(" "),
-              _c("hr"),
-              _vm._v(" "),
-              _c(
-                "table",
-                { staticClass: "table table-striped table-bordered" },
-                [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.events, function(event) {
-                      return _c("tr", { key: event.id }, [
-                        _c("td", [
-                          _vm._v(" " + _vm._s(event.seminar.title) + " ")
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(" " + _vm._s(_vm._f("date")(event.date)) + " ")
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(" " + _vm._s(event.hour) + " ")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(" $" + _vm._s(event.price) + " ")]),
-                        _vm._v(" "),
-                        event.inscriptions.length >= event.quota
-                          ? _c("td", { staticClass: "text-danger" }, [
-                              _vm._v(" Completo! ")
-                            ])
-                          : _c("td", { staticClass: "text-warning" }, [
-                              _vm._v(
-                                " Quedan " +
-                                  _vm._s(
-                                    event.quota - event.inscriptions.length
-                                  ) +
-                                  " lugares! "
-                              )
-                            ]),
-                        _vm._v(" "),
-                        !event.userInscription
-                          ? _c("td", [
-                              _c(
-                                "button",
-                                {
-                                  staticClass:
-                                    "btn btn-block btn-outline-success",
-                                  on: {
-                                    click: function($event) {
-                                      _vm.inscription(event)
-                                    }
-                                  }
-                                },
-                                [_vm._v("Inscribirme")]
-                              )
-                            ])
-                          : _c("td", [
-                              _c(
-                                "button",
-                                {
-                                  staticClass:
-                                    "btn btn-block btn-outline-danger",
-                                  on: {
-                                    click: function($event) {
-                                      _vm.inscription(event)
-                                    }
-                                  }
-                                },
-                                [_vm._v(" Cancelar inscripcion ")]
-                              )
-                            ])
-                      ])
-                    })
-                  )
-                ]
-              )
-            ])
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _c("login-modal")
-    ],
-    1
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("th", [_vm._v("Seminario")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Fecha")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Hora")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Precio")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Cupo")]),
-      _vm._v(" "),
-      _c("th")
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-079c9ea2", module.exports)
-  }
-}
-
-/***/ }),
+/* 474 */,
 /* 475 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -98160,6 +98014,282 @@ module.exports = camel2hyphen;
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 489 */,
+/* 490 */,
+/* 491 */,
+/* 492 */,
+/* 493 */,
+/* 494 */,
+/* 495 */,
+/* 496 */,
+/* 497 */,
+/* 498 */,
+/* 499 */,
+/* 500 */,
+/* 501 */,
+/* 502 */,
+/* 503 */,
+/* 504 */,
+/* 505 */,
+/* 506 */,
+/* 507 */,
+/* 508 */,
+/* 509 */,
+/* 510 */,
+/* 511 */,
+/* 512 */,
+/* 513 */,
+/* 514 */,
+/* 515 */,
+/* 516 */,
+/* 517 */,
+/* 518 */,
+/* 519 */,
+/* 520 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(521);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(20)("0c294014", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-079c9ea2\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./web.vue", function() {
+     var newContent = require("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-079c9ea2\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./web.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 521 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(10)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.pay-pop[data-v-079c9ea2] {\n  position: fixed;\n  bottom: 2%;\n  right: 2%;\n}\n.pay-pop .bg-white[data-v-079c9ea2] {\n    background-color: #fff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 522 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "col-3" },
+          [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-block",
+                class: {
+                  "btn-info": _vm.mode == "online",
+                  "btn-outline-info": _vm.mode != "online"
+                },
+                on: {
+                  click: function($event) {
+                    _vm.mode = "online"
+                  }
+                }
+              },
+              [_vm._v("\n                     ONLINE\n                ")]
+            ),
+            _vm._v(" "),
+            _vm._l(_vm.activeCities, function(city) {
+              return _c(
+                "button",
+                {
+                  key: city.id,
+                  staticClass: "btn btn-block",
+                  class: {
+                    "btn-info": _vm.selected == city,
+                    "btn-outline-info": _vm.selected != city
+                  },
+                  on: {
+                    click: function($event) {
+                      _vm.setCity(city)
+                    }
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                     " +
+                      _vm._s(city.state.name) +
+                      " - " +
+                      _vm._s(city.name) +
+                      "\n                "
+                  )
+                ]
+              )
+            })
+          ],
+          2
+        ),
+        _vm._v(" "),
+        _vm.events
+          ? _c("div", { staticClass: "col-9" }, [
+              _c("h1", [_vm._v("Inscribite en nuestros seminarios")]),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c(
+                "table",
+                { staticClass: "table table-striped table-bordered" },
+                [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.events, function(event) {
+                      return _c("tr", { key: event.id }, [
+                        _c("td", [
+                          _vm._v(" " + _vm._s(event.seminar.title) + " ")
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(" " + _vm._s(_vm._f("date")(event.date)) + " ")
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(" " + _vm._s(event.hour) + " ")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(" $" + _vm._s(event.price) + " ")]),
+                        _vm._v(" "),
+                        event.inscriptions.length >= event.quota
+                          ? _c("td", { staticClass: "text-danger" }, [
+                              _vm._v(" Completo! ")
+                            ])
+                          : _c("td", { staticClass: "text-warning" }, [
+                              _vm._v(
+                                " Quedan " +
+                                  _vm._s(
+                                    event.quota - event.inscriptions.length
+                                  ) +
+                                  " lugares! "
+                              )
+                            ]),
+                        _vm._v(" "),
+                        !event.userInscription
+                          ? _c("td", [
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "btn btn-block btn-outline-success",
+                                  on: {
+                                    click: function($event) {
+                                      _vm.inscription(event)
+                                    }
+                                  }
+                                },
+                                [_vm._v("Inscribirme")]
+                              )
+                            ])
+                          : _c("td", [
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "btn btn-block btn-outline-danger",
+                                  on: {
+                                    click: function($event) {
+                                      _vm.inscription(event)
+                                    }
+                                  }
+                                },
+                                [_vm._v(" Cancelar inscripcion ")]
+                              )
+                            ])
+                      ])
+                    })
+                  )
+                ]
+              )
+            ])
+          : _vm._e()
+      ]),
+      _vm._v(" "),
+      _c("login-modal"),
+      _vm._v(" "),
+      _c("div", { staticClass: "pay-pop bg-success p-2" }, [
+        _c("div", { staticClass: "bg-white" }, [
+          _c("span", { staticClass: "fa fa-chart text-success" }),
+          _vm._v(" "),
+          _c("h4", [
+            _vm._v(
+              "Tienes " +
+                _vm._s(_vm.inscriptions.length) +
+                " inscripciones pendientes "
+            )
+          ]),
+          _vm._v(" "),
+          _vm._m(1)
+        ])
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("th", [_vm._v("Seminario")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Fecha")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Hora")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Precio")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Cupo")]),
+      _vm._v(" "),
+      _c("th")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("button", { staticClass: "btn-block btn-outline-success" }, [
+      _c("span", { staticClass: "fa fa-dollar-sign" }),
+      _vm._v("\n                Pagar ahora\n            ")
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-079c9ea2", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
