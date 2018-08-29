@@ -164,6 +164,7 @@ export default {
     }
     .fa-shopping-cart{
         font-size: 30px;
+        margin-bottom: 10px;
     }
 
 </style>
