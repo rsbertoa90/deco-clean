@@ -96009,6 +96009,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             } else {
                 return this.selected.events;
             }
+        },
+        inscriptions: function inscriptions() {
+            return this.events.filter(function (ev) {
+                return ev.userInscription;
+            });
         }
     },
     watch: {

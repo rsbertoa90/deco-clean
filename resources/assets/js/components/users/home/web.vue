@@ -93,6 +93,11 @@ export default {
             else {
                 return this.selected.events;
             }
+        },
+        inscriptions(){
+            return this.events.filter(ev => {
+                return ev.userInscription;
+            });
         }
     },
     watch :{

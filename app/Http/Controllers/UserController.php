@@ -20,7 +20,7 @@ class UserController extends Controller
     {
         $user = Auth::user();
         if ($user){
-            return $user;
+            return User::with('inscriptions.event.seminar')->find($user->id);
         }
         else return null;
 
