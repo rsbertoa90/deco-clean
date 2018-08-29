@@ -68,6 +68,9 @@ export default {
         }
     },
     computed:{
+        user(){
+            return this.$store.getters.getUser;
+        },
         activeCities(){
             return this.$store.getters.getActiveCities;
         },
