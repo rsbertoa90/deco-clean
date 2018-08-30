@@ -18,7 +18,7 @@
                 <tfoot>
                     <td></td>
                     <td>TOTAL</td>
-                    <td> {{total}} </td>
+                    <td> {{total()}} </td>
                 </tfoot>
             </table>
         </div>
@@ -31,6 +31,18 @@ export default {
     data(){
         return{
             method : 'mercadopago'
+        }
+    },
+    methods:{
+         total()
+        {
+            var tot = 0;
+            this.parsedList.forEach(i => {
+                    console.log(i);
+                    tot += i.price;
+                });
+            console.log('tot',tot);
+            return tot;
         }
     },
     computed:{
@@ -49,16 +61,7 @@ export default {
             }
             return res;
         },
-        total()
-        {
-            var tot = 0;
-            this.parsedList.forEach(i => {
-                    console.log(i);
-                    tot += i.price;
-                });
-            console.log('tot',tot);
-            return tot;
-        }
+       
     }
 }
 </script>

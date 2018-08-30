@@ -97043,6 +97043,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
 
+    methods: {
+        total: function total() {
+            var tot = 0;
+            this.parsedList.forEach(function (i) {
+                console.log(i);
+                tot += i.price;
+            });
+            console.log('tot', tot);
+            return tot;
+        }
+    },
     computed: {
         parsedList: function parsedList() {
             var vm = this;
@@ -97057,15 +97068,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 });
             }
             return res;
-        },
-        total: function total() {
-            var tot = 0;
-            this.parsedList.forEach(function (i) {
-                console.log(i);
-                tot += i.price;
-            });
-            console.log('tot', tot);
-            return tot;
         }
     }
 });
@@ -97111,7 +97113,7 @@ var render = function() {
           _vm._v(" "),
           _c("td", [_vm._v("TOTAL")]),
           _vm._v(" "),
-          _c("td", [_vm._v(" " + _vm._s(_vm.total) + " ")])
+          _c("td", [_vm._v(" " + _vm._s(_vm.total()) + " ")])
         ])
       ])
     ])
