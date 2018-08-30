@@ -70,7 +70,8 @@ Route::get('/fblogincanceled','LoginController@fbcancel');
 Route::get('/fbdeldata','LoginController@fbdeldata');
 
 // OAuth Routes
-Route::get('auth/facebook', 'Auth\LoginController@redirectToProvider');
+Route::get('/auth/facebook', 'Auth\LoginController@redirectToProvider');
 
-Route::get('auth/facebook/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('/auth/facebook/callback', 'Auth\LoginController@handleProviderCallback');
 
+Route::post('/checkout','PaymentController@checkout');

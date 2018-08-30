@@ -96274,7 +96274,8 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "btn-block btn-outline-success",
+                    staticClass:
+                      "btn-block btn-outline-success font-weight-bold",
                     attrs: { type: "submit" }
                   },
                   [

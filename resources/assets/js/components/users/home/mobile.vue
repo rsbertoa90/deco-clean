@@ -43,7 +43,7 @@
                 <form action="/checkout" method="post">
                     <input type="hidden" name="_token" :value="csrf">
                     <input type="hidden" name="list" :value="jsonList">
-                    <button type="submit" class="btn-block btn-outline-success">
+                    <button type="submit" class="btn-block btn-outline-success font-weight-bold">
                         Pagar ahora
                     </button>
                 </form>

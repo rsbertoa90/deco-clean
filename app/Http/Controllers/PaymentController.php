@@ -18,6 +18,14 @@ use App\User;
 class PaymentController extends Controller
 {
     
+
+    public function checkout(Request $request)
+    {
+        $list = json_decode($request->list);
+        dd($list);
+    }
+
+
     public function index()
     {
         $user = auth()->user();
