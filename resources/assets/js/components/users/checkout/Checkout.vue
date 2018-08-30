@@ -37,7 +37,9 @@ export default {
             var vm=this;
             var res = [];
             if (this.list){
+                console.log(this.list);
                 var parsed = JSON.parse(this.list);
+                console.log(parsed);
                 parsed.foreach(id => {
                     vm.$http.get('/api/event/'+id)
                         .then(response => {
