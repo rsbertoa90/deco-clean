@@ -97047,6 +97047,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var vm = this;
             var res = [];
             if (this.list) {
+                this.list = JSON.parse(this.list);
                 this.list.foreach(function (id) {
                     vm.$http.get('/api/event/' + id).then(function (response) {
                         res.push(response.data);
