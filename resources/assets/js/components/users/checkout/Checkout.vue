@@ -52,9 +52,11 @@ export default {
         total()
         {
             var tot = 0;
-            this.parsedList.foreach(inscription => {
-                tot += inscription.price;
-            });
+            if(this.parsedList){
+                this.parsedList.forEach(inscription => {
+                    tot += inscription.price;
+                });
+            }
             return tot;
         }
     }
