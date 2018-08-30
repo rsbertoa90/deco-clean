@@ -84,6 +84,7 @@ Vue.component('app-inscriptions', inscriptions);
 Vue.component('fb-login', require('./components/users/fblogin.vue') );
 
 Vue.component('app-home',require('./components/users/home/Home.vue'));
+Vue.component('app-checkout',require('./components/users/checkout/Checkout.vue'));
 
 // filstros
 Vue.filter('price', (value)=>{
