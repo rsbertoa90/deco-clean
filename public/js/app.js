@@ -95843,7 +95843,7 @@ exports = module.exports = __webpack_require__(8)(false);
 
 
 // module
-exports.push([module.i, "\nh1[data-v-29d4b3c4] {\n  font-size: 30px;\n}\n.pay-pop[data-v-29d4b3c4] {\n  position: fixed;\n  bottom: 2%;\n  right: 2%;\n}\n.pay-pop .bg-white[data-v-29d4b3c4] {\n    background-color: #fff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    padding: 10px;\n}\n.fa-shopping-cart[data-v-29d4b3c4] {\n  font-size: 30px;\n  margin-bottom: 10px;\n}\n.mb-5[data-v-29d4b3c4] {\n  margin-bottom: 300px;\n}\n", ""]);
+exports.push([module.i, "\nh1[data-v-29d4b3c4] {\n  font-size: 30px;\n}\n.pay-pop[data-v-29d4b3c4] {\n  position: fixed;\n  bottom: 2%;\n  right: 2%;\n}\n.pay-pop .bg-white[data-v-29d4b3c4] {\n    background-color: #fff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    padding: 10px;\n}\n.fa-shopping-cart[data-v-29d4b3c4] {\n  font-size: 30px;\n  margin-bottom: 10px;\n}\n.m-bottom[data-v-29d4b3c4] {\n  margin-bottom: 200px;\n}\n", ""]);
 
 // exports
 
@@ -96059,7 +96059,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "mb-5" },
+    { staticClass: "m-bottom" },
     [
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-12" }, [

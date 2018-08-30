@@ -1,5 +1,5 @@
 <template>
-    <div class="mb-5">
+    <div class="m-bottom">
         <div class="row">
             <div class="col-12"> 
                 <select class="form-control" v-model="selected">
@@ -174,8 +174,8 @@ export default {
         margin-bottom: 10px;
     }
 
-    .mb-5{
-        margin-bottom:300px;
+    .m-bottom{
+        margin-bottom:200px;
     }
 
 </style>
