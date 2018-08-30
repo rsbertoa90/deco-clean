@@ -21,7 +21,7 @@ class PaymentController extends Controller
 
     public function checkout(Request $request)
     {
-        $list = json_decode($request->list);
+        $list = $request->list;
         return view('checkout',compact('list'));
     }
 
