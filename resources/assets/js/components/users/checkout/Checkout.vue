@@ -41,7 +41,7 @@ export default {
         total()
         {
             var tot = 0;
-            this.list.foreach(inscription => {
+            this.parsedList.foreach(inscription => {
                 tot += inscription.price;
             });
             return tot;

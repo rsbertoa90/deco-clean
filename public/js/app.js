@@ -97050,7 +97050,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         total: function total() {
             var tot = 0;
-            this.list.foreach(function (inscription) {
+            this.parsedList.foreach(function (inscription) {
                 tot += inscription.price;
             });
             return tot;
