@@ -174,5 +174,9 @@ export default {
         margin-bottom: 10px;
     }
 
+    .mb-5{
+        margin-bottom:300px;
+    }
+
 </style>
 
