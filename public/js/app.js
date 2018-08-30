@@ -97043,6 +97043,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     computed: {
+        parsedList: function parsedList() {
+            if (this.list) {
+                return JSON.parse(this.list);
+            }
+        },
         total: function total() {
             var tot = 0;
             this.list.foreach(function (inscription) {
@@ -97070,7 +97075,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "tbody",
-          _vm._l(_vm.list, function(inscription) {
+          _vm._l(_vm.parsedList, function(inscription) {
             return _c("tr", { key: inscription.id }, [
               _c("td", [_vm._v(" " + _vm._s(inscription.seminar.title) + " ")]),
               _vm._v(" "),

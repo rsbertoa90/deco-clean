@@ -8,7 +8,7 @@
                     <th> - </th>
                 </thead>
                 <tbody>
-                    <tr v-for="inscription in list" :key="inscription.id">
+                    <tr v-for="inscription in parsedList" :key="inscription.id">
                         <td> {{inscription.seminar.title}} </td>
                         <td> {{inscription.date}} - {{inscription.hour}} </td>
                         <td> ${{inscription.price}} </td>
@@ -33,6 +33,11 @@ export default {
         }
     },
     computed:{
+        parsedList(){
+            if (this.list){
+                return JSON.parse(this.list);
+            }
+        },
         total()
         {
             var tot = 0;
