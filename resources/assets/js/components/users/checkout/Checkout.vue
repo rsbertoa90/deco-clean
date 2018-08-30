@@ -40,7 +40,7 @@ export default {
                 console.log(this.list);
                 var parsed = JSON.parse(this.list);
                 console.log(parsed);
-                parsed.foreach(id => {
+                parsed.forEach(id => {
                     vm.$http.get('/api/event/'+id)
                         .then(response => {
                             res.push(response.data);
