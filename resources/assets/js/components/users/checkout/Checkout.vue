@@ -37,9 +37,7 @@ export default {
             var vm=this;
             var res = [];
             if (this.list){
-                console.log(this.list);
                 var parsed = JSON.parse(this.list);
-                console.log(parsed);
                 parsed.forEach(id => {
                     vm.$http.get('/api/event/'+id)
                         .then(response => {
@@ -54,6 +52,7 @@ export default {
             var tot = 0;
             if(this.parsedList){
                 this.parsedList.forEach(inscription => {
+                    console.log(inscription);
                     tot += inscription.price;
                 });
             }
