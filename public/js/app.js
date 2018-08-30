@@ -97033,6 +97033,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['list'],
@@ -97058,12 +97060,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         total: function total() {
             var tot = 0;
-            if (this.parsedList) {
-                this.parsedList.forEach(function (inscription) {
-                    console.log(inscription);
-                    tot += inscription.price;
-                });
-            }
+
+            this.parsedList.forEach(function (inscription) {
+                console.log(inscription);
+                tot += inscription.price;
+            });
+
             return tot;
         }
     }
@@ -97083,11 +97085,16 @@ var render = function() {
       _vm._v(" "),
       _c("table", { staticClass: "table table-striped" }, [
         _vm._m(0),
-        _vm._v(" "),
+        _vm._v("\n            " + _vm._s(_vm.parsedList) + "\n            "),
         _c(
           "tbody",
           _vm._l(_vm.parsedList, function(inscription) {
             return _c("tr", { key: inscription.id }, [
+              _vm._v(
+                "\n                    " +
+                  _vm._s(inscription) +
+                  "\n                    "
+              ),
               _c("td", [_vm._v(" " + _vm._s(inscription.seminar.title) + " ")]),
               _vm._v(" "),
               _c("td", [
