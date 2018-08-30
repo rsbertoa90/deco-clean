@@ -49168,17 +49168,21 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(524)
+}
 var normalizeComponent = __webpack_require__(4)
 /* script */
 var __vue_script__ = __webpack_require__(471)
 /* template */
-var __vue_template__ = __webpack_require__(472)
+var __vue_template__ = __webpack_require__(526)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-72c073d2"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -96031,6 +96035,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -96043,63 +96049,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 472 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "modal",
-    { attrs: { name: "login-modal", transition: "pop-out" } },
-    [
-      _c("div", { staticClass: "d-flex justify-content-end" }, [
-        _c(
-          "button",
-          { staticClass: "btn btn-sm bg-white ", on: { click: _vm.hide } },
-          [_c("span", { staticClass: "fa fa-times" })]
-        )
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass:
-            "d-flex flex-column justify-content-center align-items-center"
-        },
-        [
-          _c("h2", [_vm._v("Necesitas estar registrado para inscribirte")]),
-          _vm._v(" "),
-          _c("hr"),
-          _vm._v(" "),
-          _c("h4", [
-            _vm._v("\n            Antes de continuar por favor \n            "),
-            _c("a", { attrs: { href: "/login" } }, [_vm._v("Ingresa")]),
-            _vm._v(" \n            o \n            "),
-            _c("a", { attrs: { href: "/register" } }, [
-              _vm._v("\n                Registrate\n            ")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("fb-login")
-        ],
-        1
-      )
-    ]
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-72c073d2", module.exports)
-  }
-}
-
-/***/ }),
+/* 472 */,
 /* 473 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -98639,6 +98589,141 @@ module.exports = camel2hyphen;
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 493 */,
+/* 494 */,
+/* 495 */,
+/* 496 */,
+/* 497 */,
+/* 498 */,
+/* 499 */,
+/* 500 */,
+/* 501 */,
+/* 502 */,
+/* 503 */,
+/* 504 */,
+/* 505 */,
+/* 506 */,
+/* 507 */,
+/* 508 */,
+/* 509 */,
+/* 510 */,
+/* 511 */,
+/* 512 */,
+/* 513 */,
+/* 514 */,
+/* 515 */,
+/* 516 */,
+/* 517 */,
+/* 518 */,
+/* 519 */,
+/* 520 */,
+/* 521 */,
+/* 522 */,
+/* 523 */,
+/* 524 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(525);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(15)("e1fe3b88", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-72c073d2\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./login-modal.vue", function() {
+     var newContent = require("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-72c073d2\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../../node_modules/sass-loader/lib/loader.js!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./login-modal.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 525 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(8)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.card[data-v-72c073d2] {\n  max-width: 90vw;\n}\nh2[data-v-72c073d2] {\n  white-space: normal;\n  text-align: center;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 526 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "modal",
+    { attrs: { name: "login-modal", transition: "pop-out" } },
+    [
+      _c(
+        "div",
+        { staticClass: "d-flex justify-content-end align-items-center" },
+        [
+          _c(
+            "button",
+            { staticClass: "btn btn-sm bg-white ", on: { click: _vm.hide } },
+            [_c("span", { staticClass: "fa fa-times" })]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "card text-center ml-3" }, [
+        _c(
+          "div",
+          { staticClass: "card-body" },
+          [
+            _c("h2", { staticClass: "card-title" }, [
+              _vm._v("Necesitas estar registrado para inscribirte")
+            ]),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c("h4", { staticClass: "card-subtitle" }, [
+              _vm._v(
+                "\n                Antes de continuar por favor \n                "
+              ),
+              _c("a", { attrs: { href: "/login" } }, [_vm._v("Ingresa")]),
+              _vm._v(" \n                o \n                "),
+              _c("a", { attrs: { href: "/register" } }, [
+                _vm._v("\n                    Registrate\n                ")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("fb-login")
+          ],
+          1
+        )
+      ])
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-72c073d2", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

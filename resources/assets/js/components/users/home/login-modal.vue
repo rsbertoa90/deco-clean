@@ -1,22 +1,24 @@
 <template>
     <modal name="login-modal" transition="pop-out" >
-        <div class="d-flex justify-content-end">
+        <div class="d-flex justify-content-end align-items-center">
             <button @click="hide" class="btn btn-sm bg-white ">
                 <span class="fa fa-times"></span>
             </button>
         </div>
-        <div class="d-flex flex-column justify-content-center align-items-center">
-            <h2>Necesitas estar registrado para inscribirte</h2>
-            <hr>
-            <h4>
-                Antes de continuar por favor 
-                <a href="/login">Ingresa</a> 
-                o 
-                <a href="/register">
-                    Registrate
-                </a>  
-            </h4>
-            <fb-login></fb-login>
+        <div class="card text-center ml-3">
+            <div class="card-body">
+                <h2 class="card-title">Necesitas estar registrado para inscribirte</h2>
+                <hr>
+                <h4 class="card-subtitle">
+                    Antes de continuar por favor 
+                    <a href="/login">Ingresa</a> 
+                    o 
+                    <a href="/register">
+                        Registrate
+                    </a>  
+                </h4>
+                <fb-login></fb-login>
+            </div>
         </div>
     </modal> 
 </template>
@@ -32,3 +34,15 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+
+    .card{
+        max-width: 90vw;
+    }
+    h2{
+        white-space: normal;
+        text-align: center;
+    }
+</style>
+
