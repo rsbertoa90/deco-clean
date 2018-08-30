@@ -1,5 +1,5 @@
 <template>
-    <div class="m-bottom">
+    <div class="">
         <div class="row">
             <div class="col-12"> 
                 <select class="form-control" v-model="selected">
@@ -34,6 +34,7 @@
         </div>
         <login-modal></login-modal>
 
+        <div class="m-bottom" v-if="events && inscriptions && inscriptions.length > 0"></div>
         <div v-if="events && inscriptions && inscriptions.length > 0" class="pay-pop bg-success p-2">
             <div class="bg-white">
                 <span class="fa fa-shopping-cart text-success"></span>
