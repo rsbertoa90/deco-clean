@@ -44,6 +44,7 @@ export default {
                     vm.$http.get('/api/event/'+id)
                         .then(response => {
                             res.push(response.data);
+                            vm.$forceUpdate();
                         });
                 });
             }

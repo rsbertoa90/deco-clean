@@ -97053,6 +97053,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 parsed.forEach(function (id) {
                     vm.$http.get('/api/event/' + id).then(function (response) {
                         res.push(response.data);
+                        vm.$forceUpdate();
                     });
                 });
             }
