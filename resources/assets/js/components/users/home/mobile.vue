@@ -38,8 +38,8 @@
         <div v-if="events && inscriptions && inscriptions.length > 0" class="pay-pop bg-success p-2">
             <div class="bg-white">
                 <span class="fa fa-shopping-cart text-success"></span>
-                <h4 v-if="inscriptions.length == 1">Tienes {{inscriptions.length}} inscripcion pendientes </h4>
-                <h4 v-if="inscriptions.length > 1">Tienes {{inscriptions.length}} inscripciones pendientes </h4>
+                <h4 v-if="inscriptions.length == 1" clasS="text-center">Tienes {{inscriptions.length}} inscripcion pendientes </h4>
+                <h4 v-if="inscriptions.length > 1" clasS="text-center">Tienes {{inscriptions.length}} inscripciones pendientes </h4>
                 <form action="/checkout" method="post">
                     <input type="hidden" name="_token" :value="csrf">
                     <input type="hidden" name="list" :value="jsonList">

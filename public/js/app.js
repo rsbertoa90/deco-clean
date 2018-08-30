@@ -96241,7 +96241,7 @@ var render = function() {
               _c("span", { staticClass: "fa fa-shopping-cart text-success" }),
               _vm._v(" "),
               _vm.inscriptions.length == 1
-                ? _c("h4", [
+                ? _c("h4", { attrs: { clasS: "text-center" } }, [
                     _vm._v(
                       "Tienes " +
                         _vm._s(_vm.inscriptions.length) +
@@ -96251,7 +96251,7 @@ var render = function() {
                 : _vm._e(),
               _vm._v(" "),
               _vm.inscriptions.length > 1
-                ? _c("h4", [
+                ? _c("h4", { attrs: { clasS: "text-center" } }, [
                     _vm._v(
                       "Tienes " +
                         _vm._s(_vm.inscriptions.length) +
