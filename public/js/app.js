@@ -97096,7 +97096,7 @@ var render = function() {
               _c("td", [
                 _vm._v(
                   " " +
-                    _vm._s(inscription.date) +
+                    _vm._s(_vm._f("date")(inscription.date)) +
                     " - " +
                     _vm._s(inscription.hour) +
                     " "
