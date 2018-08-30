@@ -34,9 +34,17 @@ export default {
     },
     computed:{
         parsedList(){
+            var vm=this;
+            var res = [];
             if (this.list){
-                return JSON.parse(this.list);
+                this.list.foreach(id => {
+                    vm.$http.get('/api/event/'+id)
+                        .then(response => {
+                            res.push(response.data);
+                        });
+                });
             }
+            return res;
         },
         total()
         {

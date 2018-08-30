@@ -16,6 +16,11 @@ use App\Http\Controllers\InscriptionController;
 class EventController extends Controller 
 {
 
+    public function getById($id)
+    {
+        return Event::with('seminar')->with('inscriptions')->find($id);
+    }
+
     public function getBySeminar($id)
     {
         $seminar = Seminar::find($id);

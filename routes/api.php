@@ -56,4 +56,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
         Route::get('/unregistered/user/{user}','UserController@getUnregistered');
        
         Route::get('/events/by-city/{city}','EventController@getByCity');
+
+        Route::get('/event/{id}','EventController@getById');
         

@@ -97044,9 +97044,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     computed: {
         parsedList: function parsedList() {
+            var vm = this;
+            var res = [];
             if (this.list) {
-                return JSON.parse(this.list);
+                this.list.foreach(function (id) {
+                    vm.$http.get('/api/event/' + id).then(function (response) {
+                        res.push(response.data);
+                    });
+                });
             }
+            return res;
         },
         total: function total() {
             var tot = 0;

@@ -21,7 +21,13 @@ class PaymentController extends Controller
 
     public function checkout(Request $request)
     {
-        $list = $request->list;
+        $rlist = json_decode($request->list);
+        $list =[];
+        foreach ($rlist as $item)
+        {
+            $list[]=$item->id;
+        }
+        
         return view('checkout',compact('list'));
     }
 
