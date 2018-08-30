@@ -97032,6 +97032,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['list'],
@@ -97062,6 +97063,8 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", [
+      _c("h1", [_vm._v("ASDF")]),
+      _vm._v(" "),
       _c("table", { staticClass: "table table-striped" }, [
         _vm._m(0),
         _vm._v(" "),
