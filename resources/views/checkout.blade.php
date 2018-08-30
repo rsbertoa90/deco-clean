@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <app-checkout list="{!! $list !!}"></app-checkout>
+    <app-checkout list="{{ $list }}"></app-checkout>
 @endsection
