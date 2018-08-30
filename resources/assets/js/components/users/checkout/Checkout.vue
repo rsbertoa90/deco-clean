@@ -7,10 +7,9 @@
                     <th> - </th>
                     <th> - </th>
                 </thead>
-                {{parsedList}}
+              
                 <tbody>
                     <tr v-for="inscription in parsedList" :key="inscription.id">
-                        {{ inscription }}
                         <td> {{inscription.seminar.title}} </td>
                         <td> {{inscription.date}} - {{inscription.hour}} </td>
                         <td> ${{inscription.price}} </td>
@@ -53,12 +52,11 @@ export default {
         total()
         {
             var tot = 0;
-           
-                this.parsedList.forEach(inscription => {
-                    console.log(inscription);
-                    tot += inscription.price;
+            this.parsedList.forEach(i => {
+                    console.log(i);
+                    tot += i.price;
                 });
-            
+            console.log('tot',tot);
             return tot;
         }
     }
