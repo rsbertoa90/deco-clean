@@ -12,7 +12,7 @@
                 <div class="col-6 col-lg-8 row">
                     <input class="col-12 form-control" type="text" id="cardNumber" data-checkout="cardNumber" placeholder="4509 9535 6623 3704" />
                     <input class="col-6 col-lg-8 form-control" type="text" id="cardholderName" data-checkout="cardholderName" placeholder="Juan de Los Palotes" />
-                    <div class="col-2">
+                    <div class="col-2 d-flex">
                         <input class=" form-control" type="text" id="cardExpirationMonth" data-checkout="cardExpirationMonth" placeholder="12" />
                        / <input class=" form-control" type="text" id="cardExpirationYear" data-checkout="cardExpirationYear" placeholder="2015" />
                        -- <input class="col-6 col-lg-8 form-control" type="text" id="securityCode" data-checkout="securityCode" placeholder="123" />

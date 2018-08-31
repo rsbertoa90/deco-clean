@@ -98889,7 +98889,7 @@ var staticRenderFns = [
           }
         }),
         _vm._v(" "),
-        _c("div", { staticClass: "col-2" }, [
+        _c("div", { staticClass: "col-2 d-flex" }, [
           _c("input", {
             staticClass: " form-control",
             attrs: {
