@@ -40,6 +40,6 @@ class MPController extends Controller
 
     public function getResponse(Request $request)
     {
-        return $request->all();
+        return response('ok',200);
     }
 }
