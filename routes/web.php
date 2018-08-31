@@ -79,4 +79,4 @@ Route::post('/checkout','PaymentController@checkout');
      Route::post('/mplistener','MPController@getResponse');
         Route::get('/mplistener','MPController@getResponse');
         Route::put('/mplistener','MPController@getResponse');
-        Route::head('/mplistener','MPController@getResponse');
+        
