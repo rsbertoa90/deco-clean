@@ -21,7 +21,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/animate.min.css') }}" rel="stylesheet">
 
- 
+    <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
 
 </head>
 <body>
