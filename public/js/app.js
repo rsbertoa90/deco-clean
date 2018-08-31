@@ -97051,10 +97051,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         total: function total() {
             var tot = 0;
             this.parsedList.forEach(function (i) {
-                console.log(i);
+
                 tot += i.price;
             });
-            console.log('tot', tot);
+
             return tot;
         }
     },
@@ -98768,6 +98768,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -98783,7 +98785,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
     mounted: function mounted() {
-        console.log('mounted', Mercadopago);
+
         Mercadopago.setPublishableKey("TEST-2da260b8-d95b-4379-85f2-e52b5a8e17b9");
     }
 });
@@ -98833,13 +98835,35 @@ var render = function() {
                 _vm._v(" "),
                 _vm._m(4),
                 _vm._v(" "),
-                _vm._m(5),
+                _c("li", { staticClass: "row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-6 col-lg-4",
+                      attrs: { for: "docType" }
+                    },
+                    [_vm._v("Document type:")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      staticClass: "col-6 col-lg-8 form-control",
+                      attrs: { id: "docType", "data-checkout": "docType" }
+                    },
+                    _vm._l(_vm.identificationTypes, function(type) {
+                      return _c("option", { key: type }, [
+                        _vm._v(" " + _vm._s(type) + " ")
+                      ])
+                    })
+                  )
+                ]),
                 _vm._v(" "),
-                _vm._m(6)
+                _vm._m(5)
               ]),
               _vm._v(" "),
               _c("input", {
-                staticClass: "button btn-lg btn-outline-success",
+                staticClass: "button btn-lg btn-outline-success offset-4",
                 attrs: { type: "submit", value: "Pay!" }
               })
             ])
@@ -98959,23 +98983,6 @@ var staticRenderFns = [
           "data-checkout": "cardholderName",
           placeholder: "APRO"
         }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "row" }, [
-      _c(
-        "label",
-        { staticClass: "col-6 col-lg-4", attrs: { for: "docType" } },
-        [_vm._v("Document type:")]
-      ),
-      _vm._v(" "),
-      _c("select", {
-        staticClass: "col-6 col-lg-8 form-control",
-        attrs: { id: "docType", "data-checkout": "docType" }
       })
     ])
   },

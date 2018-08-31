@@ -29,14 +29,16 @@
             </li>
             <li class="row">
                 <label class="col-6 col-lg-4" for="docType">Document type:</label>
-                <select class="col-6 col-lg-8 form-control" id="docType" data-checkout="docType"></select>
+                <select class="col-6 col-lg-8 form-control" id="docType" data-checkout="docType">
+                    <option v-for="type in identificationTypes" :key="type"> {{type}} </option>
+                </select>
             </li>
             <li class="row">
                 <label class="col-6 col-lg-4" for="docNumber">Document number:</label>
                 <input class="col-6 col-lg-8 form-control" type="text" id="docNumber" data-checkout="docNumber" placeholder="12345678" />
             </li>
         </ul>
-        <input type="submit" value="Pay!" class="button btn-lg btn-outline-success" />
+        <input type="submit" value="Pay!" class="button btn-lg btn-outline-success offset-4" />
     </fieldset>
 </form>
     </div>
@@ -58,7 +60,7 @@ export default {
     },
     mounted()
     {
-        console.log('mounted',Mercadopago);
+
         Mercadopago.setPublishableKey("TEST-2da260b8-d95b-4379-85f2-e52b5a8e17b9");
     }
 }

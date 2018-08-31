@@ -41,10 +41,10 @@ export default {
         {
             var tot = 0;
             this.parsedList.forEach(i => {
-                    console.log(i);
+                   
                     tot += i.price;
                 });
-            console.log('tot',tot);
+          
             return tot;
         }
     },
