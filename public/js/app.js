@@ -98782,7 +98782,7 @@ var staticRenderFns = [
               _c("label", { attrs: { for: "" } }, [_vm._v(" Mes /")]),
               _vm._v(" "),
               _c("input", {
-                staticClass: " col-3 form-control",
+                staticClass: " form-control",
                 attrs: {
                   type: "text",
                   id: "cardExpirationMonth",
@@ -98796,7 +98796,7 @@ var staticRenderFns = [
               _c("label", { attrs: { for: "" } }, [_vm._v(" Año ")]),
               _vm._v(" "),
               _c("input", {
-                staticClass: " col-3 form-control",
+                staticClass: " form-control",
                 attrs: {
                   type: "text",
                   id: "cardExpirationYear",
@@ -98810,7 +98810,7 @@ var staticRenderFns = [
               _c("label", { attrs: { for: "" } }, [_vm._v(" cvc ")]),
               _vm._v(" "),
               _c("input", {
-                staticClass: " col-3form-control",
+                staticClass: "form-control",
                 attrs: {
                   type: "text",
                   id: "securityCode",

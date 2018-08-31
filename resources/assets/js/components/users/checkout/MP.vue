@@ -34,15 +34,15 @@
                     <div class="col-12 row">
                         <div class=" fieldd">
                             <label for=""> Mes /</label>
-                            <input class=" col-3 form-control" type="text" id="cardExpirationMonth" data-checkout="cardExpirationMonth" placeholder="12" /> 
+                            <input class=" form-control" type="text" id="cardExpirationMonth" data-checkout="cardExpirationMonth" placeholder="12" /> 
                         </div>
                         <div class=" fieldd">
                             <label for=""> Año </label>
-                            <input class=" col-3 form-control" type="text" id="cardExpirationYear" data-checkout="cardExpirationYear" placeholder="2015" />
+                            <input class=" form-control" type="text" id="cardExpirationYear" data-checkout="cardExpirationYear" placeholder="2015" />
                         </div>
                         <div class="ml-2 fieldd">
                             <label for=""> cvc </label>
-                            <input class=" col-3form-control" type="text" id="securityCode" data-checkout="securityCode" placeholder="123" />
+                            <input class="form-control" type="text" id="securityCode" data-checkout="securityCode" placeholder="123" />
                          </div>
                     </div>
                 </div>
