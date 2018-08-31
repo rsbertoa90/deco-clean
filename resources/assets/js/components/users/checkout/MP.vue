@@ -50,12 +50,6 @@ export default {
             return this.$store.getters.getUser;
         }
     },
-    beforeCreate() {
-        let mp = document.createElement('script');
-        mp.setAttribute('src',"https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js");
-        document.head.appendChild(mp);
-        console.log(mp);
-        },
     mounted()
     {
         console.log('mounted',Mercadopago, MP);
