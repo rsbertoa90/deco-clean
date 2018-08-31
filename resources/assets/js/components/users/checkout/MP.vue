@@ -36,7 +36,7 @@
                 <input class="col-6 col-lg-8 form-control" type="text" id="docNumber" data-checkout="docNumber" placeholder="12345678" />
             </li>
         </ul>
-        <input type="submit" value="Pay!" />
+        <input type="submit" value="Pay!" class="button btn-lg btn-outline-success" />
     </fieldset>
 </form>
     </div>

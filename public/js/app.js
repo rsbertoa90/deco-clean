@@ -98838,7 +98838,10 @@ var render = function() {
                 _vm._m(6)
               ]),
               _vm._v(" "),
-              _c("input", { attrs: { type: "submit", value: "Pay!" } })
+              _c("input", {
+                staticClass: "button btn-lg btn-outline-success",
+                attrs: { type: "submit", value: "Pay!" }
+              })
             ])
           ]
         )
