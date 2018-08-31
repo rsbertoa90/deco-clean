@@ -98744,7 +98744,7 @@ var staticRenderFns = [
         "div",
         {
           staticClass:
-            "col-6 col-lg-6 row p-1 border-black d-flex justify-content-center align-items-center"
+            "offset-lg-2 col-6 row p-1 border-black d-flex justify-content-center align-items-center"
         },
         [
           _c("div", { staticClass: "col-12 fieldd" }, [
@@ -98777,49 +98777,53 @@ var staticRenderFns = [
             })
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-12 row" }, [
-            _c("div", { staticClass: " fieldd" }, [
-              _c("label", { attrs: { for: "" } }, [_vm._v(" Mes /")]),
+          _c(
+            "div",
+            { staticClass: "col-12 row d-flex justify-content-center" },
+            [
+              _c("div", { staticClass: " fieldd" }, [
+                _c("label", { attrs: { for: "" } }, [_vm._v(" Mes /")]),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass: " form-control",
+                  attrs: {
+                    type: "text",
+                    id: "cardExpirationMonth",
+                    "data-checkout": "cardExpirationMonth",
+                    placeholder: "12"
+                  }
+                })
+              ]),
               _vm._v(" "),
-              _c("input", {
-                staticClass: " form-control",
-                attrs: {
-                  type: "text",
-                  id: "cardExpirationMonth",
-                  "data-checkout": "cardExpirationMonth",
-                  placeholder: "12"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: " fieldd" }, [
-              _c("label", { attrs: { for: "" } }, [_vm._v(" Año ")]),
+              _c("div", { staticClass: " fieldd" }, [
+                _c("label", { attrs: { for: "" } }, [_vm._v(" Año ")]),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass: " form-control",
+                  attrs: {
+                    type: "text",
+                    id: "cardExpirationYear",
+                    "data-checkout": "cardExpirationYear",
+                    placeholder: "2015"
+                  }
+                })
+              ]),
               _vm._v(" "),
-              _c("input", {
-                staticClass: " form-control",
-                attrs: {
-                  type: "text",
-                  id: "cardExpirationYear",
-                  "data-checkout": "cardExpirationYear",
-                  placeholder: "2015"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "ml-2 fieldd" }, [
-              _c("label", { attrs: { for: "" } }, [_vm._v(" cvc ")]),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  id: "securityCode",
-                  "data-checkout": "securityCode",
-                  placeholder: "123"
-                }
-              })
-            ])
-          ])
+              _c("div", { staticClass: "ml-2 fieldd" }, [
+                _c("label", { attrs: { for: "" } }, [_vm._v(" cvc ")]),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    id: "securityCode",
+                    "data-checkout": "securityCode",
+                    placeholder: "123"
+                  }
+                })
+              ])
+            ]
+          )
         ]
       )
     ])
