@@ -98776,12 +98776,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return this.$store.getters.getUser;
         }
     },
-    created: function created() {
+    beforeCreate: function beforeCreate() {
         var mp = document.createElement('script');
         mp.setAttribute('src', "https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js");
         document.head.appendChild(mp);
+        console.log(mp);
     },
     mounted: function mounted() {
+        console.log('mounted', Mercadopago, MP);
         Mercadopago.setPublishableKey("TEST-2da260b8-d95b-4379-85f2-e52b5a8e17b9");
     }
 });
