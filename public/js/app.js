@@ -98778,10 +98778,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return this.$store.getters.getUser;
         },
         identificationTypes: function identificationTypes() {
-            Mercadopago.getIdentificationTypes(function (res) {
-                console.log(res);
-                return res;
-            });
+            return Mercadopago.getIdentificationTypes();
         }
     },
     mounted: function mounted() {

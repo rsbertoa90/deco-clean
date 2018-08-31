@@ -52,10 +52,7 @@ export default {
             return this.$store.getters.getUser;
         },
         identificationTypes(){
-            Mercadopago.getIdentificationTypes(res => {
-                console.log(res);
-                return res;
-            });
+           return  Mercadopago.getIdentificationTypes();
         }
     },
     mounted()
