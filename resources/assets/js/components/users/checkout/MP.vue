@@ -8,33 +8,25 @@
                 <input class="col-6 col-lg-8 form-control" id="email" name="email" :value="user.email" type="email" placeholder="your email"/>
             </li>
             <li class="row">
-                <label class="col-6 col-lg-4" for="cardNumber">Credit card number:</label>
-                <input class="col-6 col-lg-8 form-control" type="text" id="cardNumber" data-checkout="cardNumber" placeholder="4509 9535 6623 3704" />
+                <label class="col-6 col-lg-4" for="email">Tarjeta de credito</label>
+                <div class="col-6 col-lg-8 row">
+                    <input class="col-12 form-control" type="text" id="cardNumber" data-checkout="cardNumber" placeholder="4509 9535 6623 3704" />
+                    <input class="col-6 col-lg-8 form-control" type="text" id="cardholderName" data-checkout="cardholderName" placeholder="Juan de Los Palotes" />
+                    <div class="col-2">
+                        <input class=" form-control" type="text" id="cardExpirationMonth" data-checkout="cardExpirationMonth" placeholder="12" />
+                       / <input class=" form-control" type="text" id="cardExpirationYear" data-checkout="cardExpirationYear" placeholder="2015" />
+                       -- <input class="col-6 col-lg-8 form-control" type="text" id="securityCode" data-checkout="securityCode" placeholder="123" />
+                    </div>
+                </div>
             </li>
             <li class="row">
-                <label class="col-6 col-lg-4" for="securityCode">Security code:</label>
-                <input class="col-6 col-lg-8 form-control" type="text" id="securityCode" data-checkout="securityCode" placeholder="123" />
-            </li>
-            <li class="row">
-                <label class="col-6 col-lg-4" for="cardExpirationMonth">Expiration month:</label>
-                <input class="col-6 col-lg-8 form-control" type="text" id="cardExpirationMonth" data-checkout="cardExpirationMonth" placeholder="12" />
-            </li>
-            <li class="row">
-                <label class="col-6 col-lg-4" for="cardExpirationYear">Expiration year:</label>
-                <input class="col-6 col-lg-8 form-control" type="text" id="cardExpirationYear" data-checkout="cardExpirationYear" placeholder="2015" />
-            </li>
-            <li class="row">
-                <label class="col-6 col-lg-4" for="cardholderName">Card holder name:</label>
-                <input class="col-6 col-lg-8 form-control" type="text" id="cardholderName" data-checkout="cardholderName" placeholder="APRO" />
-            </li>
-            <li class="row">
-                <label class="col-6 col-lg-4" for="docType">Document type:</label>
+                <label class="col-6 col-lg-4" for="docType">Tipo de documento:</label>
                 <select class="col-6 col-lg-8 form-control" id="docType" data-checkout="docType">
                     <option v-for="type in identificationTypes" :key="type"> {{type}} </option>
                 </select>
             </li>
             <li class="row">
-                <label class="col-6 col-lg-4" for="docNumber">Document number:</label>
+                <label class="col-6 col-lg-4" for="docNumber">Numero de documento:</label>
                 <input class="col-6 col-lg-8 form-control" type="text" id="docNumber" data-checkout="docNumber" placeholder="12345678" />
             </li>
         </ul>
@@ -45,8 +37,11 @@
 </template>
 
 <script>
-
+import vueCard from 'vue-credit-card/src/components/Card.vue';
 export default {
+    components:{
+        vueCard
+    },
     computed:{
         user(){
             return this.$store.getters.getUser;
