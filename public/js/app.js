@@ -98777,7 +98777,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
     mounted: function mounted() {
-        console.log('mounted', Mercadopago, MP);
+        console.log('mounted', Mercadopago);
         Mercadopago.setPublishableKey("TEST-2da260b8-d95b-4379-85f2-e52b5a8e17b9");
     }
 });
