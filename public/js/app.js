@@ -98863,12 +98863,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "row" }, [
+    return _c("li", { staticClass: "row d-flex align-items-center" }, [
       _c("label", { staticClass: "col-6 col-lg-4", attrs: { for: "email" } }, [
         _vm._v("Tarjeta de credito")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-6 col-lg-8 row" }, [
+      _c("div", { staticClass: "col-6 col-lg-8 row p-1 border-black" }, [
         _c("input", {
           staticClass: "col-12 form-control",
           attrs: {

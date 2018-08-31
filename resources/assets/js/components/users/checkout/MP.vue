@@ -7,9 +7,9 @@
                 <label class="col-6 col-lg-4" for="email">Email</label>
                 <input class="col-6 col-lg-8 form-control" id="email" name="email" :value="user.email" type="email" placeholder="your email"/>
             </li>
-            <li class="row">
+            <li class="row d-flex align-items-center">
                 <label class="col-6 col-lg-4" for="email">Tarjeta de credito</label>
-                <div class="col-6 col-lg-8 row">
+                <div class="col-6 col-lg-8 row p-1 border-black">
                     <input class="col-12 form-control" type="text" id="cardNumber" data-checkout="cardNumber" placeholder="4509 9535 6623 3704" />
                     <input class="col-12 form-control" type="text" id="cardholderName" data-checkout="cardholderName" placeholder="Juan de Los Palotes" />
                     <div class="col-12 row">
