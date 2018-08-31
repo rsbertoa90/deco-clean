@@ -32,18 +32,22 @@
                     <input class="col-12 form-control" type="text" id="cardholderName" data-checkout="cardholderName" placeholder="Juan de Los Palotes" />
                    </div>
                     <div class="col-12 row d-flex justify-content-center">
-                        <div class=" fieldd">
-                            <label for=""> Mes /</label>
-                            <input class=" form-control" type="text" id="cardExpirationMonth" data-checkout="cardExpirationMonth" placeholder="12" /> 
+                        <div class="col-8">
+                            <div class="fieldd">
+                                <label for=""> Mes /</label>
+                                <input class=" form-control" type="text" id="cardExpirationMonth" data-checkout="cardExpirationMonth" placeholder="12" /> 
+                            </div>
+                            <div class="fieldd">
+                                <label for=""> Año </label>
+                                <input class=" form-control" type="text" id="cardExpirationYear" data-checkout="cardExpirationYear" placeholder="2015" />
+                            </div>
                         </div>
-                        <div class=" fieldd">
-                            <label for=""> Año </label>
-                            <input class=" form-control" type="text" id="cardExpirationYear" data-checkout="cardExpirationYear" placeholder="2015" />
+                        <div class="col-4">
+                            <div class="ml-2 fieldd">
+                                <label for=""> cvc </label>
+                                <input class="form-control" type="text" id="securityCode" data-checkout="securityCode" placeholder="123" />
+                            </div>
                         </div>
-                        <div class="ml-2 fieldd">
-                            <label for=""> cvc </label>
-                            <input class="form-control" type="text" id="securityCode" data-checkout="securityCode" placeholder="123" />
-                         </div>
                     </div>
                 </div>
             </li>
