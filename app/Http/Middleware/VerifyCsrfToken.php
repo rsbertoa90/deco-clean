@@ -13,6 +13,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         '/mplistener',
-        '/api/mplistener'
+        '/api/mplistener',
+        'mp/notification'
     ];
 }
