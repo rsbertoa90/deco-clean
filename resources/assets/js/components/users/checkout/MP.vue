@@ -32,15 +32,15 @@
                     <input class="col-12 form-control" type="text" id="cardholderName" data-checkout="cardholderName" placeholder="Juan de Los Palotes" />
                    </div>
                     <div class="col-12 row">
-                        <div class="col-3 fieldd">
+                        <div class=" fieldd">
                             <label for=""> Mes /</label>
-                            <input class=" col-3 form-control" type="text" id="cardExpirationMonth" data-checkout="cardExpirationMonth" placeholder="12" /> /
+                            <input class=" col-3 form-control" type="text" id="cardExpirationMonth" data-checkout="cardExpirationMonth" placeholder="12" /> 
                         </div>
-                        <div class="col-3 fieldd">
+                        <div class=" fieldd">
                             <label for=""> Año </label>
                             <input class=" col-3 form-control" type="text" id="cardExpirationYear" data-checkout="cardExpirationYear" placeholder="2015" />
                         </div>
-                        <div class="offset-1 col-3 fieldd">
+                        <div class="ml-2 fieldd">
                             <label for=""> cvc </label>
                             <input class=" col-3form-control" type="text" id="securityCode" data-checkout="securityCode" placeholder="123" />
                          </div>
