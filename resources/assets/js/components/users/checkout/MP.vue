@@ -48,6 +48,12 @@ export default {
     computed:{
         user(){
             return this.$store.getters.getUser;
+        },
+        identificationTypes(){
+            Mercadopago.getIdentificationTypes(res => {
+                console.log(res);
+                return res;
+            });
         }
     },
     mounted()
