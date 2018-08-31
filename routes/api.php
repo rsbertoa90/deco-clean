@@ -59,5 +59,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
         Route::get('/event/{id}','EventController@getById');
 
-        Route::get('/mplistener','MPController@getResponse');
+        Route::post('/mplistener','MPController@getResponse');
         
