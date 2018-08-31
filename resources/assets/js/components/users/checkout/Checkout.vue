@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-            <h1>ASDF</h1>
+            <h1>Inscripciones</h1>
             <table class="table table-striped">
                 <thead>
                     <th> - </th>
@@ -18,16 +18,19 @@
                 <tfoot>
                     <td></td>
                     <td>TOTAL</td>
-                    <td> {{total()}} </td>
+                    <td> ${{total()}} </td>
                 </tfoot>
             </table>
+            <checkout-mp></checkout-mp>
         </div>
     </div>    
 </template>
 
 <script>
+import checkoutMp from './MP.vue';
 export default {
     props:['list'],
+    components:{checkoutMp},
     data(){
         return{
             method : 'mercadopago'

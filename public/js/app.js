@@ -5714,9 +5714,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue2_timepicker___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_vue2_timepicker__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_admin_Inscriptions_vue__ = __webpack_require__(442);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_admin_Inscriptions_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_admin_Inscriptions_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__store_store_js__ = __webpack_require__(494);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_vue_mq__ = __webpack_require__(495);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_vue_js_modal__ = __webpack_require__(498);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__store_store_js__ = __webpack_require__(491);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_vue_mq__ = __webpack_require__(492);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_vue_js_modal__ = __webpack_require__(495);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_vue_js_modal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_vue_js_modal__);
 
 /**
@@ -5810,7 +5810,6 @@ Vue.filter('date', function (value) {
 var PulseLoader = __webpack_require__(217);
 Vue.component('pulse-loader', __webpack_require__(217));
 
-Vue.component('app-mp', __webpack_require__(491));
 
 
 
@@ -49271,7 +49270,7 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(10);
-module.exports = __webpack_require__(499);
+module.exports = __webpack_require__(496);
 
 
 /***/ }),
@@ -97007,6 +97006,9 @@ exports.push([module.i, "", ""]);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MP_vue__ = __webpack_require__(528);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MP_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__MP_vue__);
+//
 //
 //
 //
@@ -97035,8 +97037,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['list'],
+    components: { checkoutMp: __WEBPACK_IMPORTED_MODULE_0__MP_vue___default.a },
     data: function data() {
         return {
             method: 'mercadopago'
@@ -97081,42 +97085,50 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", [
-      _c("h1", [_vm._v("ASDF")]),
-      _vm._v(" "),
-      _c("table", { staticClass: "table table-striped" }, [
-        _vm._m(0),
+    _c(
+      "div",
+      [
+        _c("h1", [_vm._v("Inscripciones")]),
         _vm._v(" "),
-        _c(
-          "tbody",
-          _vm._l(_vm.parsedList, function(inscription) {
-            return _c("tr", { key: inscription.id }, [
-              _c("td", [_vm._v(" " + _vm._s(inscription.seminar.title) + " ")]),
-              _vm._v(" "),
-              _c("td", [
-                _vm._v(
-                  " " +
-                    _vm._s(_vm._f("date")(inscription.date)) +
-                    " - " +
-                    _vm._s(inscription.hour) +
-                    " "
-                )
-              ]),
-              _vm._v(" "),
-              _c("td", [_vm._v(" $" + _vm._s(inscription.price) + " ")])
-            ])
-          })
-        ),
+        _c("table", { staticClass: "table table-striped" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.parsedList, function(inscription) {
+              return _c("tr", { key: inscription.id }, [
+                _c("td", [
+                  _vm._v(" " + _vm._s(inscription.seminar.title) + " ")
+                ]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v(
+                    " " +
+                      _vm._s(_vm._f("date")(inscription.date)) +
+                      " - " +
+                      _vm._s(inscription.hour) +
+                      " "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v(" $" + _vm._s(inscription.price) + " ")])
+              ])
+            })
+          ),
+          _vm._v(" "),
+          _c("tfoot", [
+            _c("td"),
+            _vm._v(" "),
+            _c("td", [_vm._v("TOTAL")]),
+            _vm._v(" "),
+            _c("td", [_vm._v(" $" + _vm._s(_vm.total()) + " ")])
+          ])
+        ]),
         _vm._v(" "),
-        _c("tfoot", [
-          _c("td"),
-          _vm._v(" "),
-          _c("td", [_vm._v("TOTAL")]),
-          _vm._v(" "),
-          _c("td", [_vm._v(" " + _vm._s(_vm.total()) + " ")])
-        ])
-      ])
-    ])
+        _c("checkout-mp")
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = [
@@ -97299,308 +97311,6 @@ if (false) {
 
 /***/ }),
 /* 491 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(4)
-/* script */
-var __vue_script__ = __webpack_require__(492)
-/* template */
-var __vue_template__ = __webpack_require__(493)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/MP.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6319307a", Component.options)
-  } else {
-    hotAPI.reload("data-v-6319307a", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 492 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    computed: {
-        user: function user() {
-            return this.$store.getters.gerUser();
-        }
-    },
-    created: function created() {
-        var mp = document.createElement('script');
-        mp.setAttribute('src', "https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js");
-        document.head.appendChild(mp);
-    },
-    mounted: function mounted() {
-        Mercadopago.setPublishableKey("TEST-2da260b8-d95b-4379-85f2-e52b5a8e17b9");
-    }
-});
-
-/***/ }),
-/* 493 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm.user
-    ? _c("div", [
-        _c(
-          "form",
-          { attrs: { action: "", method: "post", id: "pay", name: "pay" } },
-          [
-            _c("fieldset", [
-              _c("ul", [
-                _c("li", [
-                  _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: {
-                      id: "email",
-                      name: "email",
-                      type: "email",
-                      placeholder: "your email"
-                    },
-                    domProps: { value: _vm.user.email }
-                  })
-                ]),
-                _vm._v(" "),
-                _vm._m(0),
-                _vm._v(" "),
-                _vm._m(1),
-                _vm._v(" "),
-                _vm._m(2),
-                _vm._v(" "),
-                _vm._m(3),
-                _vm._v(" "),
-                _vm._m(4),
-                _vm._v(" "),
-                _vm._m(5),
-                _vm._v(" "),
-                _vm._m(6)
-              ]),
-              _vm._v(" "),
-              _c("input", { attrs: { type: "submit", value: "Pay!" } })
-            ])
-          ]
-        )
-      ])
-    : _vm._e()
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("label", { attrs: { for: "cardNumber" } }, [
-        _vm._v("Credit card number:")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        attrs: {
-          type: "text",
-          id: "cardNumber",
-          "data-checkout": "cardNumber",
-          placeholder: "4509 9535 6623 3704"
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("label", { attrs: { for: "securityCode" } }, [
-        _vm._v("Security code:")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        attrs: {
-          type: "text",
-          id: "securityCode",
-          "data-checkout": "securityCode",
-          placeholder: "123"
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("label", { attrs: { for: "cardExpirationMonth" } }, [
-        _vm._v("Expiration month:")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        attrs: {
-          type: "text",
-          id: "cardExpirationMonth",
-          "data-checkout": "cardExpirationMonth",
-          placeholder: "12"
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("label", { attrs: { for: "cardExpirationYear" } }, [
-        _vm._v("Expiration year:")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        attrs: {
-          type: "text",
-          id: "cardExpirationYear",
-          "data-checkout": "cardExpirationYear",
-          placeholder: "2015"
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("label", { attrs: { for: "cardholderName" } }, [
-        _vm._v("Card holder name:")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        attrs: {
-          type: "text",
-          id: "cardholderName",
-          "data-checkout": "cardholderName",
-          placeholder: "APRO"
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("label", { attrs: { for: "docType" } }, [_vm._v("Document type:")]),
-      _vm._v(" "),
-      _c("select", { attrs: { id: "docType", "data-checkout": "docType" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("label", { attrs: { for: "docNumber" } }, [
-        _vm._v("Document number:")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        attrs: {
-          type: "text",
-          id: "docNumber",
-          "data-checkout": "docNumber",
-          placeholder: "12345678"
-        }
-      })
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-6319307a", module.exports)
-  }
-}
-
-/***/ }),
-/* 494 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -97670,11 +97380,11 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
 });
 
 /***/ }),
-/* 495 */
+/* 492 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_json2mq__ = __webpack_require__(496);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_json2mq__ = __webpack_require__(493);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_json2mq___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_json2mq__);
 
 
@@ -97835,10 +97545,10 @@ var index = {
 
 
 /***/ }),
-/* 496 */
+/* 493 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var camel2hyphen = __webpack_require__(497);
+var camel2hyphen = __webpack_require__(494);
 
 var isDimension = function (feature) {
   var re = /[height|width]$/;
@@ -97891,7 +97601,7 @@ var json2mq = function (query) {
 module.exports = json2mq;
 
 /***/ }),
-/* 497 */
+/* 494 */
 /***/ (function(module, exports) {
 
 var camel2hyphen = function (str) {
@@ -97905,7 +97615,7 @@ var camel2hyphen = function (str) {
 module.exports = camel2hyphen;
 
 /***/ }),
-/* 498 */
+/* 495 */
 /***/ (function(module, exports, __webpack_require__) {
 
 !function(root, factory) {
@@ -98925,10 +98635,343 @@ module.exports = camel2hyphen;
 });
 
 /***/ }),
-/* 499 */
+/* 496 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 497 */,
+/* 498 */,
+/* 499 */,
+/* 500 */,
+/* 501 */,
+/* 502 */,
+/* 503 */,
+/* 504 */,
+/* 505 */,
+/* 506 */,
+/* 507 */,
+/* 508 */,
+/* 509 */,
+/* 510 */,
+/* 511 */,
+/* 512 */,
+/* 513 */,
+/* 514 */,
+/* 515 */,
+/* 516 */,
+/* 517 */,
+/* 518 */,
+/* 519 */,
+/* 520 */,
+/* 521 */,
+/* 522 */,
+/* 523 */,
+/* 524 */,
+/* 525 */,
+/* 526 */,
+/* 527 */,
+/* 528 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(4)
+/* script */
+var __vue_script__ = __webpack_require__(529)
+/* template */
+var __vue_template__ = __webpack_require__(530)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/users/checkout/MP.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1b6491fe", Component.options)
+  } else {
+    hotAPI.reload("data-v-1b6491fe", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 529 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    computed: {
+        user: function user() {
+            return this.$store.getters.gerUser();
+        }
+    },
+    created: function created() {
+        var mp = document.createElement('script');
+        mp.setAttribute('src', "https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js");
+        document.head.appendChild(mp);
+    },
+    mounted: function mounted() {
+        Mercadopago.setPublishableKey("TEST-2da260b8-d95b-4379-85f2-e52b5a8e17b9");
+    }
+});
+
+/***/ }),
+/* 530 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.user
+    ? _c("div", [
+        _c(
+          "form",
+          { attrs: { action: "", method: "post", id: "pay", name: "pay" } },
+          [
+            _c("fieldset", [
+              _c("ul", [
+                _c("li", [
+                  _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    attrs: {
+                      id: "email",
+                      name: "email",
+                      type: "email",
+                      placeholder: "your email"
+                    },
+                    domProps: { value: _vm.user.email }
+                  })
+                ]),
+                _vm._v(" "),
+                _vm._m(0),
+                _vm._v(" "),
+                _vm._m(1),
+                _vm._v(" "),
+                _vm._m(2),
+                _vm._v(" "),
+                _vm._m(3),
+                _vm._v(" "),
+                _vm._m(4),
+                _vm._v(" "),
+                _vm._m(5),
+                _vm._v(" "),
+                _vm._m(6)
+              ]),
+              _vm._v(" "),
+              _c("input", { attrs: { type: "submit", value: "Pay!" } })
+            ])
+          ]
+        )
+      ])
+    : _vm._e()
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("label", { attrs: { for: "cardNumber" } }, [
+        _vm._v("Credit card number:")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        attrs: {
+          type: "text",
+          id: "cardNumber",
+          "data-checkout": "cardNumber",
+          placeholder: "4509 9535 6623 3704"
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("label", { attrs: { for: "securityCode" } }, [
+        _vm._v("Security code:")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        attrs: {
+          type: "text",
+          id: "securityCode",
+          "data-checkout": "securityCode",
+          placeholder: "123"
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("label", { attrs: { for: "cardExpirationMonth" } }, [
+        _vm._v("Expiration month:")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        attrs: {
+          type: "text",
+          id: "cardExpirationMonth",
+          "data-checkout": "cardExpirationMonth",
+          placeholder: "12"
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("label", { attrs: { for: "cardExpirationYear" } }, [
+        _vm._v("Expiration year:")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        attrs: {
+          type: "text",
+          id: "cardExpirationYear",
+          "data-checkout": "cardExpirationYear",
+          placeholder: "2015"
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("label", { attrs: { for: "cardholderName" } }, [
+        _vm._v("Card holder name:")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        attrs: {
+          type: "text",
+          id: "cardholderName",
+          "data-checkout": "cardholderName",
+          placeholder: "APRO"
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("label", { attrs: { for: "docType" } }, [_vm._v("Document type:")]),
+      _vm._v(" "),
+      _c("select", { attrs: { id: "docType", "data-checkout": "docType" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("label", { attrs: { for: "docNumber" } }, [
+        _vm._v("Document number:")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        attrs: {
+          type: "text",
+          id: "docNumber",
+          "data-checkout": "docNumber",
+          placeholder: "12345678"
+        }
+      })
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-1b6491fe", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
