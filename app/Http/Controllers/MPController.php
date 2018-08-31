@@ -40,6 +40,6 @@ class MPController extends Controller
 
     public function getResponse(Request $request)
     {
-        return response('ok',200);
+        return \Response::json(['HTTP/1.1 200 OK'], 200);
     }
 }
