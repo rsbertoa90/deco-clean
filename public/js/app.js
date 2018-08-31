@@ -98676,17 +98676,21 @@ module.exports = camel2hyphen;
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(545)
+}
 var normalizeComponent = __webpack_require__(4)
 /* script */
 var __vue_script__ = __webpack_require__(529)
 /* template */
-var __vue_template__ = __webpack_require__(530)
+var __vue_template__ = __webpack_require__(547)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-1b6491fe"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -98764,6 +98768,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -98785,177 +98809,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 530 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm.user
-    ? _c("div", [
-        _c(
-          "form",
-          { attrs: { action: "", method: "post", id: "pay", name: "pay" } },
-          [
-            _c("fieldset", [
-              _c("ul", [
-                _c("li", { staticClass: "row" }, [
-                  _c(
-                    "label",
-                    { staticClass: "col-6 col-lg-4", attrs: { for: "email" } },
-                    [_vm._v("Email")]
-                  ),
-                  _vm._v(" "),
-                  _c("input", {
-                    staticClass: "col-6 col-lg-8 form-control",
-                    attrs: {
-                      id: "email",
-                      name: "email",
-                      type: "email",
-                      placeholder: "your email"
-                    },
-                    domProps: { value: _vm.user.email }
-                  })
-                ]),
-                _vm._v(" "),
-                _vm._m(0),
-                _vm._v(" "),
-                _c("li", { staticClass: "row" }, [
-                  _c(
-                    "label",
-                    {
-                      staticClass: "col-6 col-lg-4",
-                      attrs: { for: "docType" }
-                    },
-                    [_vm._v("Tipo de documento:")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "select",
-                    {
-                      staticClass: "col-6 col-lg-8 form-control",
-                      attrs: { id: "docType", "data-checkout": "docType" }
-                    },
-                    _vm._l(_vm.identificationTypes, function(type) {
-                      return _c("option", { key: type }, [
-                        _vm._v(" " + _vm._s(type) + " ")
-                      ])
-                    })
-                  )
-                ]),
-                _vm._v(" "),
-                _vm._m(1)
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "button btn-lg btn-outline-success offset-4",
-                attrs: { type: "submit", value: "Pay!" }
-              })
-            ])
-          ]
-        )
-      ])
-    : _vm._e()
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "row d-flex align-items-center" }, [
-      _c("label", { staticClass: "col-6 col-lg-4", attrs: { for: "email" } }, [
-        _vm._v("Tarjeta de credito")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-6 col-lg-8 row p-1 border-black" }, [
-        _c("input", {
-          staticClass: "col-12 form-control",
-          attrs: {
-            type: "text",
-            id: "cardNumber",
-            "data-checkout": "cardNumber",
-            placeholder: "4509 9535 6623 3704"
-          }
-        }),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "col-12 form-control",
-          attrs: {
-            type: "text",
-            id: "cardholderName",
-            "data-checkout": "cardholderName",
-            placeholder: "Juan de Los Palotes"
-          }
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-12 row" }, [
-          _c("input", {
-            staticClass: " col-3 form-control",
-            attrs: {
-              type: "text",
-              id: "cardExpirationMonth",
-              "data-checkout": "cardExpirationMonth",
-              placeholder: "12"
-            }
-          }),
-          _vm._v("\n                       / "),
-          _c("input", {
-            staticClass: " col-3 form-control",
-            attrs: {
-              type: "text",
-              id: "cardExpirationYear",
-              "data-checkout": "cardExpirationYear",
-              placeholder: "2015"
-            }
-          }),
-          _vm._v("\n                       -- "),
-          _c("input", {
-            staticClass: " col-3form-control",
-            attrs: {
-              type: "text",
-              id: "securityCode",
-              "data-checkout": "securityCode",
-              placeholder: "123"
-            }
-          })
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "row" }, [
-      _c(
-        "label",
-        { staticClass: "col-6 col-lg-4", attrs: { for: "docNumber" } },
-        [_vm._v("Numero de documento:")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "col-6 col-lg-8 form-control",
-        attrs: {
-          type: "text",
-          id: "docNumber",
-          "data-checkout": "docNumber",
-          placeholder: "12345678"
-        }
-      })
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-1b6491fe", module.exports)
-  }
-}
-
-/***/ }),
+/* 530 */,
 /* 531 */,
 /* 532 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -100334,6 +100188,247 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-72de79b5", module.exports)
+  }
+}
+
+/***/ }),
+/* 545 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(546);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(13)("2a28dcec", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1b6491fe\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MP.vue", function() {
+     var newContent = require("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1b6491fe\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MP.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 546 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(8)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.fieldd[data-v-1b6491fe]{\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 547 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.user
+    ? _c("div", [
+        _c(
+          "form",
+          { attrs: { action: "", method: "post", id: "pay", name: "pay" } },
+          [
+            _c("fieldset", [
+              _c("ul", [
+                _c("li", { staticClass: "row" }, [
+                  _c(
+                    "label",
+                    { staticClass: "col-6 col-lg-4", attrs: { for: "email" } },
+                    [_vm._v("Email")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "col-6 col-lg-8 form-control",
+                    attrs: {
+                      id: "email",
+                      name: "email",
+                      type: "email",
+                      placeholder: "your email"
+                    },
+                    domProps: { value: _vm.user.email }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-6 col-lg-4",
+                      attrs: { for: "docType" }
+                    },
+                    [_vm._v("Tipo de documento:")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      staticClass: "col-6 col-lg-8 form-control",
+                      attrs: { id: "docType", "data-checkout": "docType" }
+                    },
+                    _vm._l(_vm.identificationTypes, function(type) {
+                      return _c("option", { key: type }, [
+                        _vm._v(" " + _vm._s(type) + " ")
+                      ])
+                    })
+                  )
+                ]),
+                _vm._v(" "),
+                _vm._m(0),
+                _vm._v(" "),
+                _vm._m(1)
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "button btn-lg btn-outline-success offset-4",
+                attrs: { type: "submit", value: "Pay!" }
+              })
+            ])
+          ]
+        )
+      ])
+    : _vm._e()
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "row" }, [
+      _c(
+        "label",
+        { staticClass: "col-6 col-lg-4", attrs: { for: "docNumber" } },
+        [_vm._v("Numero de documento:")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "col-6 col-lg-8 form-control",
+        attrs: {
+          type: "text",
+          id: "docNumber",
+          "data-checkout": "docNumber",
+          placeholder: "12345678"
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "row d-flex align-items-center mt-2" }, [
+      _c("label", { staticClass: "col-6 col-lg-4", attrs: { for: "email" } }, [
+        _vm._v("Tarjeta de credito")
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "col-6 col-lg-6 row p-1 border-black d-flex justify-content-center align-items-center"
+        },
+        [
+          _c("div", { staticClass: "col-12 fieldd" }, [
+            _c("label", { attrs: { for: "" } }, [_vm._v("Nro de tarjeta")]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "col-12 form-control",
+              attrs: {
+                type: "text",
+                id: "cardNumber",
+                "data-checkout": "cardNumber",
+                placeholder: "4509 9535 6623 3704"
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-12 fieldd" }, [
+            _c("label", { attrs: { for: "" } }, [
+              _vm._v("Nombre impreso en la tarjeta")
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "col-12 form-control",
+              attrs: {
+                type: "text",
+                id: "cardholderName",
+                "data-checkout": "cardholderName",
+                placeholder: "Juan de Los Palotes"
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-12 row" }, [
+            _c("div", { staticClass: "col-3 fieldd" }, [
+              _c("label", { attrs: { for: "" } }, [_vm._v(" Mes /")]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: " col-3 form-control",
+                attrs: {
+                  type: "text",
+                  id: "cardExpirationMonth",
+                  "data-checkout": "cardExpirationMonth",
+                  placeholder: "12"
+                }
+              }),
+              _vm._v(" /\n                        ")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-3 fieldd" }, [
+              _c("label", { attrs: { for: "" } }, [_vm._v(" Año ")]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: " col-3 form-control",
+                attrs: {
+                  type: "text",
+                  id: "cardExpirationYear",
+                  "data-checkout": "cardExpirationYear",
+                  placeholder: "2015"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "offset-1 col-3 fieldd" }, [
+              _c("label", { attrs: { for: "" } }, [_vm._v(" cvc ")]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: " col-3form-control",
+                attrs: {
+                  type: "text",
+                  id: "securityCode",
+                  "data-checkout": "securityCode",
+                  placeholder: "123"
+                }
+              })
+            ])
+          ])
+        ]
+      )
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-1b6491fe", module.exports)
   }
 }
 
