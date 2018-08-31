@@ -47,7 +47,7 @@
 export default {
     computed:{
         user(){
-            return this.$store.getters.gerUser();
+            return this.$store.getters.getUser();
         }
     },
     created() {
