@@ -22,7 +22,7 @@
             <li class="row d-flex align-items-center mt-2">
                 <label class="col-6 col-lg-4" for="email">Tarjeta de credito</label>
                
-               <div class="offset-lg-2 col-6 row p-1 border-black d-flex justify-content-center align-items-center">
+               <div class="border-primary col-6 row p-1 border-black d-flex justify-content-center align-items-center">
                    <div class="col-12 fieldd">
                     <label for="">Nro de tarjeta</label>
                     <input class="col-12 form-control" type="text" id="cardNumber" data-checkout="cardNumber" placeholder="4509 9535 6623 3704" />
@@ -32,9 +32,9 @@
                     <input class="col-12 form-control" type="text" id="cardholderName" data-checkout="cardholderName" placeholder="Juan de Los Palotes" />
                    </div>
                     <div class="col-12 row d-flex justify-content-center">
-                        <div class="col-8">
+                        <div class="col-8 d-flex">
                             <div class="fieldd">
-                                <label for=""> Mes /</label>
+                                <label for=""> Venc. Mes /</label>
                                 <input class=" form-control" type="text" id="cardExpirationMonth" data-checkout="cardExpirationMonth" placeholder="12" /> 
                             </div>
                             <div class="fieldd">

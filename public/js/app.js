@@ -98748,7 +98748,7 @@ var staticRenderFns = [
         "div",
         {
           staticClass:
-            "offset-lg-2 col-6 row p-1 border-black d-flex justify-content-center align-items-center"
+            "border-primary col-6 row p-1 border-black d-flex justify-content-center align-items-center"
         },
         [
           _c("div", { staticClass: "col-12 fieldd" }, [
@@ -98785,9 +98785,9 @@ var staticRenderFns = [
             "div",
             { staticClass: "col-12 row d-flex justify-content-center" },
             [
-              _c("div", { staticClass: "col-8" }, [
+              _c("div", { staticClass: "col-8 d-flex" }, [
                 _c("div", { staticClass: "fieldd" }, [
-                  _c("label", { attrs: { for: "" } }, [_vm._v(" Mes /")]),
+                  _c("label", { attrs: { for: "" } }, [_vm._v(" Venc. Mes /")]),
                   _vm._v(" "),
                   _c("input", {
                     staticClass: " form-control",
