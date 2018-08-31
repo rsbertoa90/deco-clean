@@ -98798,10 +98798,15 @@ var render = function() {
           [
             _c("fieldset", [
               _c("ul", [
-                _c("li", [
-                  _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
+                _c("li", { staticClass: "row" }, [
+                  _c(
+                    "label",
+                    { staticClass: "col-6 col-lg-4", attrs: { for: "email" } },
+                    [_vm._v("Email")]
+                  ),
                   _vm._v(" "),
                   _c("input", {
+                    staticClass: "col-6 col-lg-8 form-control",
                     attrs: {
                       id: "email",
                       name: "email",
@@ -98839,12 +98844,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("label", { attrs: { for: "cardNumber" } }, [
-        _vm._v("Credit card number:")
-      ]),
+    return _c("li", { staticClass: "row" }, [
+      _c(
+        "label",
+        { staticClass: "col-6 col-lg-4", attrs: { for: "cardNumber" } },
+        [_vm._v("Credit card number:")]
+      ),
       _vm._v(" "),
       _c("input", {
+        staticClass: "col-6 col-lg-8 form-control",
         attrs: {
           type: "text",
           id: "cardNumber",
@@ -98858,12 +98866,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("label", { attrs: { for: "securityCode" } }, [
-        _vm._v("Security code:")
-      ]),
+    return _c("li", { staticClass: "row" }, [
+      _c(
+        "label",
+        { staticClass: "col-6 col-lg-4", attrs: { for: "securityCode" } },
+        [_vm._v("Security code:")]
+      ),
       _vm._v(" "),
       _c("input", {
+        staticClass: "col-6 col-lg-8 form-control",
         attrs: {
           type: "text",
           id: "securityCode",
@@ -98877,12 +98888,18 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("label", { attrs: { for: "cardExpirationMonth" } }, [
-        _vm._v("Expiration month:")
-      ]),
+    return _c("li", { staticClass: "row" }, [
+      _c(
+        "label",
+        {
+          staticClass: "col-6 col-lg-4",
+          attrs: { for: "cardExpirationMonth" }
+        },
+        [_vm._v("Expiration month:")]
+      ),
       _vm._v(" "),
       _c("input", {
+        staticClass: "col-6 col-lg-8 form-control",
         attrs: {
           type: "text",
           id: "cardExpirationMonth",
@@ -98896,12 +98913,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("label", { attrs: { for: "cardExpirationYear" } }, [
-        _vm._v("Expiration year:")
-      ]),
+    return _c("li", { staticClass: "row" }, [
+      _c(
+        "label",
+        { staticClass: "col-6 col-lg-4", attrs: { for: "cardExpirationYear" } },
+        [_vm._v("Expiration year:")]
+      ),
       _vm._v(" "),
       _c("input", {
+        staticClass: "col-6 col-lg-8 form-control",
         attrs: {
           type: "text",
           id: "cardExpirationYear",
@@ -98915,12 +98935,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("label", { attrs: { for: "cardholderName" } }, [
-        _vm._v("Card holder name:")
-      ]),
+    return _c("li", { staticClass: "row" }, [
+      _c(
+        "label",
+        { staticClass: "col-6 col-lg-4", attrs: { for: "cardholderName" } },
+        [_vm._v("Card holder name:")]
+      ),
       _vm._v(" "),
       _c("input", {
+        staticClass: "col-6 col-lg-8 form-control",
         attrs: {
           type: "text",
           id: "cardholderName",
@@ -98934,22 +98957,32 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("label", { attrs: { for: "docType" } }, [_vm._v("Document type:")]),
+    return _c("li", { staticClass: "row" }, [
+      _c(
+        "label",
+        { staticClass: "col-6 col-lg-4", attrs: { for: "docType" } },
+        [_vm._v("Document type:")]
+      ),
       _vm._v(" "),
-      _c("select", { attrs: { id: "docType", "data-checkout": "docType" } })
+      _c("select", {
+        staticClass: "col-6 col-lg-8 form-control",
+        attrs: { id: "docType", "data-checkout": "docType" }
+      })
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("label", { attrs: { for: "docNumber" } }, [
-        _vm._v("Document number:")
-      ]),
+    return _c("li", { staticClass: "row" }, [
+      _c(
+        "label",
+        { staticClass: "col-6 col-lg-4", attrs: { for: "docNumber" } },
+        [_vm._v("Document number:")]
+      ),
       _vm._v(" "),
       _c("input", {
+        staticClass: "col-6 col-lg-8 form-control",
         attrs: {
           type: "text",
           id: "docNumber",

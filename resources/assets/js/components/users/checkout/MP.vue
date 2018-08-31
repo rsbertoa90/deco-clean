@@ -3,37 +3,37 @@
         <form action="" method="post" id="pay" name="pay" >
     <fieldset>
         <ul>
-            <li>
-                <label for="email">Email</label>
-                <input id="email" name="email" :value="user.email" type="email" placeholder="your email"/>
+            <li class="row">
+                <label class="col-6 col-lg-4" for="email">Email</label>
+                <input class="col-6 col-lg-8 form-control" id="email" name="email" :value="user.email" type="email" placeholder="your email"/>
             </li>
-            <li>
-                <label for="cardNumber">Credit card number:</label>
-                <input type="text" id="cardNumber" data-checkout="cardNumber" placeholder="4509 9535 6623 3704" />
+            <li class="row">
+                <label class="col-6 col-lg-4" for="cardNumber">Credit card number:</label>
+                <input class="col-6 col-lg-8 form-control" type="text" id="cardNumber" data-checkout="cardNumber" placeholder="4509 9535 6623 3704" />
             </li>
-            <li>
-                <label for="securityCode">Security code:</label>
-                <input type="text" id="securityCode" data-checkout="securityCode" placeholder="123" />
+            <li class="row">
+                <label class="col-6 col-lg-4" for="securityCode">Security code:</label>
+                <input class="col-6 col-lg-8 form-control" type="text" id="securityCode" data-checkout="securityCode" placeholder="123" />
             </li>
-            <li>
-                <label for="cardExpirationMonth">Expiration month:</label>
-                <input type="text" id="cardExpirationMonth" data-checkout="cardExpirationMonth" placeholder="12" />
+            <li class="row">
+                <label class="col-6 col-lg-4" for="cardExpirationMonth">Expiration month:</label>
+                <input class="col-6 col-lg-8 form-control" type="text" id="cardExpirationMonth" data-checkout="cardExpirationMonth" placeholder="12" />
             </li>
-            <li>
-                <label for="cardExpirationYear">Expiration year:</label>
-                <input type="text" id="cardExpirationYear" data-checkout="cardExpirationYear" placeholder="2015" />
+            <li class="row">
+                <label class="col-6 col-lg-4" for="cardExpirationYear">Expiration year:</label>
+                <input class="col-6 col-lg-8 form-control" type="text" id="cardExpirationYear" data-checkout="cardExpirationYear" placeholder="2015" />
             </li>
-            <li>
-                <label for="cardholderName">Card holder name:</label>
-                <input type="text" id="cardholderName" data-checkout="cardholderName" placeholder="APRO" />
+            <li class="row">
+                <label class="col-6 col-lg-4" for="cardholderName">Card holder name:</label>
+                <input class="col-6 col-lg-8 form-control" type="text" id="cardholderName" data-checkout="cardholderName" placeholder="APRO" />
             </li>
-            <li>
-                <label for="docType">Document type:</label>
-                <select id="docType" data-checkout="docType"></select>
+            <li class="row">
+                <label class="col-6 col-lg-4" for="docType">Document type:</label>
+                <select class="col-6 col-lg-8 form-control" id="docType" data-checkout="docType"></select>
             </li>
-            <li>
-                <label for="docNumber">Document number:</label>
-                <input type="text" id="docNumber" data-checkout="docNumber" placeholder="12345678" />
+            <li class="row">
+                <label class="col-6 col-lg-4" for="docNumber">Document number:</label>
+                <input class="col-6 col-lg-8 form-control" type="text" id="docNumber" data-checkout="docNumber" placeholder="12345678" />
             </li>
         </ul>
         <input type="submit" value="Pay!" />
