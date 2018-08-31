@@ -98880,7 +98880,7 @@ var staticRenderFns = [
         }),
         _vm._v(" "),
         _c("input", {
-          staticClass: "col-6 col-lg-8 form-control",
+          staticClass: "col-12 form-control",
           attrs: {
             type: "text",
             id: "cardholderName",
@@ -98889,9 +98889,9 @@ var staticRenderFns = [
           }
         }),
         _vm._v(" "),
-        _c("div", { staticClass: "col-2 d-flex" }, [
+        _c("div", { staticClass: "col-12 row" }, [
           _c("input", {
-            staticClass: " form-control",
+            staticClass: " col-3 form-control",
             attrs: {
               type: "text",
               id: "cardExpirationMonth",
@@ -98901,7 +98901,7 @@ var staticRenderFns = [
           }),
           _vm._v("\n                       / "),
           _c("input", {
-            staticClass: " form-control",
+            staticClass: " col-3 form-control",
             attrs: {
               type: "text",
               id: "cardExpirationYear",
@@ -98911,7 +98911,7 @@ var staticRenderFns = [
           }),
           _vm._v("\n                       -- "),
           _c("input", {
-            staticClass: "col-6 col-lg-8 form-control",
+            staticClass: " col-3form-control",
             attrs: {
               type: "text",
               id: "securityCode",
