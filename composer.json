@@ -11,7 +11,8 @@
         "laravel/framework": "5.6.*",
         "laravel/socialite": "^3.0",
         "laravel/tinker": "^1.0",
-        "mercadopago/dx-php": "dev-master"
+        "mercadopago/dx-php": "dev-master",
+        "todopago/php-sdk": "^1.10"
     },
     "require-dev": {
         "filp/whoops": "^2.0",

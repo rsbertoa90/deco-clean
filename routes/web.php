@@ -76,7 +76,9 @@ Route::get('/auth/facebook/callback', 'Auth\LoginController@handleProviderCallba
 
 Route::post('/checkout','PaymentController@checkout');
 
-     Route::post('/mplistener','MPController@getResponse');
-        Route::get('/mplistener','MPController@getResponse');
-        Route::put('/mplistener','MPController@getResponse');
+Route::get('/mptest','MPController@pay');
+
+Route::post('/mplistener','MPController@getResponse');
+Route::get('/mplistener','MPController@getResponse');
+Route::put('/mplistener','MPController@getResponse');
         

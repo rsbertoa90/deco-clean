@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use MercadoPago;
-
+use App\Payment;
 
 class MPController extends Controller
 {
@@ -38,8 +38,10 @@ class MPController extends Controller
         return redirect($preference->init_point);
     }
 
-    public function getResponse()
+    public function getResponse(Request $request = null)
     {
+        Payment::create(['type'=>'mercadopago','comments'=>'Callback entra']);
+        
         return response()->json(['success'=>true],200);
 
     }
