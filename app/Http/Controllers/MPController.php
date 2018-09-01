@@ -38,7 +38,7 @@ class MPController extends Controller
         return redirect($preference->init_point);
     }
 
-    public function getResponse(Request $request)
+    public function getResponse($request)
     {
         return response()->json(['success'=>true],200);
 
