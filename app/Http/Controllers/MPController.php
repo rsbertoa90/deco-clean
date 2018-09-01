@@ -18,8 +18,9 @@ class MPController extends Controller
 
     public function pay()
     {
-        self::init();
 
+        MercadoPago\SDK::setClientId("6176449208003945");
+        MercadoPago\SDK::setClientSecret("mlv1QPapkc6AACeZ19X9OBB4apRQeSAg");
         
         $preference = new MercadoPago\Preference();
         # Create an item object
@@ -38,7 +39,7 @@ class MPController extends Controller
         # Save and posting preference
         $preference->save();
 
-        dd($preference->init_point);
+        dd($preference);
     }
 
     public function getResponse(Request $request)
