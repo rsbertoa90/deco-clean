@@ -29,7 +29,7 @@ class MPController extends Controller
         $item->title = "Sleek Rubber Bag";
         $item->quantity = 1;
         $item->currency_id = "ARS";
-        $item->unit_price = 1800.25;
+        $item->unit_price = 10;
         # Create a payer object
         $payer = new MercadoPago\Payer();
         $payer->email = "test_user_62611257@testuser.com";
