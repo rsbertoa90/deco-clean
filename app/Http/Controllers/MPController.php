@@ -30,7 +30,7 @@ class MPController extends Controller
         $item->unit_price = 1800.25;
         # Create a payer object
         $payer = new MercadoPago\Payer();
-        $payer->email = "dino.kertzmann@gmail.com";
+        $payer->email = "test_user_62611257@testuser.com";
         # Setting preference properties
         $preference->items = array($item);
         $preference->payer = $payer;
