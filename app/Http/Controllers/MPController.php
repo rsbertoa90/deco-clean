@@ -10,8 +10,8 @@ class MPController extends Controller
 {
     public static function init()
     {
-        MercadoPago\SDK::setClientId("5911500288474745");
-        MercadoPago\SDK::setClientSecret("fGIYRF1djkqY8CvLaLVuVj0b7FFbsdja");
+        MercadoPago\SDK::setClientId("6176449208003945");
+        MercadoPago\SDK::setClientSecret("mlv1QPapkc6AACeZ19X9OBB4apRQeSAg");
     }
 
     public function pay()
@@ -40,6 +40,7 @@ class MPController extends Controller
 
     public function getResponse(Request $request)
     {
-        return \Response::json(['HTTP/1.1 200 OK'], 200);
+        return response()->json(['success'=>true],200);
+
     }
 }
