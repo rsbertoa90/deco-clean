@@ -10,9 +10,10 @@ class MPController extends Controller
 {
     public static function init()
     {
-        MercadoPago\SDK::setClientId("6268560354643714");
-        MercadoPago\SDK::setClientSecret("xInwcOGvrKYHsYnxxFA0djdr1MDd06Xy");
-       
+        MercadoPago\SDK::setClientId("6176449208003945");
+        MercadoPago\SDK::setClientSecret("mlv1QPapkc6AACeZ19X9OBB4apRQeSAg");
+        MercadoPago\SDK::setAccessToken("TEST-6176449208003945-083118-de0bc124b116addfb9faf597bebcc116-281069766");
+
     }
 
     public function pay()
@@ -40,7 +41,7 @@ class MPController extends Controller
         return redirect($preference->init_point);
     }
 
-    public function getResponse(Request $request = null)
+    public function getResponse(Request $request)
     {
         Payment::create(['type'=>'mercadopago','comments'=>'Callback entra']);
         
