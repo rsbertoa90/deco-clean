@@ -10,14 +10,16 @@ class MPController extends Controller
 {
     public static function init()
     {
-        MercadoPago\SDK::setClientId("6176449208003945");
-        MercadoPago\SDK::setClientSecret("mlv1QPapkc6AACeZ19X9OBB4apRQeSAg");
+        MercadoPago\SDK::setClientId("6268560354643714");
+        MercadoPago\SDK::setClientSecret("xInwcOGvrKYHsYnxxFA0djdr1MDd06Xy");
+       
     }
 
     public function pay()
     {
         self::init();
 
+        
         $preference = new MercadoPago\Preference();
         # Create an item object
         $item = new MercadoPago\Item();
