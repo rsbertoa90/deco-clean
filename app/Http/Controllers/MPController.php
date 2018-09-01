@@ -38,7 +38,7 @@ class MPController extends Controller
         # Save and posting preference
         $preference->save();
 
-        return redirect($preference->init_point);
+        return $preference->init_point;
     }
 
     public function getResponse(Request $request)
