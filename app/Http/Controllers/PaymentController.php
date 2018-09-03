@@ -68,10 +68,12 @@ class PaymentController extends Controller
 
     public function create(Request $request)
     {
-        
+        $user=Auth::user();
+
         if ($request->method == 'transferencia'){
             $this->handleTransferPayment($request);
         }
+
         else if ($request->method == 'mercadopago'){
            $preference = MPController::pay($request);
            $payment = Payment::create([
@@ -82,7 +84,8 @@ class PaymentController extends Controller
             $list = json_decode($request->list);
             foreach ($list as $id)
             {
-                $payment->attach(Event::find($id));
+                $inscription = $user->inscriptions()->where('event_id',$id)->get()->first();
+                $payment->inscriptions()->attach($inscription);
             }
             $payment->save();
            return redirect($preference->init_point);
