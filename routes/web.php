@@ -75,6 +75,7 @@ Route::get('/auth/facebook', 'Auth\LoginController@redirectToProvider');
 Route::get('/auth/facebook/callback', 'Auth\LoginController@handleProviderCallback');
 
 Route::post('/checkout','PaymentController@checkout');
+Route::post('/payment/create','PaymentController@create');
 
 Route::get('/mptest','MPController@pay');
 

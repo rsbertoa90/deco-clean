@@ -23,11 +23,16 @@ class PaymentController extends Controller
     {
         $rlist = json_decode($request->list);
         $list =[];
+        $user = Auth::user();
         foreach ($rlist as $item)
         {
             $list[]=$item->id;
+            Inscription::create([
+                'user_type'=>'registered',
+                'user_id'=> $user->id,
+                'event_id'=>$item->id,
+            ]);
         }
-        
         return view('checkout',compact('list'));
     }
 
@@ -58,39 +63,17 @@ class PaymentController extends Controller
     }
     
   
-    private function handleMPpayment(Request $request){
-        $items =[];
-        foreach ($request->halfs as $id=>$half){
-            $event = Event::find($id);
-            
-            $item =new \stdClass();
-           
+   
 
-            $item->id = $event->id;
-            $item->title = "{$event->seminar->title} - {$event->city} - {$event->date}";
-            $item->quantity = 1;
-            $item->currency_id = "ARS";
-            if ($half){
-                $item->unit_price = 23.85 / 2;
-                $item->title += "- seña";
-            }
-            else {
-                $item->unit_price = 23.85;
-            }
-            $item->unit_price *=1.1;
-            $items[] = $item;        
-        }
-        return MercadoPagoController::createPreference($items);
-    }
-
-    public function newPayment(Request $request)
+    public function create(Request $request)
     {
         
-        if ($request->method == 1){
+        if ($request->method == 'transferencia'){
             $this->handleTransferPayment($request);
         }
-        else if ($request->method ==2){
-            return $this->handleMPpayment($request);
+        else if ($request->method == 'mercadopago'){
+           $preference = MPController::pay($request);
+           return redirect($preference->init_point);
         }
 
     }

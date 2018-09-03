@@ -21,18 +21,35 @@
                     <td> ${{total()}} </td>
                 </tfoot>
             </table>
-            <checkout-mp></checkout-mp>
+         <form method="post" action="/payment/create">
+             <input type="hidden" name="_token" :value="csrf">
+             <input type="hidden" name="list" :value="list">
+             <select class="form-control" v-model="method" name="method">
+                 <option value="mercadopago">Mercadopago</option>
+                 <option value="transferencia">Transferencia bancaria</option>
+             </select>
+             <select name="half">
+                 <option value="0">Pagar Monto total</option>
+                 <option value="1">Pagar Seña</option>
+             </select>
+             <div class="d-flex flex-column">
+                <button class="btn btn-outline-success" type="submit">Pagar ahora</button>
+                <span class="text-danger" v-if="method=='mercadopago'">Hay un recargo del 10% por uso del servicio Mercadopago</span>
+
+             </div>
+         </form>
+
         </div>
     </div>    
 </template>
 
 <script>
-import checkoutMp from './MP.vue';
+
 export default {
     props:['list'],
-    components:{checkoutMp},
     data(){
         return{
+            csrf : window.csrf,
             method : 'mercadopago'
         }
     },
