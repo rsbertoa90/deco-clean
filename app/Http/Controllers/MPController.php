@@ -7,6 +7,7 @@ use MercadoPago;
 use App\Payment;
 use App\Event;
 use Auth;
+use App\User;
 class MPController extends Controller
 {
     public static function init()
@@ -72,7 +73,8 @@ class MPController extends Controller
     public function getResponse(Request $request)
     {
         MercadoPago\SDK::setAccessToken("TEST-6176449208003945-083118-de0bc124b116addfb9faf597bebcc116-281069766");
-        if (isset($request->topic) && $request->topic == 'payment'){
+        if (isset($request->topic) && $request->topic == 'payment')
+        {
             $id = $request->id;
             $payment = Payment::create([
                 'type'=>'mercadopago',
@@ -85,6 +87,21 @@ class MPController extends Controller
                 $payment->status = 'confirmado';
                 $payment->amount = $mpPay['transaction_amount']; 
                 $payment->comments = json_encode($mpPay);
+                $user = User::where('email',$mpPay['payer']['email'])->get()->first();
+                $inscription = $user->inscriptions;
+                foreach ($inscriptions as $i)
+                {
+                  foreach( $i->payments as $p)
+                  {
+                    if ($p->status == 'waiting')
+                    {
+                        $p->status = 'confirmado';
+                        $p->save();
+                    }
+                  }
+
+                }
+
             }
         }
         

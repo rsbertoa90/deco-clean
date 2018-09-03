@@ -15,6 +15,7 @@ use App\Inscription;
 use App\UnregisteredUser;
 use App\User;
 
+
 class PaymentController extends Controller
 {
     
@@ -73,6 +74,17 @@ class PaymentController extends Controller
         }
         else if ($request->method == 'mercadopago'){
            $preference = MPController::pay($request);
+           $payment = Payment::create([
+               'method'=>'mercadopago',
+               'amount'=>$request->total,
+               'status'=>'waiting'
+            ]);
+            $list = json_decode($request->list);
+            foreach ($list as $id)
+            {
+                $payment->attach(Event::find($id));
+            }
+            $payment->save();
            return redirect($preference->init_point);
         }
 
